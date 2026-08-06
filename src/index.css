@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+body{
+  background-color: #F5EFEB;
+}
+
+@layer base{
+  footer{
+    @apply absolute bottom-0 bg-[#2f41568f] w-full h-[5%] border-t-2 border-[#2F4156] flex gap-2 items-center;
+  }
+}
