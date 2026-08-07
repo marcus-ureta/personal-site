@@ -13,11 +13,11 @@ export function generateStarCount(spacing: number, windowWidth:number, windowHei
 }
 
 // Initial Star Position & Rotation
-export function generateStarLocation(): starData{
+export function generateStarLocation(windowWidth:number, starWidth: number): starData{
     
-    let starPos_X = 0;
+    let starPos_X = windowWidth / (starWidth + (starWidth * 2));
     let starPos_Y = 0;
-    let starRot = 0;
+    let starRot = 20;
     
     return {
         star_x: starPos_X,

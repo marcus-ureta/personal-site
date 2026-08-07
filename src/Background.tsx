@@ -1,11 +1,15 @@
-import Star from './assets/single stroke star.svg'
+import stroked_star from './assets/single stroke star.svg'
+import filled_star from './assets/filled star.svg'
+
 import {generateStarCount, generateStarLocation} from './backgroundUtils'   
 import { useState, useEffect } from "react"
+import React from "react"
 
 const spacing = 96;
 
 function Background() {
-    const [starCount, setStarCount] = useState(generateStarCount(spacing, window.innerWidth, window.innerHeight));
+    const [starCount, setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
+    const [starHover, setHover] = useState<number | null>(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -18,20 +22,22 @@ function Background() {
         };
     }, []);
 
-    let stars = [];
+    let stars: (React.JSX.Element[]) = [];
 
     for(let i = 0; i < starCount; i++)
     {
         stars.push(
-            <img key={i} src={Star}/>
+            <img key={i} className="my-10 mx-8" src={starHover == i ? filled_star : stroked_star}
+            onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}/>
         )
     }
 
     return(
         <>
-            <p>i will generate {starCount} stars</p>
-            <div className="absolute top-0 flex gap-[2%] z-[-1] min-w-full flex-wrap gap-y-9 select-none">
-                {stars}
+            <div className="absolute w-screen h-screen overflow-hidden">
+                <div className="absolute min-w-[125%] min-h-[125%] flex flex-wrap justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    {stars}
+                </div>
             </div>
         </>
     )
