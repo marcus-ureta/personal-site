@@ -1,3 +1,4 @@
+import Background from './Background.tsx'
 import './App.css'
 
 function App() {
@@ -7,13 +8,15 @@ function App() {
       <h1 className="font-['Arial'] mt-2 text-right mr-3">© 2026 Marcus Ureta</h1>
 
 
+      <Background/>
+      
       {/* DESKTOP TASKBAR */}
       <footer>
-        <div className="ml-2 flex-2/3 hidden sm:block">
+        <div className="flex-1 hidden ml-4 sm:block">
           <p>[Opened Desktop Tabs]</p>
         </div>
 
-        <div className="flex-1/3 justify-end content-end">
+        <div className="flex items-center gap-2 mr-4 mx-auto sm:ml-auto">
           <p>[BUG REPORT, MUTE, & TIME]</p>
         </div>
       </footer>
