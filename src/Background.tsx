@@ -24,7 +24,29 @@ function Background() {
 
     useEffect(() => {
         const handleResize = () => {
-            setStarCount(generateStarCount(spacing, window.innerWidth, window.innerHeight));
+            let starCount = generateStarCount(spacing, window.innerWidth, window.innerHeight)
+            setStarCount(starCount);
+
+            setStars(prevStars => {
+                if(starCount > prevStars.length)
+                {
+                    const newStars : number[] = [...prevStars];
+                    let missingStars : number = starCount - prevStars.length;
+
+                    for(let i = 0; i < missingStars; i++)
+                    {
+                        newStars.push(Math.ceil(generateStarRot()));
+                    }
+
+                    return newStars;
+                }
+                else if(starCount < prevStars.length)
+                {
+                    return prevStars.slice(0, starCount);
+                }
+
+                return prevStars;
+            })
         };
 
         window.addEventListener("resize", handleResize);
@@ -39,7 +61,7 @@ function Background() {
                 <div className="absolute min-w-[125%] min-h-[125%] flex flex-wrap justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     {stars.map((star, i) => (
                         <img
-                            key={i} className="animate-[spin_45s_infinite] my-10 mx-8" 
+                            key={i} className="animate-[spin_45s_infinite_alternate] my-10 mx-8" 
                             style={{ transform: `rotate(${star}deg)`}} src={starHover == i ? filled_star : stroked_star}
                             onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
                         />
