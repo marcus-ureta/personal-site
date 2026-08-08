@@ -1,7 +1,7 @@
 import stroked_star from './assets/single stroke star.svg'
 import filled_star from './assets/filled star.svg'
 
-import {generateStarCount, generateStarLocation} from './backgroundUtils'   
+import {generateStarCount, generateStarLocation, generateStarRot} from './backgroundUtils'   
 import { useState, useEffect } from "react"
 import React from "react"
 
@@ -10,6 +10,7 @@ const spacing = 96;
 function Background() {
     const [starCount, setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
     const [starHover, setHover] = useState<number | null>(null);
+
 
     useEffect(() => {
         const handleResize = () => {
@@ -26,8 +27,12 @@ function Background() {
 
     for(let i = 0; i < starCount; i++)
     {
+        let starRotation = 'rotate-[' + Math.ceil(generateStarRot()) + 'deg]';
+        console.log(starRotation);
+
         stars.push(
-            <img key={i} className="my-10 mx-8" src={starHover == i ? filled_star : stroked_star}
+            <img key={i} className="animate-[spin_45s_infinite] my-10 mx-8" 
+            style={{ transform: `rotate(${Math.ceil(generateStarRot())}deg)`}} src={starHover == i ? filled_star : stroked_star}
             onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}/>
         )
     }

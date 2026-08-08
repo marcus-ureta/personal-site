@@ -25,3 +25,7 @@ export function generateStarLocation(windowWidth:number, starWidth: number): sta
         rotation: starRot
     }
 }
+
+export function generateStarRot(){
+    return (Math.random() * 180);
+}
