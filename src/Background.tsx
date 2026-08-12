@@ -101,10 +101,10 @@ function Background() {
 
     return(
         <>
-            <div className="absolute w-screen h-screen overflow-hidden top-0">
+            <div className="absolute w-screen h-screen overflow-hidden top-0 -z-1">
                 {stars.map((star, i) => (
                     <img
-                        key={i} className="animate-[spin_45s_infinite_alternate] mx-8" 
+                        key={i} className="animate-[spin_45s_infinite_alternate] mx-8 select-none" 
                         style={{
                             position: `absolute`,
                             transform: `rotate(${star.starRotation}deg)`,
