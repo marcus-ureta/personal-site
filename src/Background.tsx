@@ -42,45 +42,60 @@ function Background() {
     })
 
     useEffect(() => {
+        let frameID: number | null = null;
+
         const handleResize = () => {
-            let starCount = generateStarCount(spacing, window.innerWidth, window.innerHeight)
-            setStarCount(starCount);
+            if(frameID !== null) return;
+            frameID = requestAnimationFrame(() => {
+                frameID = null;
+                const width = window.innerWidth;
+                const height = window.innerHeight;
 
-            setStars(prevStars => {
-                const newStars : StarData[] = [...prevStars];
+                let starCount = generateStarCount(spacing, width, height);
+            
+                setStarCount(starCount);
+                setStars(prevStars => {
+                    const newStars : StarData[] = [...prevStars];
 
-                if(starCount > prevStars.length)
-                {
-                    let missingStars : number = starCount - prevStars.length;
-
-                    for(let i = 0; i < missingStars; i++)
+                    if(starCount > prevStars.length)
                     {
-                        let prevStarPos : number[] = [prevStars[prevStars.length - 1].starX, prevStars[prevStars.length - 1].starY]
-                        let newStarPos = generateStarLocation(window.innerWidth, spacing, prevStarPos[0], prevStarPos[1]);
+                        let missingStars : number = starCount - prevStars.length;
 
-                        let newStar : StarData = {
-                            starRotation: Math.ceil(generateStarRot()),
-                            starX: newStarPos.star_x,
-                            starY: newStarPos.star_y
+                        for(let i = 0; i < missingStars; i++)
+                        {
+                            let prevStarPos : number[] = [prevStars[prevStars.length - 1].starX, prevStars[prevStars.length - 1].starY]
+                            let newStarPos = generateStarLocation(width, spacing, prevStarPos[0], prevStarPos[1]);
+
+                            let newStar : StarData = {
+                                starRotation: Math.ceil(generateStarRot()),
+                                starX: newStarPos.star_x,
+                                starY: newStarPos.star_y
+                            }
+                            newStars.push(newStar);
                         }
-                        newStars.push(newStar);
+
+                        return newStars;
+                    }
+                    else if(starCount < prevStars.length)
+                    {
+                        newStars.filter((num) => num.starX > width || num.starY > height)
+
+                        return newStars;
                     }
 
-                    return newStars;
-                }
-                else if(starCount < prevStars.length)
-                {
-                    newStars.filter((num) => num.starX > window.innerWidth && num.starY > window.innerHeight)
-                }
-
-                // If we shouldn't remove any stars, return as usual
-                return prevStars;
+                    // If we shouldn't remove any stars, return as usual
+                    return prevStars;
+                })
             })
         };
 
         window.addEventListener("resize", handleResize);
         return () => {
             window.removeEventListener("resize", handleResize);
+
+            if (frameID !== null) {
+                cancelAnimationFrame(frameID);
+            }
         };
     }, []);
 
@@ -89,7 +104,7 @@ function Background() {
             <div className="absolute w-screen h-screen overflow-hidden top-0">
                 {stars.map((star, i) => (
                     <img
-                        key={i} className="animate-[spin_45s_infinite_alternate] my-10 mx-8" 
+                        key={i} className="animate-[spin_45s_infinite_alternate] mx-8" 
                         style={{
                             position: `absolute`,
                             transform: `rotate(${star.starRotation}deg)`,
