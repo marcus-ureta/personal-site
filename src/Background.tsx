@@ -47,9 +47,10 @@ function Background() {
             setStarCount(starCount);
 
             setStars(prevStars => {
+                const newStars : StarData[] = [...prevStars];
+
                 if(starCount > prevStars.length)
                 {
-                    const newStars : StarData[] = [...prevStars];
                     let missingStars : number = starCount - prevStars.length;
 
                     for(let i = 0; i < missingStars; i++)
@@ -69,9 +70,10 @@ function Background() {
                 }
                 else if(starCount < prevStars.length)
                 {
-                    return prevStars.slice(0, starCount);
+                    newStars.filter((num) => num.starX > window.innerWidth && num.starY > window.innerHeight)
                 }
 
+                // If we shouldn't remove any stars, return as usual
                 return prevStars;
             })
         };
