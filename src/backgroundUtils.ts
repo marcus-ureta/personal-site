@@ -1,8 +1,9 @@
 
-type starData = {
+const starWidth = 32;
+
+type starPos = {
     star_x: number,
     star_y: number,
-    rotation: number
 }
 
 // Find the Star Count for the Background
@@ -13,16 +14,29 @@ export function generateStarCount(spacing: number, windowWidth:number, windowHei
 }
 
 // Initial Star Position & Rotation
-export function generateStarLocation(windowWidth:number, starWidth: number): starData{
-    
-    let starPos_X = windowWidth / (starWidth + (starWidth * 2));
-    let starPos_Y = 0;
-    let starRot = 20;
+export function generateStarLocation(windowWidth:number, spacing: number, prevStarX: number, prevStarY: number): starPos{
+    let starPos_X = prevStarX + (starWidth + (spacing));
+    let starPos_Y = prevStarY;
+
+    //console.log(starPos_X);
+    console.log(prevStarY);
+
+    if(starPos_X >= windowWidth)
+    {
+        starPos_Y += spacing;
+        starPos_X = 0;
+
+        // Check if we should apply a slight margin
+        let yMarginCheck = starPos_Y / spacing;
+        if(yMarginCheck % 2 != 0)
+        {
+            starPos_X -= (spacing + starWidth) / 2;
+        }
+    }
     
     return {
         star_x: starPos_X,
         star_y: starPos_Y,
-        rotation: starRot
     }
 }
 

@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      {/* <h1 className="font-['Arial'] mt-2 text-right mr-3">© 2026 Marcus Ureta</h1> */}
+      <h1 className="font-['Arial'] mt-2 text-right mr-3">© 2026 Marcus Ureta</h1>
 
 
       <Background/>

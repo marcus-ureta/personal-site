@@ -1,25 +1,44 @@
 import stroked_star from './assets/single stroke star.svg'
 import filled_star from './assets/filled star.svg'
 
+import './Background.css'
 import {generateStarCount, generateStarLocation, generateStarRot} from './backgroundUtils'   
 import { useState, useEffect } from "react"
 
 const spacing = 96;
 
+type StarData = {
+    starRotation : number,
+    starX : number,
+    starY : number
+}
+
 function Background() {
     const [starCount, setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
     const [starHover, setHover] = useState<number | null>(null);
     const [stars, setStars] = useState(() => {
-        let starData : number[] = [];
+        let allStars : StarData[] = [];
+        let prevStarX : number = 0;
+        let prevStarY : number = 0;
 
         for(let i = 0; i < starCount; i++)
         {
             let starRotNumber = Math.ceil(generateStarRot());
-            console.log(starRotNumber);
-            starData.push(starRotNumber);
+            
+            let starPos = generateStarLocation(window.innerWidth, spacing, prevStarX, prevStarY);
+            prevStarX = i == 0 ? 0 : starPos.star_x;
+            prevStarY = i == 0 ? 0 : starPos.star_y;
+
+            let t_starData : StarData = {
+                starRotation: starRotNumber, 
+                starX: i == 0 ? 0 : starPos.star_x, 
+                starY: i == 0 ? 0 : starPos.star_y
+            };
+
+            allStars.push(t_starData);
         }
 
-        return starData;
+        return allStars;
     })
 
     useEffect(() => {
@@ -30,12 +49,20 @@ function Background() {
             setStars(prevStars => {
                 if(starCount > prevStars.length)
                 {
-                    const newStars : number[] = [...prevStars];
+                    const newStars : StarData[] = [...prevStars];
                     let missingStars : number = starCount - prevStars.length;
 
                     for(let i = 0; i < missingStars; i++)
                     {
-                        newStars.push(Math.ceil(generateStarRot()));
+                        let prevStarPos : number[] = [prevStars[prevStars.length - 1].starX, prevStars[prevStars.length - 1].starY]
+                        let newStarPos = generateStarLocation(window.innerWidth, spacing, prevStarPos[0], prevStarPos[1]);
+
+                        let newStar : StarData = {
+                            starRotation: Math.ceil(generateStarRot()),
+                            starX: newStarPos.star_x,
+                            starY: newStarPos.star_y
+                        }
+                        newStars.push(newStar);
                     }
 
                     return newStars;
@@ -57,16 +84,20 @@ function Background() {
 
     return(
         <>
-            <div className="absolute w-screen h-screen overflow-hidden">
-                <div className="absolute min-w-[125%] min-h-[125%] flex flex-wrap justify-center items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    {stars.map((star, i) => (
-                        <img
-                            key={i} className="animate-[spin_45s_infinite_alternate] my-10 mx-8" 
-                            style={{ transform: `rotate(${star}deg)`}} src={starHover == i ? filled_star : stroked_star}
-                            onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
-                        />
-                    ))}
-                </div>
+            <div className="absolute w-screen h-screen overflow-hidden top-0">
+                {stars.map((star, i) => (
+                    <img
+                        key={i} className="animate-[spin_45s_infinite_alternate] my-10 mx-8" 
+                        style={{
+                            position: `absolute`,
+                            transform: `rotate(${star.starRotation}deg)`,
+                            top: `${star.starY}px`,
+                            left: `${star.starX}px`
+                        }} 
+                        src={starHover == i ? filled_star : stroked_star}
+                        onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
+                    />
+                ))}
             </div>
         </>
     )
