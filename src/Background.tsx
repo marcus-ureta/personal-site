@@ -52,10 +52,10 @@ function Background() {
             starsRef.current.forEach((star, i) => {
                 let isMargined = star.starY / spacing;
 
-                if(star.starX > window.innerWidth + 16 && isMargined % 2 != 0)
-                    star.starX = -spacing;
-                else if(star.starX > window.innerWidth && isMargined % 2 == 0)
-                    star.starX = -spacing / 2;
+                if(star.starX > window.innerWidth + ((spacing + 32) / 2) && isMargined % 2 !== 0)
+                    star.starX = -spacing + 32;
+                else if(star.starX > window.innerWidth - ((spacing + 32) / 2) && isMargined % 2 === 0)
+                    star.starX = -spacing + 32;
                 
                 star.starX += 0.1;
 
