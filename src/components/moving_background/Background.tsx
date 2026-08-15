@@ -41,13 +41,20 @@ function Background() {
     }
 
     const starClick = (index: number) => {
-        console.log("Star Clicked!", index);
-        setClicked(prev => [...prev, index]);
+        const findExistingNo = starsClicked.includes(index) ? starsClicked.indexOf(index) : null;
+
+        if(findExistingNo === null)
+        {
+            setClicked(prev => [...prev, index]);
+        }
+        else
+        {
+            setClicked((prevStars) => prevStars.filter((num) => num !== index));
+        }
     }
 
     const [starCount, _setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
     const [starsClicked, setClicked] = useState<number[]>([]);
-    const [starHover, setHover] = useState<number | null>(null);
     const [stars, setStars] = useState<StarData[]>(() => {
         return generateStars();
     })
@@ -119,11 +126,13 @@ function Background() {
         <>
             <div className="absolute w-screen h-screen overflow-hidden top-0 -z-1">
                 {stars.map((_star, i) => (
-                    <img
-                        key={i} className="mx-8 select-none opacity-65" ref={(element) => {starElementsRef.current[i] = element; }} 
+                    <img    
+                        key={i} className="mx-8 select-none opacity-65 hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.5)]
+                            hover:w-12 hover:h-12 hover:opacity-100 hover:cursor-pointer" 
+                        ref={(element) => {starElementsRef.current[i] = element; }} 
                         style={{ position: `absolute`, willChange: "transform"}} 
                         src={starsClicked.includes(i) ? filled_star : stroked_star}
-                        onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)} onClick={() => starClick(i)}
+                        onClick={() => starClick(i)}
                     />
                 ))}
             </div>
