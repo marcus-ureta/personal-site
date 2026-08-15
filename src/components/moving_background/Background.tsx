@@ -20,11 +20,14 @@ function Background() {
         let prevStarX : number = 0;
         let prevStarY : number = 0;
 
+        let starCount = generateStarCount(spacing, window.innerWidth, window.innerHeight);
+
         for(let i = 0; i < starCount; i++)
         {
             let starRotNumber = Math.ceil(generateStarRot());
             
             let starPos = generateStarLocation(window.innerWidth, spacing, prevStarX, prevStarY);
+
             prevStarX = i == 0 ? 0 : starPos.star_x;
             prevStarY = i == 0 ? 0 : starPos.star_y;
 
@@ -53,7 +56,6 @@ function Background() {
         }
     }
 
-    const [starCount, _setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
     const [starsClicked, setClicked] = useState<number[]>([]);
     const [stars, setStars] = useState<StarData[]>(() => {
         return generateStars();

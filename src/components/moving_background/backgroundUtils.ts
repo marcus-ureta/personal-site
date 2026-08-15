@@ -18,9 +18,6 @@ export function generateStarLocation(windowWidth:number, spacing: number, prevSt
     let starPos_X = prevStarX + (starWidth + (spacing));
     let starPos_Y = prevStarY;
 
-    //console.log(starPos_X);
-    console.log(prevStarY);
-
     if(starPos_X >= windowWidth)
     {
         starPos_Y += spacing;
