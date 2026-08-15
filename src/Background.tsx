@@ -113,9 +113,12 @@ function Background() {
                     }
                     else if(starCount < prevStars.length)
                     {
-                        newStars.filter((num) => num.starX > width || num.starY > height);
-                        starsRef.current = newStars;
-                        return newStars;
+                        const filteredStars = newStars.filter(
+                            star => star.starX <= width && star.starY <= height
+                        );
+
+                        starsRef.current = filteredStars;
+                        return filteredStars;
                     }
 
                     // If we shouldn't remove any stars, return as usual
@@ -141,7 +144,7 @@ function Background() {
             <div className="absolute w-screen h-screen overflow-hidden top-0 -z-1">
                 {stars.map((star, i) => (
                     <img
-                        key={i} className="mx-8 select-none" ref={(element) => {starElementsRef.current[i] = element; }} 
+                        key={i} className="mx-8 select-none opacity-65" ref={(element) => {starElementsRef.current[i] = element; }} 
                         style={{ position: `absolute`, willChange: "transform"}} 
                         src={starHover == i ? filled_star : stroked_star}
                         onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}
