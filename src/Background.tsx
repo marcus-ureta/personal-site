@@ -14,9 +14,8 @@ type StarData = {
 }
 
 function Background() {
-    const [starCount, setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
-    const [starHover, setHover] = useState<number | null>(null);
-    const [stars, setStars] = useState(() => {
+
+    const generateStars = () : StarData[] => {
         let allStars : StarData[] = [];
         let prevStarX : number = 0;
         let prevStarY : number = 0;
@@ -39,6 +38,12 @@ function Background() {
         }
 
         return allStars;
+    }
+
+    const [starCount, setStarCount] = useState<number>(generateStarCount(spacing, window.innerWidth, window.innerHeight));
+    const [starHover, setHover] = useState<number | null>(null);
+    const [stars, setStars] = useState<StarData[]>(() => {
+        return generateStars();
     })
 
     const starsRef = useRef<StarData[]>(stars);
