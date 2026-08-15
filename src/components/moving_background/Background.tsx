@@ -106,6 +106,7 @@ function Background() {
                 starsRef.current = newStars;
                 starElementsRef.current = [];
 
+                setClicked([]);
                 setStars(newStars);
             })
         };
