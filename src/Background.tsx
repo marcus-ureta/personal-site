@@ -45,8 +45,8 @@ function Background() {
     const [stars, setStars] = useState<StarData[]>(() => {
         return generateStars();
     })
-
     const starsRef = useRef<StarData[]>(stars);
+
     const starElementsRef = useRef<(HTMLImageElement | null)[]>([]);
 
     useEffect(() => {
@@ -87,48 +87,13 @@ function Background() {
             if(resizeFrameID !== null) return;
             resizeFrameID = requestAnimationFrame(() => {
                 resizeFrameID = null;
-                const width = window.innerWidth;
-                const height = window.innerHeight;
 
-                let starCount = generateStarCount(spacing, width, height);
-            
-                setStarCount(starCount);
-                setStars(prevStars => {
-                    const newStars : StarData[] = [...prevStars];
+                const newStars = generateStars();
 
-                    if(starCount > prevStars.length)
-                    {
-                        let missingStars : number = starCount - prevStars.length;
+                starsRef.current = newStars;
+                starElementsRef.current = [];
 
-                        for(let i = 0; i < missingStars; i++)
-                        {
-                            let prevStarPos : number[] = [prevStars[prevStars.length - 1].starX, prevStars[prevStars.length - 1].starY]
-                            let newStarPos = generateStarLocation(width, spacing, prevStarPos[0], prevStarPos[1]);
-
-                            let newStar : StarData = {
-                                starRotation: Math.ceil(generateStarRot()),
-                                starX: newStarPos.star_x,
-                                starY: newStarPos.star_y
-                            }
-                            newStars.push(newStar);
-                        }
-
-                        starsRef.current = newStars;
-                        return newStars;
-                    }
-                    else if(starCount < prevStars.length)
-                    {
-                        const filteredStars = newStars.filter(
-                            star => star.starX <= width && star.starY <= height
-                        );
-
-                        starsRef.current = filteredStars;
-                        return filteredStars;
-                    }
-
-                    // If we shouldn't remove any stars, return as usual
-                    return prevStars;
-                })
+                setStars(newStars);
             })
         };
 
