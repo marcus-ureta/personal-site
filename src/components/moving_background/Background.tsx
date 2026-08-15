@@ -1,5 +1,5 @@
-import stroked_star from './assets/single stroke star.svg'
-import filled_star from './assets/filled star.svg'
+import stroked_star from '../../assets/single stroke star.svg'
+import filled_star from '../../assets/filled star.svg'
 
 import './Background.css'
 import {generateStarCount, generateStarLocation, generateStarRot} from './backgroundUtils'   

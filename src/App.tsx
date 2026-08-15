@@ -1,4 +1,4 @@
-import Background from './Background.tsx'
+import Background from './components/moving_background/Background.tsx'
 import './App.css'
 
 function App() {
