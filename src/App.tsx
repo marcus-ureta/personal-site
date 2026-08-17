@@ -1,7 +1,24 @@
 import Background from './components/moving_background/Background.tsx'
 import './App.css'
+import { useState, useEffect } from "react"
+
+import bug_icon from './assets/icons/bug icon.svg'
+import sound_icon from './assets/icons/sound.svg'
 
 function App() {
+
+  const now: Date = new Date();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const [currentTime, setCurrentTime] = useState<Date>(now);
+
 
   return (
     <>
@@ -16,8 +33,15 @@ function App() {
           <p>[Opened Desktop Tabs]</p>
         </div>
 
-        <div className="flex items-center gap-2 mr-4 mx-auto sm:ml-auto">
-          <p>[BUG REPORT, MUTE, & TIME]</p>
+        <div className="flex items-center gap-4 mr-4 mx-auto sm:ml-auto min-h-18.75">
+          <img src={bug_icon} alt="Bug Icon"/>
+          <img src={sound_icon} alt="Sound Icon"/>
+          <div className="flex flex-col -gap-1">
+            <p className="border-b">{currentTime.toLocaleTimeString([], {
+              hour: '2-digit', minute: '2-digit'
+            })}</p>
+            <p className="text-sm">{currentTime.toLocaleDateString()}</p>
+          </div>
         </div>
       </footer>
     </>

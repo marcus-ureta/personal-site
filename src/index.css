@@ -1,8 +1,19 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
   overflow-x: hidden;
   background-color: #F5EFEB;
+}
+
+*p{
+  font-family: 'Arial', sans-serif;
+}
+
+*h1{
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 @layer base{
