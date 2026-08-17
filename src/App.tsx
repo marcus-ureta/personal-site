@@ -36,12 +36,11 @@ function App() {
           <p>[Opened Desktop Tabs]</p>
         </div>
 
-        <div className="flex items-center gap-4 mr-4 mx-auto sm:ml-auto min-h-18.75">
+        <div className="flex items-center gap-4 mr-8 mx-auto sm:ml-auto min-h-18.75">
           <img src={bug_icon} alt="Bug Icon"/>
           <img src={soundHover ? sound_hover : sound_icon} alt="Sound Icon" 
-            onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)}
-            className="shadow-lg shadow-blue-500/50"/>
-          <div className="flex flex-col -gap-1">
+            onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)}/>
+          <div className="flex flex-col -gap-y-1 hidden sm:block hover:text-[#F5F5F5]">
             <p className="border-b">{currentTime.toLocaleTimeString([], {
               hour: '2-digit', minute: '2-digit'
             })}</p>
