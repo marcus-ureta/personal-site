@@ -17,8 +17,8 @@ function Background() {
 
     const generateStars = () : StarData[] => {
         let allStars : StarData[] = [];
-        let prevStarX : number = 0;
-        let prevStarY : number = 0;
+        let prevStarX : number = -99;
+        let prevStarY : number = -99;
 
         let starCount = generateStarCount(spacing, window.innerWidth, window.innerHeight);
 
@@ -28,13 +28,13 @@ function Background() {
             
             let starPos = generateStarLocation(window.innerWidth, spacing, prevStarX, prevStarY);
 
-            prevStarX = i == 0 ? 0 : starPos.star_x;
-            prevStarY = i == 0 ? 0 : starPos.star_y;
+            prevStarX = starPos.star_x;
+            prevStarY = starPos.star_y;
 
             let t_starData : StarData = {
                 starRotation: starRotNumber, 
-                starX: i == 0 ? 0 : starPos.star_x, 
-                starY: i == 0 ? 0 : starPos.star_y
+                starX: starPos.star_x, 
+                starY: starPos.star_y
             };
 
             allStars.push(t_starData);
@@ -70,16 +70,19 @@ function Background() {
 
         const handleAnim = () => {
             starsRef.current.forEach((star, i) => {
-                let isMargined = star.starY / spacing;
+                let starsInRow : StarData[] = starsRef.current.filter((s) => s.starY === star.starY);
+                let areStarsNearStart : boolean = starsInRow.some((s) => s.starX < spacing);
 
-                if(star.starX > window.innerWidth + ((spacing + 32) / 2) && isMargined % 2 !== 0)
-                    star.starX = -spacing + 32;
-                else if(star.starX > window.innerWidth - ((spacing + 32) / 2) && isMargined % 2 === 0)
-                    star.starX = -spacing + 32;
-                
+                // if(star.starX > window.innerWidth + (spacing / 2))
+                //     star.starX = (-spacing) + 32;
+                // else if(star.starX > window.innerWidth && !areStarsNearStart)
+                //     star.starX = (-spacing) + 32;
+
+                if(star.starX > window.innerWidth && !areStarsNearStart)
+                    star.starX = -52;
+
+                // Star Animation
                 star.starX += 0.1;
-
-                // Rotate the star
                 star.starRotation += 0.1;
 
                 const element = starElementsRef.current[i];
