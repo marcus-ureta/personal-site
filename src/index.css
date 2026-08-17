@@ -24,4 +24,10 @@ body{
 
 @theme{
   --color-hover-white: #F5F5F5;
+
+  /* COLOR PALETTE */
+  --color-primary-blue: #C8D9E6;
+  --color-secondary-blue: #2F4156;
+  --color-accent-beige: #F5EFEB;
+  --color-accent-teal: #567C8D;
 }

@@ -7,6 +7,8 @@ import bug_icon from './assets/icons/bug/bug icon.svg'
 import sound_icon from './assets/icons/sound/sound.svg'
 import sound_hover from './assets/icons/sound/sound-hover.svg'
 
+import HomeTab from './features/desktop/HomeTab.tsx'
+
 function App() {
 
   const now: Date = new Date();
@@ -27,6 +29,7 @@ function App() {
     <>
       <h1 className="font-['Arial'] mt-2 text-right mr-3">© 2026 Marcus Ureta</h1>
 
+      <HomeTab/>
 
       <Background/>
       
