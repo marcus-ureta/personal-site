@@ -40,7 +40,7 @@ function App() {
           <img src={bug_icon} alt="Bug Icon"/>
           <img src={soundHover ? sound_hover : sound_icon} alt="Sound Icon" 
             onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)}/>
-          <div className="flex flex-col -gap-y-1 hidden sm:block hover:text-[#F5F5F5]">
+          <div className="flex flex-col -gap-y-1 hidden sm:block hover:text-hover-white">
             <p className="border-b">{currentTime.toLocaleTimeString([], {
               hour: '2-digit', minute: '2-digit'
             })}</p>
