@@ -3,11 +3,14 @@ import './App.css'
 import { useState, useEffect } from "react"
 
 import bug_icon from './assets/icons/bug/bug icon.svg'
+
 import sound_icon from './assets/icons/sound/sound.svg'
+import sound_hover from './assets/icons/sound/sound-hover.svg'
 
 function App() {
 
   const now: Date = new Date();
+  const [soundHover, setSoundHover] = useState<boolean>(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,7 +38,9 @@ function App() {
 
         <div className="flex items-center gap-4 mr-4 mx-auto sm:ml-auto min-h-18.75">
           <img src={bug_icon} alt="Bug Icon"/>
-          <img src={sound_icon} alt="Sound Icon"/>
+          <img src={soundHover ? sound_hover : sound_icon} alt="Sound Icon" 
+            onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)}
+            className="shadow-lg shadow-blue-500/50"/>
           <div className="flex flex-col -gap-1">
             <p className="border-b">{currentTime.toLocaleTimeString([], {
               hour: '2-digit', minute: '2-digit'
