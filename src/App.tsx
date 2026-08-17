@@ -2,8 +2,8 @@ import Background from './components/moving_background/Background.tsx'
 import './App.css'
 import { useState, useEffect } from "react"
 
-import bug_icon from './assets/icons/bug icon.svg'
-import sound_icon from './assets/icons/sound.svg'
+import bug_icon from './assets/icons/bug/bug icon.svg'
+import sound_icon from './assets/icons/sound/sound.svg'
 
 function App() {
 
