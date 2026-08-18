@@ -22,14 +22,40 @@ function HomeTab(){
                 </div>
 
                 {/*  ICONS */}
-                <div className="grid grid-cols-6 gap-x-3 gap-y-0 mt-[2.5%]">
-                    <p>icon 1</p>
-                    <p>icon 2</p>
-                    <p>icon 3</p>
+                <div className="flex justify-between w-full h-full px-[5%] mt-[2.5%]">
+                    <div className="grid grid-cols-3 gap-x-3 gap-y-0 w-[50%]">
+                        <div className="flex flex-col items-center gap-y-2">
+                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <p className="font-['Jost']">about</p>
+                        </div>
 
-                    <p>icon 4</p>
-                    <p>icon 5</p>
-                    <p>icon 6</p>
+                        <div className="flex flex-col items-center gap-y-2">
+                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <p className="font-['Jost']">socials</p>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-y-2">
+                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <p className="font-['Jost']">portfolio</p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-x-3 gap-y-0] w-[50%]">
+                        <div className="flex flex-col items-center gap-y-2">
+                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <p className="font-['Jost']">board</p>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-y-2">
+                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <p className="font-['Jost']">blogs</p>
+                        </div>
+
+                        <div className="flex flex-col items-center gap-y-2">
+                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <p className="font-['Jost']">contact</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
