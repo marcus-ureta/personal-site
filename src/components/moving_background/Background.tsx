@@ -130,7 +130,7 @@ function Background() {
 
     return(
         <>
-            <div className="absolute w-screen h-screen overflow-hidden top-0 -z-1">
+            <div className="absolute w-screen h-screen overflow-hidden top-0 -z-1 pointer-events-auto">
                 {stars.map((_star, i) => (
                     <img    
                         key={i} className="mx-8 select-none opacity-65 hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.5)]
