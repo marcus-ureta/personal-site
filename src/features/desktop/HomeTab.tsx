@@ -7,7 +7,7 @@ import TabHeader from "./TabHeader"
 function HomeTab(){
     return(
         <div className="flex justify-center h-[88vh] items-center">
-            <div className='w-[95vw] h-[88vh] sm:w-[70vw] sm:h-[67vh] bg-primary-blue flex flex-col justify-start items-center shadow-[inset_0_0_0_4px] shadow-accent-teal rounded-[9px] z-2'>
+            <div className='w-[95vw] h-auto sm:w-[70vw] bg-primary-blue flex flex-col justify-start items-center shadow-[inset_0_0_0_4px] shadow-accent-teal rounded-[9px] z-2'>
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
                 {/* TAB COMPONENTS */}
@@ -18,7 +18,7 @@ function HomeTab(){
                         <h2 className="text-secondary-blue text-[clamp(32px,2.5vw,40px)] italic font-['Arial'] font-[550] tracking-[-0.06em] leading-loose mt-4 hidden sm:block">college student and programmer</h2>
                     </div>
 
-                    <img src={pfp} className="w-32 h-32 sm:w-88 sm:h-88 rounded-full bg-secondary-blue/85 flex items-center justify-center overflow-hidden object-fit border-accent-teal border-5"/>
+                    <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 flex items-center justify-center overflow-hidden object-fit border-accent-teal border-5"/>
                     
                     <h2 className="text-secondary-blue text-[clamp(26px,2.5vw,38px)] italic font-['Arial'] font-[550] tracking-[-0.06em] block sm:hidden text-center">college student and programmer</h2>
                 </div>
