@@ -4,6 +4,14 @@ import icon from '@icons/tab/home.svg'
 
 import TabHeader from "./TabHeader"
 
+import about_icon from '@icons/home ref/about.svg'
+import socials_icon from '@icons/home ref/share.svg'
+import portfolio_icon from '@icons/home ref/portfolio.svg'
+import board_icon from '@icons/home ref/board.svg'
+import blog_icon from '@icons/home ref/blog.svg'
+import contact_icon from '@icons/home ref/contact.svg'
+
+
 function HomeTab(){
     return(
         <div className="flex justify-center h-[88vh] items-center">
@@ -27,34 +35,34 @@ function HomeTab(){
                 <div className="flex justify-between w-full h-full px-[5%] mt-[2.5%] flex-col sm:flex-row">
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full">
                         <div className="flex flex-col items-center gap-y-2">
-                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <img src={about_icon} className="w-16 h-16 flex items-center justify-center"/>
                             <p className="font-['Jost']">about</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <img src={socials_icon} className="w-16 h-16 flex items-center justify-center"/>
                             <p className="font-['Jost']">socials</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <img src={portfolio_icon} className="w-16 h-16 flex items-center justify-center"/>
                             <p className="font-['Jost']">portfolio</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full">
                         <div className="flex flex-col items-center gap-y-2">
-                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <img src={board_icon} className="w-16 h-16 flex items-center justify-center"/>
                             <p className="font-['Jost']">board</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <img src={blog_icon} className="w-16 h-16 flex items-center justify-center"/>
                             <p className="font-['Jost']">blogs</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <div className="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center"/>
+                            <img src={contact_icon} className="w-16 h-16 flex items-center justify-center"/>
                             <p className="font-['Jost']">contact</p>
                         </div>
                     </div>
