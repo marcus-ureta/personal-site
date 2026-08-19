@@ -8,6 +8,7 @@ import sound_icon from './assets/icons/sound/sound.svg'
 import sound_hover from './assets/icons/sound/sound-hover.svg'
 
 import HomeTab from './features/desktop/HomeTab.tsx'
+import AboutMe from './features/desktop/tabs/AboutMe.tsx'
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
       <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-5 pointer-events-none">© 2026 Marcus Ureta</h1>
 
       <HomeTab/>
-      
+      <AboutMe/>
+
       {/* DESKTOP TASKBAR */}
       <footer className="hidden sm:flex">
         <div className="flex-1 hidden ml-4 sm:block">
