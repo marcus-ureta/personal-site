@@ -130,11 +130,11 @@ function Background() {
 
     return(
         <>
-            <div className="absolute w-screen h-screen overflow-hidden top-0 -z-1 pointer-events-auto">
+            <div className="fixed inset-0 overflow-hidden top-0 pointer-events-none z-0">
                 {stars.map((_star, i) => (
                     <img    
                         key={i} className="mx-8 select-none opacity-65 hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.5)]
-                            hover:w-12 hover:h-12 hover:opacity-100 hover:cursor-pointer" 
+                            hover:w-12 hover:h-12 hover:opacity-100 hover:cursor-pointer pointer-events-auto" 
                         ref={(element) => {starElementsRef.current[i] = element; }} 
                         style={{ position: `absolute`, willChange: "transform"}} 
                         src={starsClicked.includes(i) ? filled_star : stroked_star}

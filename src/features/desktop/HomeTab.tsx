@@ -19,7 +19,7 @@ function HomeTab(){
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
                 {/* TAB COMPONENTS */}
-                <div className="sm:grid sm:grid-cols-3 gap-x-3 mt-[2.5%] justify-between w-full h-full">
+                <div className="sm:grid sm:grid-cols-3 mt-[2.5%] justify-between w-full h-full">
 
                     {/* TEXT COMPONENTS */}
                     <div className="flex flex-col col-span-2 text-center sm:text-start mx-[7%]">
@@ -30,7 +30,7 @@ function HomeTab(){
 
                     {/* PFP IMAGE */}
                     <div className="flex justify-center items-center col-span-1 mt-[3%] sm:mt-0 mb-[2.5%] sm:mb-0 mx-4">
-                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5"/>
+                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none"/>
                     </div>
                     
                     <h2 className="text-secondary-blue text-[clamp(26px,2.5vw,38px)] italic font-['Arial'] font-[550] tracking-[-0.06em] block sm:hidden text-center mx-2">college student and programmer</h2>

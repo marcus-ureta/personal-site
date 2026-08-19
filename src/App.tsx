@@ -27,11 +27,11 @@ function App() {
 
   return (
     <>
-      <h1 className="font-['Arial'] mt-2 text-right mr-3">© 2026 Marcus Ureta</h1>
+      <Background/>
+
+      <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-5 pointer-events-none">© 2026 Marcus Ureta</h1>
 
       <HomeTab/>
-
-      <Background/>
       
       {/* DESKTOP TASKBAR */}
       <footer className="hidden sm:flex">
@@ -43,7 +43,7 @@ function App() {
           <img src={bug_icon} alt="Bug Icon"/>
           <img src={soundHover ? sound_hover : sound_icon} alt="Sound Icon" 
             onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)}/>
-          <div className="flex flex-col -gap-y-1 hidden sm:block hover:text-hover-white">
+          <div className="flex flex-col -gap-y-1 hover:text-hover-white">
             <p className="border-b">{currentTime.toLocaleTimeString([], {
               hour: '2-digit', minute: '2-digit'
             })}</p>
