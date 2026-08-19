@@ -34,7 +34,7 @@ function App() {
       <Background/>
       
       {/* DESKTOP TASKBAR */}
-      <footer>
+      <footer className="hidden sm:flex">
         <div className="flex-1 hidden ml-4 sm:block">
           <p>[Opened Desktop Tabs]</p>
         </div>

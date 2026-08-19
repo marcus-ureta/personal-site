@@ -26,43 +26,45 @@ function HomeTab(){
                         <h2 className="text-secondary-blue text-[clamp(32px,2.5vw,40px)] italic font-['Arial'] font-[550] tracking-[-0.06em] leading-loose mt-4 hidden sm:block">college student and programmer</h2>
                     </div>
 
-                    <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 flex items-center justify-center overflow-hidden object-fit border-accent-teal border-5"/>
+                    <div className="flex justify-center items-center col-span-1 mt-[3%] sm:mt-0 mx-4">
+                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5"/>
+                    </div>
                     
                     <h2 className="text-secondary-blue text-[clamp(26px,2.5vw,38px)] italic font-['Arial'] font-[550] tracking-[-0.06em] block sm:hidden text-center">college student and programmer</h2>
                 </div>
 
                 {/*  ICONS */}
-                <div className="flex justify-between w-full h-full px-[5%] mt-[2.5%] flex-col sm:flex-row">
+                <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row">
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full">
                         <div className="flex flex-col items-center gap-y-2">
-                            <img src={about_icon} className="w-16 h-16 flex items-center justify-center"/>
+                            <img src={about_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">about</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <img src={socials_icon} className="w-16 h-16 flex items-center justify-center"/>
+                            <img src={socials_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">socials</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <img src={portfolio_icon} className="w-16 h-16 flex items-center justify-center"/>
+                            <img src={portfolio_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">portfolio</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full">
                         <div className="flex flex-col items-center gap-y-2">
-                            <img src={board_icon} className="w-16 h-16 flex items-center justify-center"/>
+                            <img src={board_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">board</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <img src={blog_icon} className="w-16 h-16 flex items-center justify-center"/>
+                            <img src={blog_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">blogs</p>
                         </div>
 
                         <div className="flex flex-col items-center gap-y-2">
-                            <img src={contact_icon} className="w-16 h-16 flex items-center justify-center"/>
+                            <img src={contact_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">contact</p>
                         </div>
                     </div>
