@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer utilities {
+    .icon-style{
+        @apply w-12 sm:w-16 h-auto flex items-center justify-center group-hover:scale-110 transition-all;
+    }
+
+    .icon-text{
+        @apply font-['Jost'] group-hover:text-[#333333] transition-all;
+    }
+}

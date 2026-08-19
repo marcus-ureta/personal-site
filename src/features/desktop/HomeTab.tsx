@@ -4,6 +4,7 @@ import icon from '@icons/tab/home.svg'
 
 import TabHeader from "./TabHeader"
 import {getTabContainerStyle, getTabStyle} from './tabUtils'
+import "./Desktop.css"
 
 import about_icon from '@icons/home ref/about.svg'
 import socials_icon from '@icons/home ref/share.svg'
@@ -44,36 +45,36 @@ function HomeTab(){
                 {/*  ICONS */}
                 <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
                     <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
-                            <img src={about_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
-                            <p className="font-['Jost']">about</p>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                            <img src={about_icon} className="icon-style"/>
+                            <p className="icon-text">about</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
-                            <img src={socials_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
-                            <p className="font-['Jost']">socials</p>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                            <img src={socials_icon} className="icon-style"/>
+                            <p className="icon-text">socials</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit" onClick={goPortfolioPage}>
-                            <img src={portfolio_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
-                            <p className="font-['Jost']">portfolio</p>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={goPortfolioPage}>
+                            <img src={portfolio_icon} className="icon-style"/>
+                            <p className="icon-text">portfolio</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
-                            <img src={board_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
-                            <p className="font-['Jost']">board</p>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                            <img src={board_icon} className="icon-style"/>
+                            <p className="icon-text">board</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
-                            <img src={blog_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
-                            <p className="font-['Jost']">blogs</p>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                            <img src={blog_icon} className="icon-style"/>
+                            <p className="icon-text">blogs</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
-                            <img src={contact_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
-                            <p className="font-['Jost']">contact</p>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                            <img src={contact_icon} className="icon-style"/>
+                            <p className="icon-text">contact</p>
                         </div>
                     </div>
                 </div>
