@@ -13,6 +13,11 @@ import contact_icon from '@icons/home ref/contact.svg'
 
 
 function HomeTab(){
+
+    const goPortfolioPage = () =>{
+        window.open('https://marcusureta-portfolio.vercel.app', '_blank');
+    }
+
     return(
         <div className="flex justify-center h-[88vh] items-center">
             <div className='w-[95vw] h-auto sm:w-[70vw] bg-primary-blue flex flex-col justify-start items-center shadow-[inset_0_0_0_4px] shadow-accent-teal rounded-[9px] z-2'>
@@ -37,36 +42,36 @@ function HomeTab(){
                 </div>
 
                 {/*  ICONS */}
-                <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row  gap-y-4">
-                    <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full">
-                        <div className="flex flex-col items-center gap-y-2">
+                <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
+                    <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
                             <img src={about_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">about</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
                             <img src={socials_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">socials</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit" onClick={goPortfolioPage}>
                             <img src={portfolio_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">portfolio</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full">
-                        <div className="flex flex-col items-center gap-y-2">
+                    <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
                             <img src={board_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">board</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
                             <img src={blog_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">blogs</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit">
                             <img src={contact_icon} className="w-12 sm:w-16 h-auto flex items-center justify-center"/>
                             <p className="font-['Jost']">contact</p>
                         </div>
