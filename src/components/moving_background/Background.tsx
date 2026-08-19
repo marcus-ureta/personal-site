@@ -1,5 +1,5 @@
-import stroked_star from '@/assets/single stroke star.svg'
-import filled_star from '@/assets/filled star.svg'
+import stroked_star from '@/assets/background/single stroke star.svg'
+import filled_star from '@/assets/background/filled star.svg'
 
 import './Background.css'
 import {generateStarCount, generateStarLocation, generateStarRot} from './backgroundUtils'   
@@ -70,13 +70,10 @@ function Background() {
 
         const handleAnim = () => {
             starsRef.current.forEach((star, i) => {
+                
+                // Check for restarting star position
                 let starsInRow : StarData[] = starsRef.current.filter((s) => s.starY === star.starY);
                 let areStarsNearStart : boolean = starsInRow.some((s) => s.starX < spacing);
-
-                // if(star.starX > window.innerWidth + (spacing / 2))
-                //     star.starX = (-spacing) + 32;
-                // else if(star.starX > window.innerWidth && !areStarsNearStart)
-                //     star.starX = (-spacing) + 32;
 
                 if(star.starX > window.innerWidth && !areStarsNearStart)
                     star.starX = -52;
@@ -84,7 +81,9 @@ function Background() {
                 // Star Animation
                 star.starX += 0.1;
                 star.starRotation += 0.1;
+                
 
+                // Setting star position and rotation
                 const element = starElementsRef.current[i];
 
                 if (!element) return;

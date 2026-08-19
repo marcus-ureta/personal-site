@@ -3,6 +3,7 @@ import pfp from '@/assets/pfp.webp'
 import icon from '@icons/tab/home.svg'
 
 import TabHeader from "./TabHeader"
+import {getTabContainerStyle, getTabStyle} from './tabUtils'
 
 import about_icon from '@icons/home ref/about.svg'
 import socials_icon from '@icons/home ref/share.svg'
@@ -19,8 +20,8 @@ function HomeTab(){
     }
 
     return(
-        <div className="flex justify-center h-[88vh] items-center">
-            <div className='w-[95vw] h-auto sm:w-[70vw] bg-primary-blue flex flex-col justify-start items-center shadow-[inset_0_0_0_4px] shadow-accent-teal rounded-[9px] z-2'>
+        <div className={getTabContainerStyle()}>
+            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} z-2`}>
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
                 {/* TAB COMPONENTS */}
