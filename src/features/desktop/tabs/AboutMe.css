@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@reference "@/index.css";
 
 @layer utilities{
     .header-text{
-        @apply font-["Jost"] text-[var(--color-secondary-blue)] font-bold text-[52px] mb-[0.5%]
+        @apply font-["Jost"] text-[var(--color-secondary-blue)] font-bold text-[clamp(36px,5vw,52px)] mb-[2%] sm:mb-[0.5%]
     }
 
     .paragraph{
-        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[28px] ml-1 mb-[1%]
+        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%]
+    }
+
+    .section-style{
+        @apply mx-[4%] mt-[2%] max-w-[85%] sm:max-w-[90%] pb-[1.5%] border-b-2 border-accent-teal
     }
 }
