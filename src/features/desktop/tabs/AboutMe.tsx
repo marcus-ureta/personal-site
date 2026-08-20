@@ -9,6 +9,9 @@ import "../Desktop.css"
 import { useRef } from 'react';
 import Draggable from 'react-draggable'
 
+import dlsu from '@/assets/dlsu.webp'
+import ciit from '@/assets/ciit.webp'
+
 function AboutMe() {
     const nodeRef = useRef(null);
     
@@ -37,14 +40,28 @@ function AboutMe() {
                     <div className='section-style'>
                         <h2 className="header-text">EDUCATION</h2>
                         
-                        <div className="border-l-4 border-secondary-blue mb-[4%] ml-1 mt-[1.5%]">
-                            <h3 className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue font-bold ml-5">De La Salle University - Manila</h3>
-                            <p className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue ml-5">Computer Science - Software Technology (2026-2030)</p>
+                        <div className="border-l-4 border-secondary-blue mb-[4%] ml-1 mt-[1.5%] group hover:bg-[#087830]/75 w-full pr-5 transition-colors hover:border-[#065d24] flex justify-between gap-x-10">
+                            <div className="flex flex-col">
+                                <h3 className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue font-bold ml-5 group-hover:text-hover-white">De La Salle University - Manila</h3>
+
+                                <p className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue ml-5 group-hover:text-[#e4e2e2]">Computer Science - Software Technology (2026-2030)</p>
+                            </div>
+
+                            <div className="relative z-10 aspect-square h-auto w-[64px]">
+                                <img src={dlsu} className="ml-auto h-full w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline"/>
+                            </div>
                         </div>
 
-                        <div className="border-l-4 border-secondary-blue ml-1">
-                            <h3 className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue font-bold ml-5">CIIT Senior High School Inc.</h3>
-                            <p className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue ml-5">TVL-ICT Strand (2024-2026 - Consistent Honors with Awards)</p>
+                        <div className="border-l-4 border-secondary-blue mb-[4%] ml-1 mt-[1.5%] group hover:bg-[#00364D]/75 w-full pr-5 transition-colors hover:border-[#47C8F5] flex justify-between gap-x-10">
+                            <div className="flex flex-col">
+                                <h3 className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue font-bold ml-5 group-hover:text-hover-white">CIIT Senior High School Inc.</h3>
+
+                                <p className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue ml-5 group-hover:text-[#e4e2e2]">TVL-ICT Strand (2024-2026 - Consistent Honors with Awards)</p>
+                            </div>
+
+                            <div className="relative z-10 aspect-square h-auto w-[86px]">
+                                <img src={ciit} className="ml-auto h-full w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline"/>
+                            </div>
                         </div>
                     </div>
                 </div>
