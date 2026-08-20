@@ -14,8 +14,13 @@ import dlsu from '@/assets/dlsu.webp'
 import ciit from '@/assets/ciit.webp'
 
 function AboutMe() {
+
+    const goURL = (link : string) => {
+        window.open(link);
+    }
+
     const nodeRef = useRef(null);
-    
+
     return(
         <>
             {/* GRAY BACKGROUND FOR MOBILE */}
@@ -71,8 +76,17 @@ function AboutMe() {
                         <h2 className="header-text">SKILLS</h2>
                         
                         <h3 className="skills-header">Programming Languages:</h3>
-                        <div>
-                            <Chip text='C#'/>
+                        <div className="flex flex-wrap gap-5 w-[90%]">
+                            <Chip text='C#' onClick={() => goURL("https://dotnet.microsoft.com/en-us/languages/csharp")}/>
+                            <Chip text='C++' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='Javascript' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='QML' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='HTML' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='CSS' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='TypeScript' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='PHP' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='SQL' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='Tailwind' onClick={() => goURL("https://isocpp.org/")}/>
                         </div>
 
                         <h3 className="skills-header">Development Tools:</h3>
