@@ -76,7 +76,7 @@ function AboutMe() {
                         <h2 className="header-text">SKILLS</h2>
                         
                         <h3 className="skills-header">Programming Languages:</h3>
-                        <div className="flex flex-wrap gap-5 w-[90%] mb-[3.5%]">
+                        <div className="flex flex-wrap gap-5 w-[90%] mb-[7%] sm:mb-[3.5%]">
                             <Chip text='C#' onClick={() => goURL("https://dotnet.microsoft.com/en-us/languages/csharp")}/>
                             <Chip text='C++' onClick={() => goURL("https://isocpp.org/")}/>
                             <Chip text='Javascript' onClick={() => goURL("https://www.w3schools.com/js/")}/>
@@ -90,7 +90,27 @@ function AboutMe() {
                         </div>
 
                         <h3 className="skills-header">Development Tools:</h3>
+                        <div className="flex flex-wrap gap-5 w-[90%] mb-[7%] sm:mb-[3.5%]">
+                            <Chip text='Unity' onClick={() => goURL("https://unity.com/")}/>
+                            <Chip text='Qt' onClick={() => goURL("https://www.qt.io/")}/>
+                            <Chip text='React' onClick={() => goURL("https://react.dev/")}/>
+                            <Chip text='Firebase' onClick={() => goURL("https://firebase.google.com/")}/>
+                            <Chip text='WinForm' onClick={() => goURL("https://learn.microsoft.com/en-us/dotnet/desktop/winforms/overview/")}/>
+                            <Chip text='WPF' onClick={() => goURL("https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/")}/>
+                            <Chip text='Visual Studio' onClick={() => goURL("https://visualstudio.microsoft.com/")}/>
+                            <Chip text='GitHub' onClick={() => goURL("https://github.com/")}/>
+                            <Chip text='Arduino IDE' onClick={() => goURL("https://docs.arduino.cc/software/ide/")}/>
+                            <Chip text='NodeJS' onClick={() => goURL("https://nodejs.org/en")}/>
+                        </div>
+
                         <h3 className="skills-header">Creative Tools:</h3>
+                        <div className="flex flex-wrap gap-5 w-[90%] mb-[7%] sm:mb-[3.5%]">
+                            <Chip text='Figma' onClick={() => goURL("https://figma.com/")}/>
+                            <Chip text='Milanote' onClick={() => goURL("https://milanote.com/")}/>
+                            <Chip text='Trello' onClick={() => goURL("https://trello.com/")}/>
+                            <Chip text='Canva' onClick={() => goURL("https://www.canva.com/")}/>
+                            <Chip text='Lucidchart' onClick={() => goURL("https://lucid.co/lucidchart")}/>
+                        </div>
                     </div>
 
                     {/* INTERESTS & FUN FACTS */}
