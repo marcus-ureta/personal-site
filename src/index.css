@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+@import "./theme.css";
+@import "./features/desktop/tabs/AboutMe.css";
 
 body{
   overflow-x: hidden;
@@ -21,14 +23,4 @@ h1{
   footer{
     @apply fixed bottom-0 bg-[#2f41568f] w-full h-[5%] border-t-2 border-[#2F4156] flex gap-2 items-center;
   }
-}
-
-@theme{
-  --color-hover-white: #F5F5F5;
-
-  /* COLOR PALETTE */
-  --color-primary-blue: #C8D9E6;
-  --color-secondary-blue: #2F4156;
-  --color-accent-beige: #F5EFEB;
-  --color-accent-teal: #567C8D;
 }

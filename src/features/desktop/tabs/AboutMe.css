@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer utilities{
+    .header-text{
+        @apply font-["Jost"] text-[var(--color-secondary-blue)] font-bold text-[52px] mb-[0.5%]
+    }
+
+    .paragraph{
+        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[28px] ml-1 mb-[1%]
+    }
+}
