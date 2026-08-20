@@ -76,17 +76,17 @@ function AboutMe() {
                         <h2 className="header-text">SKILLS</h2>
                         
                         <h3 className="skills-header">Programming Languages:</h3>
-                        <div className="flex flex-wrap gap-5 w-[90%]">
+                        <div className="flex flex-wrap gap-5 w-[90%] mb-[3.5%]">
                             <Chip text='C#' onClick={() => goURL("https://dotnet.microsoft.com/en-us/languages/csharp")}/>
                             <Chip text='C++' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='Javascript' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='QML' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='HTML' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='CSS' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='TypeScript' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='PHP' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='SQL' onClick={() => goURL("https://isocpp.org/")}/>
-                            <Chip text='Tailwind' onClick={() => goURL("https://isocpp.org/")}/>
+                            <Chip text='Javascript' onClick={() => goURL("https://www.w3schools.com/js/")}/>
+                            <Chip text='QML' onClick={() => goURL("https://doc.qt.io/qt-6/qmlreference.html")}/>
+                            <Chip text='HTML' onClick={() => goURL("https://www.w3schools.com/html/")}/>
+                            <Chip text='CSS' onClick={() => goURL("https://www.w3schools.com/css/")}/>
+                            <Chip text='TypeScript' onClick={() => goURL("https://www.typescriptlang.org/")}/>
+                            <Chip text='PHP' onClick={() => goURL("https://www.php.net/")}/>
+                            <Chip text='SQL' onClick={() => goURL("https://www.mysql.com/")}/>
+                            <Chip text='Tailwind' onClick={() => goURL("https://tailwindcss.com/")}/>
                         </div>
 
                         <h3 className="skills-header">Development Tools:</h3>
