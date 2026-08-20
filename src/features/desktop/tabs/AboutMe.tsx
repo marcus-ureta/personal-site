@@ -64,6 +64,24 @@ function AboutMe() {
                             </div>
                         </div>
                     </div>
+
+                    {/* SKILLS SECTION */}
+                    <div className='section-style'>
+                        <h2 className="header-text">SKILLS</h2>
+                    </div>
+
+                    {/* INTERESTS & FUN FACTS */}
+                    <div className='section-style'>
+                        <h2 className="header-text">INTERESTS & FUN FACTS</h2>
+                        <ul className="list-disc list-inside -space-y-0.5 paragraph my-[2%]">
+                            <li>programming silly things</li>
+                            <li>listening to music 🎶</li>
+                            <li>the batman is the best batman film</li>
+                            <li>bnd is the best peter parker spiderman film</li>
+                            <li>i LOVE hollow knight and silksong</li>
+                        </ul>
+                        <p className="paragraph mt-[1%]">just a couple of interesting details you may want to know! c:</p>
+                    </div>
                 </div>
             </Draggable>
         </>
