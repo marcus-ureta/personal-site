@@ -19,6 +19,6 @@ export function getTabStyle(): string {
         "items-center",
         "shadow-[inset_0_0_0_4px]",
         "shadow-accent-teal",
-        "rounded-[9px]",
+        "rounded-[11px]",
     ].join(" ");
 }
