@@ -2,6 +2,7 @@
 import icon from '@icons/tab/about.svg'
 import TabHeader from "../TabHeader"
 import {getTabStyle} from '../tabUtils'
+import Chip from '@/components/chip/Chip.tsx'
 
 import "./AboutMe.css"
 import "../Desktop.css"
@@ -68,6 +69,14 @@ function AboutMe() {
                     {/* SKILLS SECTION */}
                     <div className='section-style'>
                         <h2 className="header-text">SKILLS</h2>
+                        
+                        <h3 className="skills-header">Programming Languages:</h3>
+                        <div>
+                            <Chip text='C#'/>
+                        </div>
+
+                        <h3 className="skills-header">Development Tools:</h3>
+                        <h3 className="skills-header">Creative Tools:</h3>
                     </div>
 
                     {/* INTERESTS & FUN FACTS */}
