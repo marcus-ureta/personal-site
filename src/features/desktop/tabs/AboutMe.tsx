@@ -13,7 +13,10 @@ function AboutMe() {
     return(
             <div className={`${getTabContainerStyle()}`}>
                 <Draggable handle=".handle-bar" nodeRef={nodeRef}>
-                    <div className={`w-[95vw] h-auto sm:w-[60vw] ${getTabStyle()} z-3`} ref={nodeRef}>
+                    {/* GRAY BACKGROUND FOR MOBILE */}
+                    
+
+                    <div className={`w-screen h-auto sm:w-[60vw] ${getTabStyle()} z-3`} ref={nodeRef}>
                         <TabHeader icon={icon} name='about' isDraggable={true}/>
                         <p>penis</p>
                     </div>

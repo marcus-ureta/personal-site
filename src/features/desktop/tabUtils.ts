@@ -1,9 +1,11 @@
 
 export function getTabContainerStyle(): string{
     return [
+        "fixed",
+        "inset-0",
         "flex", 
         "justify-center",
-        "h-[88vh]", 
+        "h-[95vh]", 
         "items-center"
     ].join(" ");
 }
