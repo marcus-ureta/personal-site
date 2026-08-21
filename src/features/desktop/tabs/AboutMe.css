@@ -15,6 +15,6 @@
     }
 
     .section-style{
-        @apply mx-[4%] mt-[2%] max-w-[85%] sm:max-w-[90%] pb-[1.5%] border-b-2 border-accent-teal
+        @apply mx-[3.5%] mt-[2%] max-w-[87%] sm:max-w-[91%] pb-[1.5%] border-b-2 border-accent-teal
     }
 }

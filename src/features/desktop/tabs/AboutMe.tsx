@@ -27,12 +27,13 @@ function AboutMe() {
             <div className='block sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0'/>
 
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body">
-                <div className={`flex flex-col w-screen sm:w-[58vw] h-full sm:h-[60vh] ${getTabStyle()} overflow-hidden`} ref={nodeRef}>
+                <div className={`flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] ${getTabStyle()} overflow-hidden`} ref={nodeRef}>
                     <TabHeader icon={icon} name='about' isDraggable={true}/>
 
 
                     {/* SCROLLABLE CONTENT */}
-                    <div className=" flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
+                    <div className="tab-scrollable">
+                        
                         {/* GENERAL INFORMATION SECTION */}
                         <div className='section-style'>
                             <h2 className="header-text">GENERAL INFORMATION</h2>
@@ -65,7 +66,7 @@ function AboutMe() {
                                 <div className="flex flex-col">
                                     <h3 className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue font-bold ml-5 group-hover:text-hover-white">CIIT Senior High School Inc.</h3>
 
-                                    <p className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue ml-5 group-hover:text-[#e4e2e2]">TVL-ICT Strand (2024-2026 - Consistent Honors with Awards)</p>
+                                    <p className="font-['Arial'] text-[clamp(20px,5vw,28px)] text-secondary-blue ml-5 group-hover:text-[#e4e2e2]">TVL-ICT Strand (2024-2026 : Consistent Honors with Awards)</p>
                                 </div>
 
                                 <div className="relative z-10 aspect-square h-auto w-[86px]">

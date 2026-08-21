@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@reference "@/index.css";
 
 @layer utilities {
     .icon-style{
@@ -7,5 +7,26 @@
 
     .icon-text{
         @apply font-['Jost'] group-hover:text-[#333333] transition-all;
+    }
+
+    .tab-scrollable{
+        @apply flex-1 min-h-0 overflow-y-auto overflow-x-hidden w-[99%];
+    }
+
+    .tab-scrollable::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .tab-scrollable::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .tab-scrollable::-webkit-scrollbar-thumb {
+        background: var(--color-secondary-blue);
+        border-radius: 9999px;
+    }
+
+    .tab-scrollable::-webkit-scrollbar-button {
+        display: hidden;
     }
 }
