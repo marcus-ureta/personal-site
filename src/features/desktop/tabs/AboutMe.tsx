@@ -27,7 +27,7 @@ function AboutMe() {
             <div className='block sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0'/>
 
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body">
-                <div className={`flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] ${getTabStyle()} overflow-hidden z-3`} ref={nodeRef}>
+                <div className={`flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] ${getTabStyle()} overflow-hidden z-3 left-[10%]`} ref={nodeRef}>
                     <TabHeader icon={icon} name='about' isDraggable={true}/>
 
 

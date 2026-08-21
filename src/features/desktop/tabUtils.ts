@@ -18,9 +18,8 @@ export function getTabStyle(): string {
         "flex-col",
         "justify-start",
         "items-center",
-        "shadow-[inset_0_0_0_4px]",
-        "shadow-accent-teal",
+        "shadow-[inset_0_0_0_4px_theme(colors.accent-teal),0_15px_20px_-9px_rgba(0,0,0,0.5)]",
         "rounded-[11px]",
-        "pointer-events-auto"
+        "pointer-events-auto",
     ].join(" ");
 }
