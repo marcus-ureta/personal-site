@@ -10,7 +10,6 @@ function DesktopView(){
     return(
         <div className={getTabContainerStyle()}>
             <HomeTab/>
-            <AboutMe/>
         </div>
     )
 }

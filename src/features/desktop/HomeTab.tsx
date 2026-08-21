@@ -21,7 +21,7 @@ function HomeTab(){
     }
 
     return(
-            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} z-2`}>
+            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} z-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[54%]`}>
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
                 {/* TAB COMPONENTS */}
