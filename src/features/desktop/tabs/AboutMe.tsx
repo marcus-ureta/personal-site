@@ -7,13 +7,14 @@ import Chip from '@/components/chip/Chip.tsx'
 import "./AboutMe.css"
 import "../Desktop.css"
 
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import Draggable from 'react-draggable'
 
 import dlsu from '@/assets/dlsu.webp'
 import ciit from '@/assets/ciit.webp'
 
 function AboutMe() {
+    const [isDragging, setIsDragging] = useState(false);
 
     const goURL = (link : string) => {
         window.open(link);
@@ -26,8 +27,8 @@ function AboutMe() {
             {/* GRAY BACKGROUND FOR MOBILE */}
             <div className='block sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0'/>
 
-            <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body">
-                <div className={`flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] ${getTabStyle()} overflow-hidden z-3 left-[10%]`} ref={nodeRef}>
+            <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
+                <div className={`flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] ${getTabStyle()} ${isDragging ? 'drag-style' : ''} overflow-hidden z-3 left-[10%]`} ref={nodeRef}>
                     <TabHeader icon={icon} name='about' isDraggable={true}/>
 
 
