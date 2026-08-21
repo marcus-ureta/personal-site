@@ -3,7 +3,7 @@ import pfp from '@/assets/pfp.webp'
 import icon from '@icons/tab/home.svg'
 
 import TabHeader from "./TabHeader"
-import {getTabContainerStyle, getTabStyle} from './tabUtils'
+import {getTabStyle} from './tabUtils'
 import "./Desktop.css"
 
 import about_icon from '@icons/home ref/about.svg'

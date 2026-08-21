@@ -7,9 +7,6 @@ import bug_icon from './assets/icons/bug/bug icon.svg'
 import sound_icon from './assets/icons/sound/sound.svg'
 import sound_hover from './assets/icons/sound/sound-hover.svg'
 
-import HomeTab from './features/desktop/HomeTab.tsx'
-import AboutMe from './features/desktop/tabs/AboutMe.tsx'
-
 import DesktopView from './features/desktop/DesktopView.tsx'
 
 function App() {
