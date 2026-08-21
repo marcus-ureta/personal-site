@@ -23,7 +23,7 @@ export interface TabState{
     zIndex: number;
 }
 
-export const InitialTabState: TabState[] = [
+export const InitialTabStates: TabState[] = [
     {
         Tab: Tabs.About,
         Status: TabStatus.Closed,
