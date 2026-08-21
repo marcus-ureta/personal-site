@@ -21,7 +21,6 @@ function HomeTab(){
     }
 
     return(
-        <div className={getTabContainerStyle()}>
             <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} z-2`}>
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
@@ -79,7 +78,6 @@ function HomeTab(){
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

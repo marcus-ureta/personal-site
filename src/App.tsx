@@ -10,6 +10,8 @@ import sound_hover from './assets/icons/sound/sound-hover.svg'
 import HomeTab from './features/desktop/HomeTab.tsx'
 import AboutMe from './features/desktop/tabs/AboutMe.tsx'
 
+import DesktopView from './features/desktop/DesktopView.tsx'
+
 function App() {
 
   const now: Date = new Date();
@@ -32,8 +34,7 @@ function App() {
 
       <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-5 pointer-events-none">© 2026 Marcus Ureta</h1>
 
-      <HomeTab/>
-      <AboutMe/>
+      <DesktopView/>
 
       {/* DESKTOP TASKBAR */}
       <footer className="hidden sm:flex">
