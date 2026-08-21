@@ -5,7 +5,8 @@ export function getTabContainerStyle(): string{
         "h-[95vh]", 
         "relative", 
         "w-screen",
-        "items-center"
+        "items-center",
+        "pointer-events-none"
     ].join(" ");
 }
 
@@ -20,5 +21,6 @@ export function getTabStyle(): string {
         "shadow-[inset_0_0_0_4px]",
         "shadow-accent-teal",
         "rounded-[11px]",
+        "pointer-events-auto"
     ].join(" ");
 }
