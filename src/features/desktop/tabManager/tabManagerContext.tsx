@@ -1,13 +1,18 @@
-import { createContext, useContext, useState, type PropsWithChildren } from 'react';
+import { createContext, useContext, useState, type Dispatch, type PropsWithChildren, type SetStateAction } from 'react';
 import {InitialTabStates, type TabState} from './tabManager'
 
-const TabManagerContext = createContext<TabState[]>(InitialTabStates);
+type TabManagerContextType = {
+    tabState: TabState[],
+    setTabStates: Dispatch<SetStateAction<TabState[]>>;
+}
+
+const TabManagerContext = createContext<TabManagerContextType | null>(null);
 
 export function TabManagerProvider({children} : PropsWithChildren){
-    const [tabState, setTabStates] = useState(InitialTabStates);
+    const [tabState, setTabStates] = useState<TabState[]>(InitialTabStates);
 
     return(
-        <TabManagerContext.Provider value={tabState}>
+        <TabManagerContext.Provider value={{tabState, setTabStates}}>
             {children}
         </TabManagerContext.Provider>
     )

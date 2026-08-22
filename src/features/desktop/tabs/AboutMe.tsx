@@ -17,7 +17,9 @@ import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '../tabManager/tabManager'
 
 function AboutMe() {
-    const currentTabState = useTabManager().find(tab => tab.Tab == Tabs.About);
+    const { tabState, setTabStates } = useTabManager();
+
+    const currentTabState = tabState.find(tab => tab.Tab == Tabs.About);
     const [isDragging, setIsDragging] = useState(false);
 
     const goURL = (link : string) => {
