@@ -11,6 +11,7 @@ export type Tabs = typeof Tabs[keyof typeof Tabs];
 
 export const TabStatus = {
     Open: "OPEN",
+    Closing: "CLOSING",
     Closed: "CLOSED"
 }
 

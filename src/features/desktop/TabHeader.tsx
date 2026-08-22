@@ -13,18 +13,19 @@ export const TabHeader = ({icon, name, isDraggable = true, tab}: HeaderProps) =>
     const { setTabStates } = useTabManager();
     
     const closeTab = (Tab? : Tabs) => {
-
         setTabStates((previousTabs) => {
-            return previousTabs.map((tab) => {
+            const newTabs = previousTabs.map((tab) => {
                 if (tab.Tab === Tab) {
                     return {
                         ...tab,
-                        Status: TabStatus.Closed,
+                        Status: TabStatus.Closing,
                     };
                 }
 
                 return tab;
             });
+
+            return newTabs
         })
     }
 

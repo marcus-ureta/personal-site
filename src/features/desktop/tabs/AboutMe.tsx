@@ -7,7 +7,7 @@ import Chip from '@/components/chip/Chip.tsx'
 import "./AboutMe.css"
 import "../Desktop.css"
 
-import { useState, useRef} from 'react';
+import { useState, useRef, useEffect} from 'react';
 import Draggable from 'react-draggable'
 
 import dlsu from '@/assets/dlsu.webp'
@@ -17,41 +17,63 @@ import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '../tabManager/tabManager'
 
 function AboutMe() {
-    const { tabState } = useTabManager();
+    const { setTabStates, tabState } = useTabManager();
 
     const currentTabState = tabState.find(tab => tab.Tab == Tabs.About);
-    
-    const [isClosingAnim, setClosingAnim] = useState<boolean>(false);
+
+    const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
 
     const goURL = (link : string) => {
         window.open(link);
     }
 
-    // const checkTabState : boolean = currentTabState?.Status == TabStatus.Closed;
-    const checkTabState = () : boolean => {
-        if(currentTabState?.Status == TabStatus.Closed)
-        {
-            // play closing animation
-            return true;
-        }
+    const checkTabState : boolean = currentTabState?.Status == (TabStatus.Closed);
 
-        return false;
-    }
+    useEffect(() => {
+        if (currentTabState?.Status === TabStatus.Closing) {
+            console.log('attempting to close');
+            setClosingAnim(true);
+
+            setTimeout(() => {
+                console.log('closed!');
+                setClosingAnim(false);
+
+                setTabStates((previousTabs) => {
+                    const newTabs = previousTabs.map((tab) => {
+                        if (tab.Tab === Tabs.About) {
+                            return {
+                                ...tab,
+                                Status: TabStatus.Closed,
+                            };
+                        }
+
+                        return tab;
+                    });
+
+                    return newTabs
+                })
+            }, 200)
+        }
+    }, [currentTabState?.Status])
+
+    useEffect(() => {
+        console.log("tabStates changed:", tabState);
+    }, [tabState]);
 
     const nodeRef = useRef(null);
 
     return(
         <>
             {/* GRAY BACKGROUND FOR MOBILE */}
-            <div className={`${checkTabState() ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0`}/>
+            <div className={`${checkTabState ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0`}/>
 
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div 
-                    className={`${checkTabState() ? 'hidden' : ''} 
+                    className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] 
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%] animate-tab-popup`} 
+                    overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%]`} 
                     ref={nodeRef}>
                         
                     <TabHeader icon={icon} name='about' isDraggable={true} tab={Tabs.About}/>
