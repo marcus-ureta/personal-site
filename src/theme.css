@@ -36,12 +36,16 @@
         }
     }
 
-    --animate-tab-popup: tab-popup 0.2s forwards;
+    --animate-tab-popup: tab-popup 0.25s forwards;
 
     @keyframes tab-popup {
         0%{
             opacity: 0;
             scale: 0;
+        }
+
+        85%{
+            scale:1.035
         }
 
         100%{

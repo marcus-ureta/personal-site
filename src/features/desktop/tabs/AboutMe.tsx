@@ -20,24 +20,35 @@ function AboutMe() {
     const { tabState } = useTabManager();
 
     const currentTabState = tabState.find(tab => tab.Tab == Tabs.About);
-    const [isDragging, setIsDragging] = useState(false);
+    
+    const [isClosingAnim, setClosingAnim] = useState<boolean>(false);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
 
     const goURL = (link : string) => {
         window.open(link);
     }
 
-    const checkTabState : boolean = currentTabState?.Status == TabStatus.Closed
+    // const checkTabState : boolean = currentTabState?.Status == TabStatus.Closed;
+    const checkTabState = () : boolean => {
+        if(currentTabState?.Status == TabStatus.Closed)
+        {
+            // play closing animation
+            return true;
+        }
+
+        return false;
+    }
 
     const nodeRef = useRef(null);
 
     return(
         <>
             {/* GRAY BACKGROUND FOR MOBILE */}
-            <div className={`${checkTabState ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0`}/>
+            <div className={`${checkTabState() ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0`}/>
 
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div 
-                    className={`${checkTabState ? 'hidden' : ''} 
+                    className={`${checkTabState() ? 'hidden' : ''} 
                     flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] 
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
                     overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%] animate-tab-popup`} 
