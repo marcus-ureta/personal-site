@@ -53,7 +53,7 @@ function HomeTab(){
 
                     {/* PFP IMAGE */}
                     <div className="flex justify-center sm:justify-start items-center col-span-1 mt-[3%] sm:mt-0 mb-[2.5%] sm:mb-0 mr-0 sm:mr-5">
-                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none translate-x-0 sm:-translate-x-2.5"/>
+                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none translate-x-0 sm:-translate-x-2.5" draggable={false}/>
                     </div>
                     
                     <h2 className="text-secondary-blue text-[clamp(26px,2.5vw,38px)] italic font-['Arial'] font-[550] tracking-[-0.06em] block sm:hidden text-center mx-2">college student and programmer</h2>
