@@ -13,7 +13,7 @@ import board_icon from '@icons/home ref/board.svg'
 import blog_icon from '@icons/home ref/blog.svg'
 import contact_icon from '@icons/home ref/contact.svg'
 
-import {useTabManager} from '@/features/desktop/tabManager/bkah'
+import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '@/features/desktop/tabManager/tabManager'
 
 function HomeTab(){
