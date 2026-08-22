@@ -8,6 +8,7 @@ import sound_icon from './assets/icons/sound/sound.svg'
 import sound_hover from './assets/icons/sound/sound-hover.svg'
 
 import DesktopView from './features/desktop/DesktopView.tsx'
+import { TabManagerProvider } from './features/desktop/tabManager/TabManagerContext.tsx'
 
 function App() {
 
@@ -31,7 +32,9 @@ function App() {
 
       <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-5 pointer-events-none">© 2026 Marcus Ureta</h1>
 
-      <DesktopView/>
+      <TabManagerProvider>
+        <DesktopView/>
+      </TabManagerProvider>
 
       {/* DESKTOP TASKBAR */}
       <footer className="hidden sm:flex">

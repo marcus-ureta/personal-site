@@ -4,10 +4,10 @@ import {InitialTabStates, type TabState} from './tabManager'
 const TabManagerContext = createContext<TabState[]>(InitialTabStates);
 
 export function TabManagerProvider({children} : PropsWithChildren){
-    const [state, setState] = useState(InitialTabStates);
+    const [tabState, setTabStates] = useState(InitialTabStates);
 
     return(
-        <TabManagerContext.Provider value={state}>
+        <TabManagerContext.Provider value={tabState}>
             {children}
         </TabManagerContext.Provider>
     )
