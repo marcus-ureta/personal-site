@@ -41,7 +41,7 @@ function AboutMe() {
                     overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%]`} 
                     ref={nodeRef}>
                         
-                    <TabHeader icon={icon} name='about' isDraggable={true}/>
+                    <TabHeader icon={icon} name='about' isDraggable={true} tab={Tabs.About}/>
 
 
                     {/* SCROLLABLE CONTENT */}
