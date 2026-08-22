@@ -13,7 +13,7 @@ import Draggable from 'react-draggable'
 import dlsu from '@/assets/dlsu.webp'
 import ciit from '@/assets/ciit.webp'
 
-import {useTabManager} from '@/features/desktop/tabManager/bkah'
+import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '../tabManager/tabManager'
 
 function AboutMe() {
