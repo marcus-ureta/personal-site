@@ -129,7 +129,7 @@ function Background() {
 
     return(
         <>
-            <div className="fixed inset-0 overflow-hidden top-0 pointer-events-none z-0">
+            <div className="fixed inset-0 overflow-hidden top-0 pointer-events-none z-0 animate-fade-in">
                 {stars.map((_star, i) => (
                     <img    
                         key={i} className="mx-8 select-none opacity-65 hover:drop-shadow-[0_0_12px_rgba(250,204,21,0.5)]
