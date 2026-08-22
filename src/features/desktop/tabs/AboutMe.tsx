@@ -40,7 +40,7 @@ function AboutMe() {
                     className={`${checkTabState ? 'hidden' : ''} 
                     flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] 
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%]`} 
+                    overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%] animate-tab-popup`} 
                     ref={nodeRef}>
                         
                     <TabHeader icon={icon} name='about' isDraggable={true} tab={Tabs.About}/>

@@ -9,7 +9,8 @@
     --color-accent-teal: #567C8D;
 
 
-    --animate-fade-in-up: fade-in-up 1.2s ease-out forwards;
+    /* ALL ANIMATIONS */
+    --animate-fade-in-up: fade-in-up 1.2s ease-out;
 
     @keyframes fade-in-up {
         0% {
@@ -23,7 +24,7 @@
         }
     }
 
-    --animate-fade-in: fade-in 1s ease-out forwards;
+    --animate-fade-in: fade-in 1s ease-out;
 
     @keyframes fade-in {
         0%{
@@ -32,6 +33,33 @@
 
         100%{
             opacity:1;
+        }
+    }
+
+    --animate-tab-popup: tab-popup 0.2s forwards;
+
+    @keyframes tab-popup {
+        0%{
+            opacity: 0;
+            scale: 0;
+        }
+
+        100%{
+            opacity:1;
+            scale: 1;
+        }
+    }
+
+    --animate-tab-close: tab-close 0.2s forwards;
+
+    @keyframes tab-close {
+        0%{
+            opacity: 1;
+            scale: 1;
+        }
+        100%{
+            opacity:0;
+            scale:0;
         }
     }
 }
