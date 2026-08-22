@@ -6,7 +6,7 @@ import "./Desktop.css"
 import { getTabContainerStyle } from "./tabUtils.ts"
 
 function DesktopView(){
-
+    
     return(
         <div className={getTabContainerStyle()}>
             <AboutMe/>

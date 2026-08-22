@@ -8,7 +8,7 @@ import sound_icon from './assets/icons/sound/sound.svg'
 import sound_hover from './assets/icons/sound/sound-hover.svg'
 
 import DesktopView from './features/desktop/DesktopView.tsx'
-import { TabManagerProvider } from './features/desktop/tabManager/TabManagerContext.tsx'
+import { TabManagerProvider } from './features/desktop/tabManager/bkah.tsx'
 
 function App() {
 

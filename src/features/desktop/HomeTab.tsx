@@ -13,11 +13,29 @@ import board_icon from '@icons/home ref/board.svg'
 import blog_icon from '@icons/home ref/blog.svg'
 import contact_icon from '@icons/home ref/contact.svg'
 
+import {useTabManager} from '@/features/desktop/tabManager/bkah'
+import { Tabs, TabStatus} from '@/features/desktop/tabManager/tabManager'
 
 function HomeTab(){
+    const { setTabStates } = useTabManager();
 
     const goPortfolioPage = () => {
         window.open('https://marcusureta-portfolio.vercel.app', '_blank');
+    }
+
+    const openPage = (Tab : Tabs) => {
+        setTabStates((previousTabs) => {
+            return previousTabs.map((tab) => {
+                if (tab.Tab === Tab) {
+                    return {
+                        ...tab,
+                        Status: TabStatus.Open,
+                    };
+                }
+
+                return tab;
+            });
+        })
     }
 
     return(
@@ -43,7 +61,7 @@ function HomeTab(){
 
                 {/*  ICONS */}
                 <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
-                    <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
+                    <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start" onClick={() => openPage(Tabs.About)}>
                         <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
                             <img src={about_icon} className="icon-style"/>
                             <p className="icon-text">about</p>
