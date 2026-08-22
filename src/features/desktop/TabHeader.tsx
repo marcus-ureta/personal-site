@@ -23,7 +23,6 @@ export const TabHeader = ({icon, name, isDraggable = true, tab}: HeaderProps) =>
                     };
                 }
 
-                console.log(tab);
                 return tab;
             });
         })
