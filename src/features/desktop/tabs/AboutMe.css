@@ -3,11 +3,11 @@
 
 @layer utilities{
     .header-text{
-        @apply font-["Jost"] text-[var(--color-secondary-blue)] font-bold text-[clamp(36px,5vw,52px)] mb-[2%] sm:mb-[0.5%] hover:text-[clamp(38px,5vw,54px)] hover:text-[#567599] transition-all
+        @apply font-["Jost"] text-[var(--color-secondary-blue)] font-bold text-[clamp(36px,5vw,52px)] mb-[2%] sm:mb-[0.5%] hover:text-[clamp(38px,5vw,54px)] hover:text-[#567599] transition-all w-fit select-none
     }
 
     .skills-header{
-        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%] font-bold mt-[2%] hover:text-[var(--color-accent-teal)] transition-all
+        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%] font-bold mt-[2%] hover:text-[var(--color-accent-teal)] transition-all w-fit select-none
     }
 
     .paragraph{
