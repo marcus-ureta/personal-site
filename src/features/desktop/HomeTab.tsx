@@ -57,7 +57,7 @@ function HomeTab(){
                                 <span className={`[grid-area:1/1] ${hoverName ? 'animate-enable-home-text' : 'animate-disable-home-text'}`} style={{ color: "#F39A5A" }}>Macky</span>
                             </span>
                         </h1>
-                        <h2 className="text-secondary-blue text-[clamp(32px,2.5vw,40px)] italic font-['Arial'] font-[550] tracking-[-0.06em] leading-loose mt-4 hidden sm:block">college student and programmer</h2>
+                        <h2 className="text-secondary-blue text-[clamp(32px,2.5vw,40px)] italic font-['Arial'] font-[550] tracking-[-0.06em] leading-loose mt-4 hidden sm:block transition-all duration-300 hover:bg-linear-to-br hover:from-[#2F4156] hover:to-[#5e6d7e] hover:bg-clip-text hover:text-transparent hover:scale-105 hover:translate-x-[2.5%]">college student and programmer</h2>
                     </div>
 
                     {/* PFP IMAGE */}
