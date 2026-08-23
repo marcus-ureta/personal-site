@@ -10,7 +10,7 @@
 
 
     /* ALL ANIMATIONS */
-    --animate-fade-in-up: fade-in-up 1.2s ease-out;
+    --animate-fade-in-up: fade-in-up 0.8s ease-out;
 
     @keyframes fade-in-up {
         0% {
