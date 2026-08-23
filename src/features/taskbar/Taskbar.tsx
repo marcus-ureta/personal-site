@@ -14,10 +14,19 @@ import board_icon from '@/assets/icons/taskbar ref/board.svg'
 import blog_icon from '@/assets/icons/taskbar ref/blog.svg'
 import contact_icon from '@/assets/icons/taskbar ref/contact.svg'
 
+import home_hover from '@/assets/icons/taskbar ref/house-hover.svg'
+import about_hover from '@/assets/icons/taskbar ref/about-hover.svg'
+import social_hover from '@/assets/icons/tab/social.svg'
+import board_hover from '@/assets/icons/tab/board.svg'
+import blog_hover from '@/assets/icons/tab/blog.svg'
+import contact_hover from '@/assets/icons/tab/contact.svg'
+
+
 function Taskbar(){
 
     const now: Date = new Date();
 
+    const [hoveredIcon, setHoveredIcon] = useState<number | null>(null);
     const [soundHover, setSoundHover] = useState<boolean>(false);
     const [bugHover, setBugHover] = useState<boolean>(false);
 
@@ -33,13 +42,19 @@ function Taskbar(){
 
     return(
         <footer className="hidden sm:flex">
-            <div className="flex-1 hidden ml-[1.5%] sm:flex gap-x-8 select-none">
-                <img src={home_icon} className="w-[32px] h-auto cursor-pointer"/>
-                <img src={about_icon} className="w-[32px] h-auto cursor-pointer"/>
-                <img src={social_icon} className="w-[32px] h-auto cursor-pointer"/>
-                <img src={board_icon} className="w-[32px] h-auto cursor-pointer"/>
-                <img src={blog_icon} className="w-[32px] h-auto cursor-pointer"/>
-                <img src={contact_icon} className="w-[32px] h-auto cursor-pointer"/>
+            <div className="flex-1 hidden ml-[1.5%] sm:flex gap-x-[2%] select-none">
+                <img src={hoveredIcon === 0 ? home_hover : home_icon} className="w-[32px] h-auto cursor-pointer border-b-2 border-secondary-blue hover:bg-primary-blue/30" 
+                onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 1 ? about_hover : about_icon} className="w-[32px] h-auto cursor-pointer"
+                onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 2 ? social_hover : social_icon} className="w-[32px] h-auto cursor-pointer"
+                onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 3 ? board_hover : board_icon} className="w-[32px] h-auto cursor-pointer"
+                onMouseEnter={() => setHoveredIcon(3)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 4 ? blog_hover : blog_icon} className="w-[32px] h-auto cursor-pointer"
+                onMouseEnter={() => setHoveredIcon(4)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 5 ? contact_hover : contact_icon} className="w-[32px] h-auto cursor-pointer-2"
+                onMouseEnter={() => setHoveredIcon(5)} onMouseLeave={() => setHoveredIcon(null)}/>
             </div>
     
             <div className="flex items-center gap-4 mr-8 mx-auto sm:ml-auto min-h-18.75">
