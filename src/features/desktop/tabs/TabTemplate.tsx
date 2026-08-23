@@ -9,12 +9,17 @@ import "@/features/desktop/Desktop.css"
 
 import Draggable from 'react-draggable'
 
-interface TabTemplateProps{
-    thisTab: Tabs;
+export interface HeaderDetails{
     icon: string;
+    name: string;
 }
 
-export function TabTemplate({thisTab, icon} : TabTemplateProps, {children} : PropsWithChildren){
+interface TabTemplateProps{
+    thisTab: Tabs;
+    headerDetails: HeaderDetails;
+}
+
+export function TabTemplate({thisTab, headerDetails} : TabTemplateProps, {children} : PropsWithChildren){
     const { setTabStates, tabState } = useTabManager();
     const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -62,7 +67,7 @@ export function TabTemplate({thisTab, icon} : TabTemplateProps, {children} : Pro
                     overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%]`} 
                     ref={nodeRef}
                 >
-                    <TabHeader icon={icon} name='about' isDraggable={true} tab={Tabs.About}/>
+                    <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={Tabs.About}/>
                     {children}
                 </div>
             </Draggable>
