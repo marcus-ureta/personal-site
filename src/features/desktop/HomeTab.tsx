@@ -50,8 +50,8 @@ function HomeTab(){
                 <div className="sm:grid sm:grid-cols-3 mt-[2.5%] justify-between w-full h-full">
                     {/* TEXT COMPONENTS */}
                     <div className="flex flex-col col-span-2 text-center sm:text-start mx-[7%]">
-                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3">welcome!</h1>
-                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] leading-none">i'm{" "}
+                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3 transition-all">welcome!</h1>
+                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] leading-none transition-all">i'm{" "}
                             <span className="inline-grid" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                                 <span className={`[grid-area:1/1] ${hoverName ? 'animate-disable-home-text' : 'animate-enable-home-text'}`} style={{ color: "#F39A5A" }}>Marcus</span>
                                 <span className={`[grid-area:1/1] ${hoverName ? 'animate-enable-home-text' : 'animate-disable-home-text'}`} style={{ color: "#F39A5A" }}>Macky</span>
