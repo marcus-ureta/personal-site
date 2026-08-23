@@ -67,4 +67,33 @@
             scale:0;
         }
     }
+
+
+    --animate-disable-home-text: disable-home-text 0.2s forwards;
+
+    @keyframes disable-home-text{
+        0%{
+            transform: translateX(0px);
+            opacity:1;
+        }
+        100%{
+            display:none;
+            transform: translateX(-20px);
+            opacity:0;
+        }
+    }
+
+    --animate-enable-home-text: enable-home-text 0.2s forwards;
+
+    @keyframes enable-home-text{
+        0%{
+            transform: translateX(-20px);
+            opacity:0;
+            display:inline-block;
+        }
+        100%{
+            transform: translateX(0px);
+            opacity:1;
+        }
+    }
 }

@@ -16,7 +16,11 @@ import contact_icon from '@icons/home ref/contact.svg'
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '@/features/desktop/tabManager/tabManager'
 
+import { useState } from 'react';
+
+
 function HomeTab(){
+    const [hoverName, setHover] = useState<boolean>(false);
     const { setTabStates } = useTabManager();
 
     const goPortfolioPage = () => {
@@ -47,11 +51,11 @@ function HomeTab(){
                     {/* TEXT COMPONENTS */}
                     <div className="flex flex-col col-span-2 text-center sm:text-start mx-[7%]">
                         <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3">welcome!</h1>
-                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] leading-none">i'm 
-                            <div className="group inline">
-                                <span className="inline group-hover:hidden" style={{ color: "#F39A5A" }}> Marcus</span>
-                                <span className="hidden group-hover:inline" style={{ color: "#F39A5A" }}> Macky </span>
-                            </div>
+                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] leading-none">i'm{" "}
+                            <span className="inline-grid" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+                                <span className={`[grid-area:1/1] ${hoverName ? 'animate-disable-home-text' : 'animate-enable-home-text'}`} style={{ color: "#F39A5A" }}>Marcus</span>
+                                <span className={`[grid-area:1/1] ${hoverName ? 'animate-enable-home-text' : 'animate-disable-home-text'}`} style={{ color: "#F39A5A" }}>Macky</span>
+                            </span>
                         </h1>
                         <h2 className="text-secondary-blue text-[clamp(32px,2.5vw,40px)] italic font-['Arial'] font-[550] tracking-[-0.06em] leading-loose mt-4 hidden sm:block">college student and programmer</h2>
                     </div>
