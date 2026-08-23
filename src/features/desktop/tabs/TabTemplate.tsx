@@ -19,7 +19,7 @@ interface TabTemplateProps{
     headerDetails: HeaderDetails;
 }
 
-export function TabTemplate({thisTab, headerDetails} : TabTemplateProps, {children} : PropsWithChildren){
+export function TabTemplate({thisTab, headerDetails, children} : TabTemplateProps & PropsWithChildren){
     const { setTabStates, tabState } = useTabManager();
     const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);

@@ -2,6 +2,9 @@
 import icon from '@icons/tab/about.svg'
 import Chip from '@/components/chip/Chip.tsx'
 
+import {TabTemplate, type HeaderDetails} from './TabTemplate'
+import {Tabs} from '../tabManager/tabManager'
+
 import "./AboutMe.css"
 import "../Desktop.css"
 
@@ -9,13 +12,18 @@ import dlsu from '@/assets/dlsu.webp'
 import ciit from '@/assets/ciit.webp'
 
 function AboutMe() {
-    
+
+    const headerDetails : HeaderDetails = {
+        icon: icon,
+        name: 'about'
+    }
+
     const goURL = (link : string) => {
         window.open(link);
     }
 
     return(
-        <>
+        <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails}>
             <div className="tab-scrollable">
                 {/* GENERAL INFORMATION SECTION */}
                 <div className='section-style'>
@@ -113,7 +121,7 @@ function AboutMe() {
                     <p className="paragraph mt-[1%]">just a couple of interesting details you may want to know! c:</p>
                 </div>
             </div>
-        </>
+        </TabTemplate>
     )
 }
 
