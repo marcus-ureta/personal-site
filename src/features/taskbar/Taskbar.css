@@ -1,0 +1,7 @@
+@reference "@/index.css";
+
+@layer utilities{
+    .icon-styling{
+        @apply w-fit h-auto cursor-pointer hover:bg-[var(--color-primary-blue)]/30 px-1
+    }
+}
