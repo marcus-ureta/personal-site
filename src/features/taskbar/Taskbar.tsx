@@ -43,7 +43,7 @@ function Taskbar(){
     const [currentTime, setCurrentTime] = useState<Date>(now);
 
     return(
-        <footer className="hidden sm:flex">
+        <footer className="hidden sm:flex animate-fade-in-up">
             <div className="flex flex-1 ml-[1.5%] gap-x-[2%] select-none">
                 <img src={hoveredIcon === 0 ? home_hover : home_icon} className="icon-styling border-b-2 border-secondary-blue" 
                 onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}/>
