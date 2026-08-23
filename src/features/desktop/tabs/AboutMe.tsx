@@ -34,7 +34,9 @@ function AboutMe() {
                 {/* GENERAL INFORMATION SECTION */}
                 <div className='section-style'>
                     <h2 className="header-text">GENERAL INFORMATION</h2>
-                    <p className="paragraph">hi! i'm Marcus Timothy Ureta, a computer science student currently studying at <span className="text-[#087830] font-semibold">De La Salle University</span>.  i do...</p>
+                    <p className="paragraph">hi! i'm Marcus Timothy Ureta, a computer science student currently studying at {" "}
+                        <span className="text-[#087830] font-semibold transition-all duration-300 hover:bg-linear-to-br hover:from-[#33A65B] hover:to-[#7CB35F] hover:bg-clip-text hover:text-transparent">De La Salle University</span>.  
+                    i do...</p>
                     <ul className="list-disc list-inside -space-y-0.5 paragraph">
                         <li>game development</li>
                         <li>web development</li>
