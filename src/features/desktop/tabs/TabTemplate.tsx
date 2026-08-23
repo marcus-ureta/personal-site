@@ -35,7 +35,8 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
     const currentTabState = tabState.find(tab => tab.Tab == thisTab);
     const checkTabState : boolean = currentTabState?.Status == (TabStatus.Closed);
 
-    const tabSize : string = `sm:w-[${tabDetails.width}vw] sm:h-[${tabDetails.height}vh]`
+    const tabSize : string = `sm:w-[${tabDetails.width}vw] sm:h-[${tabDetails.height}vh]`;
+    const tabPos : string = `sm:left-[${tabDetails.leftPos}%]`;
 
     const nodeRef = useRef(null);
 
@@ -74,7 +75,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col h-[100dvh] ${tabSize} 
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%]`} 
+                    overflow-hidden z-3 left-0 pb-8 sm:pb-[3px] ${tabPos}`} 
                     ref={nodeRef}
                 >
                     <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={Tabs.About}/>
