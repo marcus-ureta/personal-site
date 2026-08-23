@@ -14,18 +14,28 @@ export interface HeaderDetails{
     name: string;
 }
 
+export interface TabDetails{
+    width: number;
+    height: number;
+    leftPos?: number;
+    topPos?: number;
+}
+
 interface TabTemplateProps{
     thisTab: Tabs;
     headerDetails: HeaderDetails;
+    tabDetails: TabDetails;
 }
 
-export function TabTemplate({thisTab, headerDetails, children} : TabTemplateProps & PropsWithChildren){
+export function TabTemplate({thisTab, headerDetails, tabDetails, children} : TabTemplateProps & PropsWithChildren){
     const { setTabStates, tabState } = useTabManager();
     const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
     
     const currentTabState = tabState.find(tab => tab.Tab == thisTab);
     const checkTabState : boolean = currentTabState?.Status == (TabStatus.Closed);
+
+    const tabSize : string = `sm:w-[${tabDetails.width}vw] sm:h-[${tabDetails.height}vh]`
 
     const nodeRef = useRef(null);
 
@@ -62,7 +72,7 @@ export function TabTemplate({thisTab, headerDetails, children} : TabTemplateProp
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div 
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
-                    flex flex-col w-screen sm:w-[58vw] h-[100dvh] sm:h-[60vh] 
+                    flex flex-col h-[100dvh] ${tabSize} 
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
                     overflow-hidden z-3 left-0 pb-8 sd:pb-0 sd:left-[10%]`} 
                     ref={nodeRef}

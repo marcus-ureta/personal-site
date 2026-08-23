@@ -2,7 +2,7 @@
 import icon from '@icons/tab/about.svg'
 import Chip from '@/components/chip/Chip.tsx'
 
-import {TabTemplate, type HeaderDetails} from './TabTemplate'
+import {TabTemplate, type HeaderDetails, type TabDetails} from './TabTemplate'
 import {Tabs} from '../tabManager/tabManager'
 
 import "./AboutMe.css"
@@ -18,12 +18,18 @@ function AboutMe() {
         name: 'about'
     }
 
+    const tabDetails : TabDetails = {
+        width: 58,
+        height: 60,
+        leftPos: 10,
+    }
+
     const goURL = (link : string) => {
         window.open(link);
     }
 
     return(
-        <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails}>
+        <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
                 {/* GENERAL INFORMATION SECTION */}
                 <div className='section-style'>
