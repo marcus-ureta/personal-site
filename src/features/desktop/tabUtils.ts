@@ -1,3 +1,6 @@
+import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
+import { Tabs, TabStatus } from '@/features/desktop/tabManager/tabManager'
+
 
 export function getTabContainerStyle(): string{
     return [
@@ -22,4 +25,25 @@ export function getTabStyle(): string {
         "rounded-[11px]",
         "pointer-events-auto",
     ].join(" ");
+}
+
+export function useUpdatePage() {
+    const { setTabStates } = useTabManager();
+
+    const updatePage = (Tab: Tabs): void => {
+        setTabStates((previousTabs) => {
+            return previousTabs.map((tab) => {
+                if (tab.Tab === Tab) {
+                    return {
+                        ...tab,
+                        Status: TabStatus.Open,
+                    };
+                }
+
+                return tab;
+            });
+        });
+    };
+
+    return updatePage;
 }
