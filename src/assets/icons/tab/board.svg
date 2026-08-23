@@ -1,9 +1,1 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="64" height="64" fill="url(#pattern0_112_14)"/>
-<defs>
-<pattern id="pattern0_112_14" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_112_14" transform="scale(0.03125)"/>
-</pattern>
-<image id="image0_112_14" width="32" height="32" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA2klEQVR4AeyWgQ2CQAxF1Ul0E9zETRzFUXQUN8HXTyR3lWBi7mpCSn45j2L7bPGOw+7PRwJkBaoKjOM4YHeslyz2UD73FQCOG1bdwLylLPa1DOgBjubcdzosNmYQDJM8wHQ18JwAWYGsQFYgugJP1rgHNisUgBX+hJ3n7HwIBSDfh5oCsIfbdsuwKttxZ5CmAEStdjrmS7qUF1sDKDZ9XpSc7tQFwOVYnQqAjql37zuZ/6Rv33d+PQsCwKE3IcZIKacAaJj9PxlCpfVAAJE/2+dKgO1XwPfcz18AAAD//7btFBcAAAAGSURBVAMA9HvyQcCTnxYAAAAASUVORK5CYII="/>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" viewBox="0 0 256 256"><path d="M240,192h-8V168a8,8,0,0,0-8-8H160a8,8,0,0,0-8,8v24H40V56H216v80a8,8,0,0,0,16,0V56a16,16,0,0,0-16-16H40A16,16,0,0,0,24,56V192H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16Zm-72-16h48v16H168Z"></path></svg>
