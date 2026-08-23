@@ -32,11 +32,9 @@ function AboutMe() {
 
     useEffect(() => {
         if (currentTabState?.Status === TabStatus.Closing) {
-            console.log('attempting to close');
             setClosingAnim(true);
 
             setTimeout(() => {
-                console.log('closed!');
                 setClosingAnim(false);
 
                 setTabStates((previousTabs) => {
@@ -56,10 +54,6 @@ function AboutMe() {
             }, 200)
         }
     }, [currentTabState?.Status])
-
-    useEffect(() => {
-        console.log("tabStates changed:", tabState);
-    }, [tabState]);
 
     const nodeRef = useRef(null);
 
