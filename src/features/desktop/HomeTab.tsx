@@ -61,8 +61,8 @@ function HomeTab(){
 
                 {/*  ICONS */}
                 <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
-                    <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start" onClick={() => openPage(Tabs.About)}>
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                    <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={() => openPage(Tabs.About)}>
                             <img src={about_icon} className="icon-style"/>
                             <p className="icon-text">about</p>
                         </div>
