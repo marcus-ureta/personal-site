@@ -2,12 +2,12 @@
 import icon from '@icons/tab/about.svg'
 import Chip from '@/components/chip/Chip.tsx'
 
-import {TabTemplate, type HeaderDetails, type TabDetails} from './TabTemplate'
-import {Tabs} from '../tabManager/tabManager'
+import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
+import {Tabs} from '@/features/desktop/tabManager/tabManager'
 import { goURL } from '@/utils/webUtils'
 
 import "./AboutMe.css"
-import "../Desktop.css"
+import "@/features/desktop/Desktop.css"
 
 import dlsu from '@/assets/dlsu.webp'
 import ciit from '@/assets/ciit.webp'

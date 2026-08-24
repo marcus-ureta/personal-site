@@ -1,5 +1,5 @@
 
-import AboutMe from "./tabs/AboutMe.tsx"
+import AboutMe from "./tabs/about_tab/AboutMe.tsx"
 import HomeTab from "./HomeTab.tsx"
 
 import "./Desktop.css"
