@@ -28,7 +28,7 @@ function HomeTab(){
     const homeTabIndex : number = tabState.find(tab => tab.Tab === Tabs.Home)?.zIndex!;
 
     return(
-            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
+            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
                 style={{
                     '--tabIndex-value': `${homeTabIndex}`
                 } as React.CSSProperties}>
