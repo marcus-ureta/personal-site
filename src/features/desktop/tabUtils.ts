@@ -28,7 +28,8 @@ export function getTabStyle(): string {
 }
 
 export function useUpdatePage() {
-    const { setTabStates } = useTabManager();
+    const { tabState, setTabStates } = useTabManager();
+    const highestIndex : number = tabState.reduce((max, current) => current.zIndex > max.zIndex ? current : max, tabState[0]).zIndex + 1
 
     const updatePage = (Tab: Tabs): void => {
         setTabStates((previousTabs) => {
@@ -37,6 +38,7 @@ export function useUpdatePage() {
                     return {
                         ...tab,
                         Status: TabStatus.Open,
+                        zIndex: highestIndex
                     };
                 }
 

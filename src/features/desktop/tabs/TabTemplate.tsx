@@ -72,12 +72,13 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col w-screen h-[100dvh] sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-3 left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)]`} 
+                    overflow-hidden z-[var(--tabIndex-value)] left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)]`} 
                     ref={nodeRef}
                     style={{
                         '--tab-width': `${tabDetails.width}vw`,
                         '--tab-height': `${tabDetails.height}vh`,
                         '--tabPos-left': `${tabDetails.leftPos}%`,
+                        '--tabIndex-value': `${currentTabState?.zIndex}`
                     } as React.CSSProperties}
                 >
                     <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={thisTab}/>

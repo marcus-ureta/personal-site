@@ -61,7 +61,8 @@ function Taskbar(){
                     ${tabState.find(tab => tab.Tab === Tabs.About && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
                     onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}
                     onClick={() => updatePage(Tabs.About)}/>
-                <img src={hoveredIcon === 2 ? social_hover : social_icon} className="icon-styling cursor-pointer"
+                <img src={hoveredIcon === 2 ? social_hover : social_icon} className={`icon-styling cursor-pointer
+                    ${tabState.find(tab => tab.Tab === Tabs.Social && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
                     onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}
                     onClick={() => updatePage(Tabs.Social)}/>
                 <img src={hoveredIcon === 3 ? board_hover : board_icon} className="icon-styling cursor-pointer"

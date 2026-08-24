@@ -28,30 +28,30 @@ export const InitialTabStates: TabState[] = [
     {
         Tab: Tabs.About,
         Status: TabStatus.Closed,
-        zIndex: 0 
+        zIndex: 3
     },
 
     {
         Tab: Tabs.Social,
         Status: TabStatus.Closed,
-        zIndex: 0 
+        zIndex: 3 
     },
 
     {
         Tab: Tabs.Board,
         Status: TabStatus.Closed,
-        zIndex: 0 
+        zIndex: 3 
     },
 
     {
         Tab: Tabs.Blogs,
         Status: TabStatus.Closed,
-        zIndex: 0 
+        zIndex: 3 
     },
 
     {
         Tab: Tabs.Contact,
         Status: TabStatus.Closed,
-        zIndex: 0 
+        zIndex: 3 
     },
 ]
