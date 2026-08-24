@@ -9,8 +9,8 @@ import { goURL } from '@/utils/webUtils'
 import "./AboutMe.css"
 import "@/features/desktop/Desktop.css"
 
-import dlsu from '@/assets/dlsu.webp'
-import ciit from '@/assets/ciit.webp'
+import dlsu from '@/assets/tab-specific/about/dlsu.webp'
+import ciit from '@/assets/tab-specific/about/ciit.webp'
 
 function AboutMe() {
 

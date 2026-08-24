@@ -1,4 +1,4 @@
-import pfp from '@/assets/pfp.webp'
+import pfp from '@/assets/tab-specific/home/pfp.webp'
 
 import icon from '@icons/tab/home.svg'
 
