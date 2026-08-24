@@ -11,7 +11,7 @@ function App() {
     <>
       <Background/>
 
-      <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-5 pointer-events-none">© 2026 Marcus Ureta</h1>
+      <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-1 pointer-events-none">© 2026 Marcus Ureta</h1>
 
       <TabManagerProvider>
         <DesktopView/>

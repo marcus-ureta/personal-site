@@ -73,7 +73,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div 
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
-                    flex flex-col h-[100dvh] ${tabSize} 
+                    flex flex-col h-[100dvh] w-screen h-[100dvh] ${tabSize}
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
                     overflow-hidden z-3 left-0 pb-8 sm:pb-[3px] ${tabPos}`} 
                     ref={nodeRef}

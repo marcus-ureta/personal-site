@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from "react"
+import { useUpdatePage } from '@/features/desktop/tabUtils'
+import { Tabs } from '@/features/desktop/tabManager/tabManager'
 
 import bug_icon from '@/assets/icons/bug/bug icon.svg'
 import bug_hover from '@/assets/icons/bug/bug icon-hover.svg'
@@ -32,6 +34,8 @@ function Taskbar(){
     const [soundHover, setSoundHover] = useState<boolean>(false);
     const [bugHover, setBugHover] = useState<boolean>(false);
 
+    const updatePage = useUpdatePage();
+
     useEffect(() => {
         const interval = setInterval(() => {
         setCurrentTime(new Date());
@@ -47,8 +51,9 @@ function Taskbar(){
             <div className="flex flex-1 ml-[1.5%] gap-x-[2%] select-none">
                 <img src={hoveredIcon === 0 ? home_hover : home_icon} className="icon-styling border-b-2 border-secondary-blue" 
                 onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}/>
-                <img src={hoveredIcon === 1 ? about_hover : about_icon} className="icon-styling cursor-pointer"
-                onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 1 ? about_hover : about_icon} className={`icon-styling cursor-pointer`}
+                onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}
+                onClick={() => updatePage(Tabs.About)}/>
                 <img src={hoveredIcon === 2 ? social_hover : social_icon} className="icon-styling cursor-pointer"
                 onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 3 ? board_hover : board_icon} className="icon-styling cursor-pointer"
