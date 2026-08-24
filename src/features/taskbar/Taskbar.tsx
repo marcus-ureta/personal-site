@@ -58,7 +58,7 @@ function Taskbar(){
                 <img src={hoveredIcon === 1 ? about_hover : about_icon} className={`icon-styling cursor-pointer 
                     ${tabState.find(tab => tab.Tab === Tabs.About && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
                     onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}
-                onClick={() => updatePage(Tabs.About)}/>
+                    onClick={() => updatePage(Tabs.About)}/>
                 <img src={hoveredIcon === 2 ? social_hover : social_icon} className="icon-styling cursor-pointer"
                     onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 3 ? board_hover : board_icon} className="icon-styling cursor-pointer"

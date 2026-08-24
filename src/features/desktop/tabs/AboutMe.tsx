@@ -4,6 +4,7 @@ import Chip from '@/components/chip/Chip.tsx'
 
 import {TabTemplate, type HeaderDetails, type TabDetails} from './TabTemplate'
 import {Tabs} from '../tabManager/tabManager'
+import { goURL } from '@/utils/webUtils'
 
 import "./AboutMe.css"
 import "../Desktop.css"
@@ -22,10 +23,6 @@ function AboutMe() {
         width: 58,
         height: 60,
         leftPos: 10,
-    }
-
-    const goURL = (link : string) => {
-        window.open(link);
     }
 
     return(

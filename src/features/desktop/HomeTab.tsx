@@ -5,6 +5,7 @@ import icon from '@icons/tab/home.svg'
 import TabHeader from "./TabHeader"
 import {getTabStyle, useUpdatePage} from './tabUtils'
 import { Tabs } from '@/features/desktop/tabManager/tabManager'
+import { goURL } from '@/utils/webUtils'
 import "./Desktop.css"
 
 import about_icon from '@icons/home ref/about.svg'
@@ -21,11 +22,6 @@ import { useState } from 'react';
 function HomeTab(){
     const [hoverName, setHover] = useState<boolean>(false);
     const updatePage = useUpdatePage();
-
-    const goPortfolioPage = () => {
-        window.open('https://marcusureta-portfolio.vercel.app', '_blank');
-    }
-
 
     return(
             <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} z-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50%] sm:-translate-y-[54%] animate-fade-in-up`}>
@@ -66,7 +62,7 @@ function HomeTab(){
                             <p className="icon-text">socials</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={goPortfolioPage}>
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={() => goURL('https://marcusureta-portfolio.vercel.app')}>
                             <img src={portfolio_icon} className="icon-style"/>
                             <p className="icon-text">portfolio</p>
                         </div>
