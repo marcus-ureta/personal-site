@@ -49,3 +49,27 @@ export function useUpdatePage() {
 
     return updatePage;
 }
+
+export function useResetPage() {
+    const { setTabStates } = useTabManager();
+
+    const resetPage = () => {
+        setTabStates((previousTabs) => {
+            return previousTabs.map((tab) => {
+                if(tab.Tab !== Tabs.Home) return {
+                    ...tab,
+                    Status: TabStatus.Closed,
+                    zIndex: 2
+                }
+                else {
+                    return {
+                        ...tab,
+                        zIndex: 2
+                    }
+                }
+            })
+        })
+    }
+
+    return resetPage;
+}
