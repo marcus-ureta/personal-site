@@ -1,6 +1,8 @@
 
+@reference "@/index.css";
+
 @layer utilities{
     .home-icon-styling{
-        @apply flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all;
+        @apply flex flex-col items-center gap-y-2 cursor-pointer w-fit hover:-translate-y-1 transition-all;
     }
 }

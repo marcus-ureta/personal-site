@@ -66,35 +66,49 @@ function HomeTab(){
                 {/*  ICONS */}
                 <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
                     <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
-                        <div className={`home-icon-styling ${buttonClicked === 0 ? 'animate-open-icon' : ''}`} onClick={() => {setButtonClick(0); updatePage(Tabs.About)}}
+                        <div className={`group home-icon-styling ${buttonClicked === 0 ? 'animate-open-icon' : ''}`} 
+                        onClick={() => {setButtonClick(0); updatePage(Tabs.About)}}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={about_icon} className="icon-style"/>
                             <p className="icon-text">about</p>
                         </div>
 
-                        <div className="home-icon-styling" onClick={() => updatePage(Tabs.Social)}>
+                        <div className={`group home-icon-styling ${buttonClicked === 1 ? 'animate-open-icon' : ''}`} 
+                        onClick={() => {setButtonClick(1); updatePage(Tabs.Social)}}
+                        onAnimationEnd={() => setButtonClick(null)}>
                             <img src={socials_icon} className="icon-style"/>
                             <p className="icon-text">socials</p>
                         </div>
 
-                        <div className="home-icon-styling" onClick={() => goURL('https://marcusureta-portfolio.vercel.app')}>
+                        <div className={`group home-icon-styling ${buttonClicked === 2 ? 'animate-open-icon' : ''}`} 
+                        onClick={() => {setButtonClick(2); goURL('https://marcusureta-portfolio.vercel.app')}}
+                        onAnimationEnd={() => setButtonClick(null)}>
                             <img src={portfolio_icon} className="icon-style"/>
                             <p className="icon-text">portfolio</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
-                        <div className="home-icon-styling">
+                        <div className={`group home-icon-styling ${buttonClicked === 3 ? 'animate-open-icon' : ''}`}
+                        onClick={() => {setButtonClick(3); // PAGE UPDATE HERE
+                            }}
+                        onAnimationEnd={() => setButtonClick(null)}>
                             <img src={board_icon} className="icon-style"/>
                             <p className="icon-text">board</p>
                         </div>
 
-                        <div className="home-icon-styling">
+                        <div className={`group home-icon-styling ${buttonClicked === 4 ? 'animate-open-icon' : ''}`}
+                        onClick={() => {setButtonClick(4); // PAGE UPDATE HERE
+                            }}
+                        onAnimationEnd={() => setButtonClick(null)}>
                             <img src={blog_icon} className="icon-style"/>
                             <p className="icon-text">blogs</p>
                         </div>
 
-                        <div className="home-icon-styling">
+                        <div className={`group home-icon-styling ${buttonClicked === 5 ? 'animate-open-icon' : ''}`}
+                        onClick={() => {setButtonClick(5); // PAGE UPDATE HERE
+                            }}
+                        onAnimationEnd={() => setButtonClick(null)}>
                             <img src={contact_icon} className="icon-style"/>
                             <p className="icon-text">contact</p>
                         </div>
