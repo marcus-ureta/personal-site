@@ -7,7 +7,9 @@ import {getTabStyle, useUpdatePage} from '../../tabUtils'
 import { Tabs } from '@/features/desktop/tabManager/tabManager'
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { goURL } from '@/utils/webUtils'
+
 import "@/features/desktop/Desktop.css"
+import './HomeTab.css'
 
 import about_icon from '@icons/home ref/about.svg'
 import socials_icon from '@icons/home ref/share.svg'
@@ -21,6 +23,10 @@ import { useState } from 'react';
 
 
 function HomeTab(){
+
+    // Click Animation
+    const [buttonClicked, setButtonClick] = useState<number | null>(null);
+
     const [hoverName, setHover] = useState<boolean>(false);
     const { tabState } = useTabManager();
     const updatePage = useUpdatePage();
@@ -31,7 +37,8 @@ function HomeTab(){
             <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
                 style={{
                     '--tabIndex-value': `${homeTabIndex}`
-                } as React.CSSProperties}>
+            } as React.CSSProperties}>
+                    
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
                 {/* TAB COMPONENTS */}
@@ -59,34 +66,35 @@ function HomeTab(){
                 {/*  ICONS */}
                 <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
                     <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={() => updatePage(Tabs.About)}>
+                        <div className={`home-icon-styling ${buttonClicked === 0 ? 'animate-open-icon' : ''}`} onClick={() => {setButtonClick(0); updatePage(Tabs.About)}}
+                        onAnimationEnd={() => setButtonClick(null)}>
                             <img src={about_icon} className="icon-style"/>
                             <p className="icon-text">about</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={() => updatePage(Tabs.Social)}>
+                        <div className="home-icon-styling" onClick={() => updatePage(Tabs.Social)}>
                             <img src={socials_icon} className="icon-style"/>
                             <p className="icon-text">socials</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={() => goURL('https://marcusureta-portfolio.vercel.app')}>
+                        <div className="home-icon-styling" onClick={() => goURL('https://marcusureta-portfolio.vercel.app')}>
                             <img src={portfolio_icon} className="icon-style"/>
                             <p className="icon-text">portfolio</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                        <div className="home-icon-styling">
                             <img src={board_icon} className="icon-style"/>
                             <p className="icon-text">board</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                        <div className="home-icon-styling">
                             <img src={blog_icon} className="icon-style"/>
                             <p className="icon-text">blogs</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                        <div className="home-icon-styling">
                             <img src={contact_icon} className="icon-style"/>
                             <p className="icon-text">contact</p>
                         </div>

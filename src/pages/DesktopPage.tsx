@@ -10,7 +10,7 @@ function DesktopPage(){
         <>
             <Background/>
 
-            <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-1 pointer-events-none text-sm sm:text-l">© 2026 Marcus Ureta</h1>
+            <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-1 pointer-events-none text-sm sm:text-[18px]">© 2026 Marcus Ureta</h1>
 
             <TabManagerProvider>
                 <DesktopView/>
