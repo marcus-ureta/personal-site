@@ -35,9 +35,6 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
     const currentTabState = tabState.find(tab => tab.Tab == thisTab);
     const checkTabState : boolean = currentTabState?.Status == (TabStatus.Closed);
 
-    const tabSize : string = `sm:w-[${tabDetails.width}vw] sm:h-[${tabDetails.height}vh]`;
-    const tabPos : string = `sm:left-[${tabDetails.leftPos}%]`;
-
     const nodeRef = useRef(null);
 
     useEffect(() => {
@@ -73,10 +70,15 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
             <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div 
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
-                    flex flex-col w-screen h-[100dvh] ${tabSize}
+                    flex flex-col w-screen h-[100dvh] sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-3 left-0 pb-8 sm:pb-[3px] ${tabPos}`} 
+                    overflow-hidden z-3 left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)]`} 
                     ref={nodeRef}
+                    style={{
+                        '--tab-width': `${tabDetails.width}vw`,
+                        '--tab-height': `${tabDetails.height}vh`,
+                        '--tabPos-left': `${tabDetails.leftPos}`,
+                    } as React.CSSProperties}
                 >
                     <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={Tabs.About}/>
                     {children}
