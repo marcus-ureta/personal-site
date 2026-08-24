@@ -1,22 +1,19 @@
-import Background from './components/moving_background/Background.tsx'
-import './App.css'
 
-import DesktopView from './features/desktop/DesktopView.tsx'
-import { TabManagerProvider } from './features/desktop/tabManager/TabManagerContext.tsx'
-import Taskbar from './features/taskbar/Taskbar.tsx'
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
+
+import DesktopPage from './pages/DesktopPage';
+import BugReportPage from './pages/BugReportPage';
 
 function App() {
 
   return (
     <>
-      <Background/>
-
-      <h1 className="relative font-['Arial'] mt-2 text-right mr-3 z-1 pointer-events-none">© 2026 Marcus Ureta</h1>
-
-      <TabManagerProvider>
-        <DesktopView/>
-        <Taskbar/>
-      </TabManagerProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DesktopPage/>}/>
+          <Route path="/bug-report" element={<BugReportPage/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
