@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import { useUpdatePage } from '@/features/desktop/tabUtils'
 import { Tabs, TabStatus } from '@/features/desktop/tabManager/tabManager'
 
+import { Link } from 'react-router-dom'
+
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 
 import bug_icon from '@/assets/icons/bug/bug icon.svg'
@@ -70,8 +72,10 @@ function Taskbar(){
             </div>
     
             <div className="flex items-center gap-4 mr-8 mx-auto sm:ml-auto min-h-18.75">
-                <img src={bugHover ? bug_hover : bug_icon} alt="Bug Icon" onMouseEnter={() => 
+                <Link to="/bug-report">
+                    <img src={bugHover ? bug_hover : bug_icon} alt="Bug Icon" onMouseEnter={() => 
                     setBugHover(true)} onMouseLeave={() => setBugHover(false)}/>
+                </Link>
                 <img src={soundHover ? sound_hover : sound_icon} alt="Sound Icon" 
                     onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)}/>
                 <div className="flex flex-col -gap-y-1 hover:text-hover-white">
