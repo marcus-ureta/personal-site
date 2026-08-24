@@ -9,9 +9,9 @@ interface IconProps{
 
 function Icon({name, icon, url} : IconProps){
     return(
-        <div className="flex flex-col justify-center items-center cursor-pointer" onClick={() => {window.open(url)}}>
-            <img src={icon} alt={name} className="w-[80%] h-auto min-w-[48px]"/>
-            <h4 className="text-[clamp(18px,2vw+1rem,28px)] w-fit font-['Arial'] text-secondary-blue">{name}</h4>
+        <div className="group flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition-all" onClick={() => goURL(url)}>
+            <img src={icon} alt={name} className="w-[70%] h-auto min-w-[48px] hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)] transition-all"/>
+            <h4 className="text-[clamp(18px,2vw+1rem,28px)] w-fit font-['Arial'] text-secondary-blue group-hover:text-accent-teal transition-colors duration-100">{name}</h4>
         </div>
     )
 }
