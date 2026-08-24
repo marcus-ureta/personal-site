@@ -34,7 +34,7 @@ export const TabHeader = ({icon, name, isDraggable = true, tab}: HeaderProps) =>
     return( 
         isDraggable ?
             <>
-                <div className="handle-bar hidden sm:flex w-full bg-secondary-blue h-fit py-2 sm:py-3 rounded-t-[9px] items-center cursor-grab border-[#2c3d50] border-t-2 border-l-2 border-r-2 transition-all hover:bg-[#3b526c] hover:border-[#32465c]" onClick={() => updatePage(tab!)}>
+                <div className="handle-bar hidden sm:flex w-full bg-secondary-blue h-fit py-2 sm:py-3 rounded-t-[9px] items-center cursor-grab border-[#2c3d50] border-t-2 border-l-2 border-r-2 transition-all hover:bg-[#3b526c] hover:border-[#32465c]" onMouseDown={() => updatePage(tab!)}>
                     <img src={icon} className="w-[30px] sm:w-[38px] h-auto object-cover ml-[6.65%] sm:ml-[2.65%] mr-[1.5%] select-none pointer-events-none"/>
                     <h2 className="text-white font-['Arial'] text-xl sm:text-2xl translate-y-0.5 select-none pointer-events-none">{name}</h2>
                     <h2 className="text-white font-['Arial'] text-xl sm:text-2xl translate-y-0.5 ml-auto mr-[3%] cursor-pointer" onClick={(e) => {e.stopPropagation(); closeTab(tab)}}>[x]</h2>
