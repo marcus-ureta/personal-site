@@ -1,5 +1,5 @@
 
-import { useUpdatePage } from './tabUtils';
+import { useUpdatePage } from '../tabUtils';
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '@/features/desktop/tabManager/tabManager'
 

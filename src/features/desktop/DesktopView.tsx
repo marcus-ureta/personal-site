@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 
 import AboutMe from "./tabs/about_tab/AboutMe.tsx"
-import HomeTab from "./HomeTab.tsx"
+import HomeTab from "./tabs/home_tab/HomeTab.tsx"
 import Social from "./tabs/social_tab/Social.tsx"
 
 import "./Desktop.css"

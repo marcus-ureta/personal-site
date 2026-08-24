@@ -4,7 +4,7 @@ import {getTabStyle} from '../tabUtils'
 import { useMediaQuery } from '@/utils/webUtils';
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '../tabManager/tabManager'
-import TabHeader from "@/features/desktop/TabHeader"
+import TabHeader from "@/features/desktop/tabs/TabHeader"
 
 import "@/features/desktop/Desktop.css"
 

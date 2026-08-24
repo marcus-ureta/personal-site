@@ -2,12 +2,12 @@ import pfp from '@/assets/tab-specific/home/pfp.webp'
 
 import icon from '@icons/tab/home.svg'
 
-import TabHeader from "./TabHeader"
-import {getTabStyle, useUpdatePage} from './tabUtils'
+import TabHeader from "../TabHeader"
+import {getTabStyle, useUpdatePage} from '../../tabUtils'
 import { Tabs } from '@/features/desktop/tabManager/tabManager'
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { goURL } from '@/utils/webUtils'
-import "./Desktop.css"
+import "@/features/desktop/Desktop.css"
 
 import about_icon from '@icons/home ref/about.svg'
 import socials_icon from '@icons/home ref/share.svg'
