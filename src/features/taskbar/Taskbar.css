@@ -4,4 +4,8 @@
     .icon-styling{
         @apply w-fit h-auto cursor-pointer hover:bg-[var(--color-primary-blue)]/30 px-1
     }
+
+    .active-window{
+        @apply border-b-2 border-secondary-blue
+    }
 }

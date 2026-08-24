@@ -1,7 +1,9 @@
 
 import { useState, useEffect } from "react"
 import { useUpdatePage } from '@/features/desktop/tabUtils'
-import { Tabs } from '@/features/desktop/tabManager/tabManager'
+import { Tabs, TabStatus } from '@/features/desktop/tabManager/tabManager'
+
+import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 
 import bug_icon from '@/assets/icons/bug/bug icon.svg'
 import bug_hover from '@/assets/icons/bug/bug icon-hover.svg'
@@ -28,6 +30,8 @@ import './Taskbar.css'
 
 function Taskbar(){
 
+    const { tabState } = useTabManager();
+
     const now: Date = new Date();
 
     const [hoveredIcon, setHoveredIcon] = useState<number | null>(null);
@@ -49,19 +53,20 @@ function Taskbar(){
     return(
         <footer className="hidden sm:flex animate-fade-in-up">
             <div className="flex flex-1 ml-[1.5%] gap-x-[2%] select-none">
-                <img src={hoveredIcon === 0 ? home_hover : home_icon} className="icon-styling border-b-2 border-secondary-blue" 
-                onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}/>
-                <img src={hoveredIcon === 1 ? about_hover : about_icon} className={`icon-styling cursor-pointer`}
-                onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}
+                <img src={hoveredIcon === 0 ? home_hover : home_icon} className="icon-styling active-window" 
+                    onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 1 ? about_hover : about_icon} className={`icon-styling cursor-pointer 
+                    ${tabState.find(tab => tab.Tab === Tabs.About && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
+                    onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}
                 onClick={() => updatePage(Tabs.About)}/>
                 <img src={hoveredIcon === 2 ? social_hover : social_icon} className="icon-styling cursor-pointer"
-                onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 3 ? board_hover : board_icon} className="icon-styling cursor-pointer"
-                onMouseEnter={() => setHoveredIcon(3)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(3)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 4 ? blog_hover : blog_icon} className="icon-styling cursor-pointer"
-                onMouseEnter={() => setHoveredIcon(4)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(4)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 5 ? contact_hover : contact_icon} className="icon-styling cursor-pointer-2"
-                onMouseEnter={() => setHoveredIcon(5)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(5)} onMouseLeave={() => setHoveredIcon(null)}/>
             </div>
     
             <div className="flex items-center gap-4 mr-8 mx-auto sm:ml-auto min-h-18.75">
