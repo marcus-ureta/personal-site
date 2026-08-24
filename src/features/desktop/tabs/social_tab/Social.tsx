@@ -38,7 +38,7 @@ function Social() {
                     <Icon name='facebook' icon={facebook} url='https://www.facebook.com/macky.ureta'/>
 
                     {/* odd one out until i figure out what to do with you */}
-                    <div className="group flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition-all">
+                    <div className="group flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition-all select-none">
                         <img src={discord} alt={'discord'} className="w-[70%] h-auto min-w-[48px] hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)] transition-all"/>
                         <h4 className="text-[clamp(18px,2vw+1rem,28px)] w-fit font-['Arial'] text-secondary-blue group-hover:text-accent-teal transition-colors duration-100 hover:drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)]">discord</h4>
                     </div>

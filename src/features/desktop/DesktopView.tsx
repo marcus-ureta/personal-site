@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import AboutMe from "./tabs/about_tab/AboutMe.tsx"
 import HomeTab from "./HomeTab.tsx"
@@ -13,13 +13,19 @@ import { useMediaQuery } from '@/utils/webUtils.ts'
 function DesktopView(){
 
     // Screen Check
+    const [screenReset, setScreenReset] = useState<boolean>(false);
     const screenCheck = useMediaQuery('(max-width: 639px)');
     const resetPage = useResetPage();
 
     useEffect(() => {
-        if(screenCheck) {
+        if(!screenReset && screenCheck) {
+            setScreenReset(true);
             resetPage();
-        }   
+        }
+
+        if(screenReset && !screenCheck) {
+            setScreenReset(false);
+        }
     }, [screenCheck, resetPage])
 
     return(

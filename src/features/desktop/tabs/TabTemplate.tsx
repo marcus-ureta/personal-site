@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, type PropsWithChildren,} from 'react';
 
 import {getTabStyle} from '../tabUtils'
+import { useMediaQuery } from '@/utils/webUtils';
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '../tabManager/tabManager'
 import TabHeader from "@/features/desktop/TabHeader"
@@ -37,6 +38,11 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
 
     const nodeRef = useRef(null);
 
+    // Check for screen size difference
+    const [remountKey, setRemountKey] = useState(0);
+    const [screenReset, setScreenReset] = useState<boolean>(false);
+    const screenCheck = useMediaQuery('(max-width: 639px)');
+
     useEffect(() => {
         if (currentTabState?.Status === TabStatus.Closing) {
             setClosingAnim(true);
@@ -60,6 +66,13 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
                 })
             }, 200)
         }
+
+        if(screenCheck && !screenReset) {
+            setScreenReset(true);
+            setRemountKey(prevKey => prevKey + 1);
+        }
+
+        if(screenReset && !screenCheck) setScreenReset(false);
     }, [currentTabState?.Status])
 
     return(
@@ -67,7 +80,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
             {/* GRAY BACKGROUND FOR MOBILE */}
             <div className={`${checkTabState ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0`}/>
 
-            <Draggable handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
+            <Draggable key={remountKey} defaultPosition={{ x: 0, y: 0 }} handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div 
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col w-screen h-[100dvh] sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
