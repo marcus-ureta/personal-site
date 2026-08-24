@@ -56,7 +56,8 @@ function Taskbar(){
         <footer className="hidden sm:flex animate-fade-in-up">
             <div className="flex flex-1 ml-[1.5%] gap-x-[2%] select-none">
                 <img src={hoveredIcon === 0 ? home_hover : home_icon} className="icon-styling active-window" 
-                    onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(0)} onMouseLeave={() => setHoveredIcon(null)}
+                    onClick={() => updatePage(Tabs.Home)}/>
                 <img src={hoveredIcon === 1 ? about_hover : about_icon} className={`icon-styling cursor-pointer 
                     ${tabState.find(tab => tab.Tab === Tabs.About && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
                     onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}

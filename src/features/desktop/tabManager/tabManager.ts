@@ -1,5 +1,6 @@
 
 export const Tabs = {
+    Home: "Home",
     About: "About",
     Social: "Social",
     Board: "Board",
@@ -25,6 +26,12 @@ export interface TabState{
 }
 
 export const InitialTabStates: TabState[] = [
+    {
+        Tab: Tabs.Home,
+        Status: TabStatus.Open,
+        zIndex: 2
+    },
+
     {
         Tab: Tabs.About,
         Status: TabStatus.Closed,

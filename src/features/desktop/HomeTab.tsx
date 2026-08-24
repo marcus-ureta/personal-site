@@ -5,6 +5,7 @@ import icon from '@icons/tab/home.svg'
 import TabHeader from "./TabHeader"
 import {getTabStyle, useUpdatePage} from './tabUtils'
 import { Tabs } from '@/features/desktop/tabManager/tabManager'
+import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { goURL } from '@/utils/webUtils'
 import "./Desktop.css"
 
@@ -21,10 +22,16 @@ import { useState } from 'react';
 
 function HomeTab(){
     const [hoverName, setHover] = useState<boolean>(false);
+    const { tabState } = useTabManager();
     const updatePage = useUpdatePage();
 
+    const homeTabIndex : number = tabState.find(tab => tab.Tab === Tabs.Home)?.zIndex!;
+
     return(
-            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} z-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50%] sm:-translate-y-[54%] animate-fade-in-up`}>
+            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[50%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
+                style={{
+                    '--tabIndex-value': `${homeTabIndex}`
+                } as React.CSSProperties}>
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
                 {/* TAB COMPONENTS */}
