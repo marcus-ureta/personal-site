@@ -57,7 +57,7 @@ function HomeTab(){
                             <p className="icon-text">about</p>
                         </div>
 
-                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all">
+                        <div className="flex flex-col items-center gap-y-2 cursor-pointer w-fit group hover:-translate-y-1 transition-all" onClick={() => updatePage(Tabs.Social)}>
                             <img src={socials_icon} className="icon-style"/>
                             <p className="icon-text">socials</p>
                         </div>

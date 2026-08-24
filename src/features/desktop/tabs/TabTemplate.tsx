@@ -46,7 +46,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
 
                 setTabStates((previousTabs) => {
                     const newTabs = previousTabs.map((tab) => {
-                        if (tab.Tab === Tabs.About) {
+                        if (tab.Tab === thisTab) {
                             return {
                                 ...tab,
                                 Status: TabStatus.Closed,
@@ -77,10 +77,10 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
                     style={{
                         '--tab-width': `${tabDetails.width}vw`,
                         '--tab-height': `${tabDetails.height}vh`,
-                        '--tabPos-left': `${tabDetails.leftPos}`,
+                        '--tabPos-left': `${tabDetails.leftPos}%`,
                     } as React.CSSProperties}
                 >
-                    <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={Tabs.About}/>
+                    <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={thisTab}/>
                     {children}
                 </div>
             </Draggable>

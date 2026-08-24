@@ -62,7 +62,8 @@ function Taskbar(){
                     onMouseEnter={() => setHoveredIcon(1)} onMouseLeave={() => setHoveredIcon(null)}
                     onClick={() => updatePage(Tabs.About)}/>
                 <img src={hoveredIcon === 2 ? social_hover : social_icon} className="icon-styling cursor-pointer"
-                    onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(2)} onMouseLeave={() => setHoveredIcon(null)}
+                    onClick={() => updatePage(Tabs.Social)}/>
                 <img src={hoveredIcon === 3 ? board_hover : board_icon} className="icon-styling cursor-pointer"
                     onMouseEnter={() => setHoveredIcon(3)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 4 ? blog_hover : blog_icon} className="icon-styling cursor-pointer"
