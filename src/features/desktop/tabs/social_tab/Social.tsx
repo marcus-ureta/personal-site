@@ -24,13 +24,15 @@ function Social() {
 
     return(
         <TabTemplate thisTab={Tabs.Social} headerDetails={headerDetails} tabDetails={tabDetails}>
-            <div className="grid grid-cols-3 gap-x-16 justify-center items-center h-full">
-                <Icon name='instagram' icon={instagram}/>
-                <p>cum</p>
-                <p>cum</p>
-                <p>cum</p>
-                <p>cum</p>
-                <p>cum</p>
+            <div className="tab-scrollable">
+                <div className="grid grid-cols-3 gap-x-16 h-full pt-[2%] min-w-0 max-w-[80%] mx-auto">
+                    <Icon name='instagram' icon={instagram} url='https://www.instagram.com/marcus__uretaah/'/>
+                    <Icon name='instagram' icon={instagram} url='https://www.instagram.com/marcus__uretaah/'/>
+                    <Icon name='instagram' icon={instagram} url='https://www.instagram.com/marcus__uretaah/'/>
+                    <Icon name='instagram' icon={instagram} url='https://www.instagram.com/marcus__uretaah/'/>
+                    <Icon name='instagram' icon={instagram} url='https://www.instagram.com/marcus__uretaah/'/>
+                    <Icon name='instagram' icon={instagram} url='https://www.instagram.com/marcus__uretaah/'/>
+                </div>
             </div>
         </TabTemplate>
     )
