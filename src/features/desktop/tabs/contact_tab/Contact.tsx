@@ -1,4 +1,5 @@
 
+
 import tab_icon from '@icons/tab/contact.svg'
 
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
@@ -19,8 +20,31 @@ function Contact() {
         leftPos: 20,
     }
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    async function handleSubmit(event : React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
+        const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: formData.get("name"),
+                email: formData.get("email"),
+                subject: formData.get("e_subject"),
+                message: formData.get("e_details"),
+            }),
+        });
+
+        if (response.ok) {
+            console.log('Went ok!');
+            form.reset();
+        } else {
+            console.log('Something went wrong!');
+        }
     }
 
     return(
@@ -30,15 +54,15 @@ function Contact() {
                     <h1 className='text-secondary-blue text-[clamp(40px,3.5vw,60px)] leading-normal'>want to get in touch?</h1>
                     <h2 className="font-['Arial'] text-secondary-blue text-[clamp(24px,2.5vw,32px)] wrap-break-word">work email: <span className="font-bold">marcustimothy.ureta@gmail.com</span></h2>
 
-                    <form onSubmit={onSubmit} className='flex flex-col bg-[#F3FAFF] border-secondary-blue border-2 mt-[3%] w-full mb-[2%]'>
+                    <form onSubmit={handleSubmit} className='flex flex-col bg-[#F3FAFF] border-secondary-blue border-2 mt-[3%] w-full mb-[2%]'>
                         <div className='flex flex-col gap-y-2 md:flex-row md:ml-[2%] mt-[2%]'>
                             <div className='flex flex-col gap-y-2 flex-1'>
-                                <input className='contact-input' placeholder='your name' name='name'/>
-                                <input className='contact-input' placeholder='your email' name='email'/>
-                                <input className='contact-input' placeholder='email subject' name='e_subject'/>
+                                <input className='contact-input' placeholder='your name' name='name' required/>
+                                <input className='contact-input' placeholder='your email' name='email' required/>
+                                <input className='contact-input' placeholder='email subject' name='e_subject' required/>
                             </div>
 
-                            <input className='contact-input flex-1' placeholder='email details' name='e_details'/>
+                            <input className='contact-input flex-1' placeholder='email details' name='e_details' required/>
                         </div>
 
                         <div className='flex flex-col md:flex-row gap-y-2 justify-between mx-[3%] my-[2%] items-center'>
