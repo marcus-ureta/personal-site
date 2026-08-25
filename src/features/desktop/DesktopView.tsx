@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import AboutMe from "./tabs/about_tab/AboutMe.tsx"
 import HomeTab from "./tabs/home_tab/HomeTab.tsx"
 import Social from "./tabs/social_tab/Social.tsx"
+import Contact from "./tabs/contact_tab/Contact.tsx"
 
 import "./Desktop.css"
 import { getTabContainerStyle, useResetPage } from "./tabUtils.ts"
@@ -30,6 +31,7 @@ function DesktopView(){
 
     return(
         <div className={getTabContainerStyle()}>
+            <Contact/>
             <Social/>
             <AboutMe/>
             <HomeTab/>

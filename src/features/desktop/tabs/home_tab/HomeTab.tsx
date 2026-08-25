@@ -106,7 +106,7 @@ function HomeTab(){
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 5 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(5); // PAGE UPDATE HERE
+                        onClick={() => {setButtonClick(5); updatePage(Tabs.Contact)
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={contact_icon} className="icon-style"/>

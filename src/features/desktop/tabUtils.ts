@@ -45,6 +45,8 @@ export function useUpdatePage() {
                 return tab;
             });
         });
+
+        console.log(tabState);
     };
 
     return updatePage;

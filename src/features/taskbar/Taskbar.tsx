@@ -71,7 +71,8 @@ function Taskbar(){
                 <img src={hoveredIcon === 4 ? blog_hover : blog_icon} className="icon-styling cursor-pointer"
                     onMouseEnter={() => setHoveredIcon(4)} onMouseLeave={() => setHoveredIcon(null)}/>
                 <img src={hoveredIcon === 5 ? contact_hover : contact_icon} className="icon-styling cursor-pointer-2"
-                    onMouseEnter={() => setHoveredIcon(5)} onMouseLeave={() => setHoveredIcon(null)}/>
+                    onMouseEnter={() => setHoveredIcon(5)} onMouseLeave={() => setHoveredIcon(null)}
+                    onClick={() => updatePage(Tabs.Contact)}/>
             </div>
     
             <div className="flex items-center gap-4 mr-8 mx-auto sm:ml-auto min-h-18.75">
