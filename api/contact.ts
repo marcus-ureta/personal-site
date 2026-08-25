@@ -1,8 +1,16 @@
+import process from "node:process";
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: any, res: any) {
+
+    console.log("CONTACT FUNCTION STARTED");
+    console.log(
+        "RESEND KEY EXISTS:",
+        Boolean(process.env.RESEND_API_KEY)
+    );
+
     if(req.method !== 'POST') {
         return res.status(405).json({
             error: 'Only accepting POST!',
@@ -19,15 +27,15 @@ export default async function handler(req: any, res: any) {
 
     try {
         await resend.emails.send({
-            from: "Website Contact <contact@marcusureta.dev>",
+            from: "From Personal Website <contact@marcusureta.dev>",
             to: ["marcustimothy.ureta@gmail.com"],
             replyTo: email,
             subject: subject,
             text: `
-                Name: ${name}
-                Email: ${email}
+Name: ${name}
+Email: ${email}
 
-                ${message}
+${message}
                 `,
         });
 
