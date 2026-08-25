@@ -1,0 +1,7 @@
+@reference "@/index.css";
+
+@layer utilities{
+    .contact-input{
+        @apply bg-[#D6E1E9];
+    }
+}
