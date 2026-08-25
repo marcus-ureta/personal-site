@@ -43,6 +43,7 @@ function Contact() {
                 email: formData.get("email"),
                 subject: formData.get("e_subject"),
                 message: formData.get("e_details"),
+                number: formData.get("phone"),
             }),
         });
 
@@ -71,11 +72,12 @@ function Contact() {
                         <div className='flex flex-col gap-y-2 md:flex-row md:ml-[2%] mt-[2%]'>
                             <div className='flex flex-col gap-y-2 flex-1'>
                                 <input className='contact-input' placeholder='your name' name='name' required/>
-                                <input className='contact-input' placeholder='your email' name='email' required/>
-                                <input type='email' className='contact-input' placeholder='email subject' name='e_subject' required/>
+                                <input type='email' className='contact-input' placeholder='your email' name='email' required/>
+                                <input className='contact-input' placeholder='email subject' name='e_subject' required/>
+                                <input className='contact-input absolute left-[-9999px] -z-10' placeholder='your number' name='phone' aria-hidden="true"/>
                             </div>
 
-                            <textarea className='contact-input flex-1 min-h-[180px] sm:min-h-[120px]' placeholder='email details' name='e_details' required/>
+                            <textarea className='contact-input flex-1 min-h-[180px] sm:min-h-[120px] resize-none' placeholder='email details' name='e_details' required/>
                         </div>
 
                         <div className='flex flex-col md:flex-row gap-y-2 justify-between mx-[3%] my-[2%] items-center'>

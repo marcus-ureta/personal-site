@@ -16,11 +16,18 @@ export default async function handler(req: any, res: any) {
         });
     }
 
-    const { name, email, subject, message } = req.body;
+    const { name, email, subject, message, phone } = req.body;
 
     if (!name || !email || !subject || !message) {
         return res.status(400).json({
             error: "Missing required fields",
+        });
+    }
+
+    if(phone !== null && phone !== undefined && phone !== '')
+    {
+        return res.status(400).json({
+            error: "bad request!",
         });
     }
 
