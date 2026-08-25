@@ -2,6 +2,6 @@
 
 @layer utilities{
     .contact-input{
-        @apply bg-[#D6E1E9];
+        @apply bg-[#D6E1E9] border-2 border-accent-teal rounded-[3px] py-[4px] px-[10px] mx-[3%] font-bold not-italic placeholder:italic font-['Arial'] tracking-[0.025em] placeholder-[#717171] text-secondary-blue;
     }
 }
