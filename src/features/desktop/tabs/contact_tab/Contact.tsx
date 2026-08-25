@@ -7,8 +7,12 @@ import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
 import "@/features/desktop/Desktop.css"
 import './Contact.css'
+import { useState } from 'react'
 
 function Contact() {
+
+    const [isEmailReq, setEmailReq] = useState<boolean | null>(null);
+
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
         name: 'contact'
@@ -21,6 +25,7 @@ function Contact() {
     }
 
     async function handleSubmit(event : React.FormEvent<HTMLFormElement>) {
+        setEmailReq(true);
         event.preventDefault();
 
         const form = event.currentTarget;
@@ -39,6 +44,8 @@ function Contact() {
             }),
         });
 
+        setEmailReq(null);
+
         if (response.ok) {
             console.log('Went ok!');
             form.reset();
@@ -50,6 +57,10 @@ function Contact() {
     return(
         <TabTemplate thisTab={Tabs.Contact} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
+                <div className={`${isEmailReq !== null ? '' : 'hidden'} absolute inset-0 bg-gray-500/50 h-[100%] w-[100%] grid place-items-center`}>
+                    <div className="h-16 w-16 animate-spin rounded-full border-4 border-white border-t-transparent"/>
+                </div>
+
                 <div className='mx-[20px] sm:mx-[5%] mt-[2.5%]'>
                     <h1 className='text-secondary-blue text-[clamp(40px,3.5vw,60px)] leading-normal'>want to get in touch?</h1>
                     <h2 className="font-['Arial'] text-secondary-blue text-[clamp(24px,2.5vw,32px)] wrap-break-word">work email: <span className="font-bold">marcustimothy.ureta@gmail.com</span></h2>
@@ -62,7 +73,7 @@ function Contact() {
                                 <input className='contact-input' placeholder='email subject' name='e_subject' required/>
                             </div>
 
-                            <input className='contact-input flex-1' placeholder='email details' name='e_details' required/>
+                            <textarea className='contact-input flex-1 min-h-[180px] sm:min-h-[120px]' placeholder='email details' name='e_details' required/>
                         </div>
 
                         <div className='flex flex-col md:flex-row gap-y-2 justify-between mx-[3%] my-[2%] items-center'>
