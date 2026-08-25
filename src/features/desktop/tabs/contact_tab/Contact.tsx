@@ -31,6 +31,8 @@ function Contact() {
         const form = event.currentTarget;
         const formData = new FormData(form);
 
+        
+
         const response = await fetch("/api/contact", {
             method: "POST",
             headers: {
@@ -70,7 +72,7 @@ function Contact() {
                             <div className='flex flex-col gap-y-2 flex-1'>
                                 <input className='contact-input' placeholder='your name' name='name' required/>
                                 <input className='contact-input' placeholder='your email' name='email' required/>
-                                <input className='contact-input' placeholder='email subject' name='e_subject' required/>
+                                <input type='email' className='contact-input' placeholder='email subject' name='e_subject' required/>
                             </div>
 
                             <textarea className='contact-input flex-1 min-h-[180px] sm:min-h-[120px]' placeholder='email details' name='e_details' required/>
