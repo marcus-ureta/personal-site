@@ -66,7 +66,9 @@ function Contact() {
 
                 <div className='mx-[20px] sm:mx-[5%] mt-[2.5%]'>
                     <h1 className='text-secondary-blue text-[clamp(40px,3.5vw,60px)] leading-normal'>want to get in touch?</h1>
-                    <h2 className="font-['Arial'] text-secondary-blue text-[clamp(24px,2.5vw,32px)] wrap-break-word">work email: <span className="font-bold">marcustimothy.ureta@gmail.com</span></h2>
+                    <h2 className="font-['Arial'] text-secondary-blue text-[clamp(24px,2.5vw,32px)] wrap-break-word">work email: <span className="font-bold hover:text-accent-teal hover:[-webkit-text-stroke:0.25px_#2F4156] transition-all duration-200">
+                        <a href="mailto:marcustimothy.ureta@gmail.com">marcustimothy.ureta@gmail.com</a>
+                    </span></h2>
 
                     <form onSubmit={handleSubmit} className='flex flex-col bg-[#F3FAFF] border-secondary-blue border-2 mt-[3%] w-full mb-[2%]'>
                         <div className='flex flex-col gap-y-2 md:flex-row md:ml-[2%] mt-[2%]'>
