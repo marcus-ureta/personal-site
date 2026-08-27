@@ -43,7 +43,7 @@ function Contact() {
                 email: formData.get("email"),
                 subject: formData.get("e_subject"),
                 message: formData.get("e_details"),
-                number: formData.get("phone"),
+                phone: formData.get("phone"),
             }),
         });
 
