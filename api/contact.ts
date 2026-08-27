@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { getClientIp, isRateLimited } from './rateLimit';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -62,6 +63,15 @@ export default async function handler(req: any, res: any) {
             error: subject.length <= 5 ? "Subject Email too short!" : "Subject Email too long!",
         });
     }
+
+    const ip = getClientIp(req);
+
+    if (isRateLimited(ip)) {
+        return res.status(429).json({
+            error: "Too many submissions. Please try again later.",
+        });
+    }
+
 
     try {
         await resend.emails.send({
