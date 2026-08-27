@@ -8,7 +8,7 @@ type PopupManagerContextType = {
 
 const PopupManagerContext = createContext<PopupManagerContextType | null>(null);
 
-export function TabManagerProvider({children} : PropsWithChildren){
+export function PopupManagerProvider({children} : PropsWithChildren){
     const [popupState, setPopupState] = useState<PopupStates[]>(InitialPopupStates);
 
     return(

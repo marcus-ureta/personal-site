@@ -5,7 +5,8 @@ export const Tabs = {
     Social: "Social",
     Board: "Board",
     Blogs: "Blogs",
-    Contact: "Contact"
+    Contact: "Contact",
+    Popup: "Popup"
 } as const
 
 export type Tabs = typeof Tabs[keyof typeof Tabs];
@@ -58,6 +59,12 @@ export const InitialTabStates: TabState[] = [
 
     {
         Tab: Tabs.Contact,
+        Status: TabStatus.Closed,
+        zIndex: 3 
+    },
+
+    {
+        Tab: Tabs.Popup,
         Status: TabStatus.Closed,
         zIndex: 3 
     },

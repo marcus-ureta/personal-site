@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { PopupManagerProvider } from '@/features/desktop/popupManager/popupManagerContext.tsx';
 
 import AboutMe from "./tabs/about_tab/AboutMe.tsx"
 import HomeTab from "./tabs/home_tab/HomeTab.tsx"
@@ -31,7 +32,11 @@ function DesktopView(){
 
     return(
         <div className={getTabContainerStyle()}>
-            <Contact/>
+
+            <PopupManagerProvider>
+                <Contact/>
+            </PopupManagerProvider>
+            
             <Social/>
             <AboutMe/>
             <HomeTab/>
