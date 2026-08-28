@@ -10,13 +10,14 @@ import "@/features/desktop/Desktop.css"
 function Board() {
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
-        name: 'social'
+        name: 'board'
     }
 
     const tabDetails : TabDetails = {
-        width: 36,
-        height: 50,
-        leftPos: 20,
+        width: 62,
+        height: 65,
+        leftPos: 10,
+        topPos: 20
     }
 
     return(

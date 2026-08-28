@@ -91,12 +91,13 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '',
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col w-screen ${fitHeightMobile ? 'h-fit' : 'h-[100dvh]'} sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-[var(--tabIndex-value)] left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)] ${cssStyling}`} 
+                    overflow-hidden z-[var(--tabIndex-value)] left-0 top-[6%] sm:top-[var(--tabPos-top)] pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)] ${cssStyling}`} 
                     ref={nodeRef}
                     style={{
                         '--tab-width': `${tabDetails.width}vw`,
                         '--tab-height': `${tabDetails.height}vh`,
                         '--tabPos-left': `${tabDetails.leftPos}%`,
+                        '--tabPos-top': `${tabDetails.topPos}%`,
                         '--tabIndex-value': `${currentTabState?.zIndex}`,
                     } as React.CSSProperties}
                 >
