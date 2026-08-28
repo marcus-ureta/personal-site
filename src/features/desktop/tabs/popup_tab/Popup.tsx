@@ -29,9 +29,9 @@ function FailurePopup() {
 
     return(
         <>
-            <h1 className="header-text">failed to send email :c</h1>
+            <h1 className="heading">failed to send email :c</h1>
             <img src={failure}/>
-            <p>error message</p>
+            <p className="detail-text">error message</p>
         </>
     )
 }
@@ -41,9 +41,9 @@ function SuccessPopup() {
 
     return(
         <>
-            <h1 className="header-text">your email has been sent!</h1>
+            <h1 className="heading">your email has been sent!</h1>
             <img src={success}/>
-            <p>i'll reach out as soon as possible, thank you!</p>
+            <p className="detail-text">i'll reach out as soon as possible, thank you!</p>
         </>
     )
 }
@@ -61,7 +61,7 @@ function Popup() {
 
     const tabDetails : TabDetails = {
         width: 29,
-        height: 39,
+        height: 42,
         leftPos: 20,
     }
 

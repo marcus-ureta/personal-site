@@ -2,7 +2,7 @@
 
 @layer utilities{
     .heading{
-        @apply font-['Jost'] text-secondary-blue text-[clamp(40px,3.5vw,60px)] font-normal text-center
+        @apply font-['Jost'] text-secondary-blue text-[clamp(40px,3.5vw,60px)] font-normal text-center leading-tight
     }
 
     .detail-text{
