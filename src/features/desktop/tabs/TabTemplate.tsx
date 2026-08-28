@@ -94,7 +94,6 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '',
                         '--tab-height': `${tabDetails.height}vh`,
                         '--tabPos-left': `${tabDetails.leftPos}%`,
                         '--tabIndex-value': `${currentTabState?.zIndex}`,
-                        '--dragColor': 'accent-teal'
                     } as React.CSSProperties}
                 >
                     <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={thisTab} cssStyling={headerStyling}/>
