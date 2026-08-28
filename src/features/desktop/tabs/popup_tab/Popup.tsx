@@ -86,7 +86,7 @@ function Popup() {
     const styles = popupStyles[activeTab?.Tab ?? PopupTabs.Warning];
 
     return(
-        <TabTemplate thisTab={Tabs.Popup} headerDetails={headerDetails} tabDetails={tabDetails} 
+        <TabTemplate thisTab={Tabs.Popup} headerDetails={headerDetails} tabDetails={tabDetails}  fitHeightMobile={true}
         cssStyling={`${styles.tab}`}
         headerStyling={styles.header}>
             <div className="tab-scrollable">

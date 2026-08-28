@@ -28,9 +28,10 @@ interface TabTemplateProps{
     tabDetails: TabDetails;
     cssStyling?: string;
     headerStyling?: string;
+    fitHeightMobile?: boolean;
 }
 
-export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '', headerStyling = '', children} : TabTemplateProps & PropsWithChildren){
+export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '', headerStyling = '', fitHeightMobile = false, children} : TabTemplateProps & PropsWithChildren){
     const { setTabStates, tabState } = useTabManager();
     const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -80,12 +81,15 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '',
     return(
         <>
             {/* GRAY BACKGROUND FOR MOBILE */}
-            <div className={`${checkTabState ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0`}/>
+            <div className={`${checkTabState ? 'hidden' : 'block'} sm:hidden fixed w-screen h-screen bg-[#525252]/40 top-0 z-[var(--tabIndex-value)]`}
+            style={{
+                '--tabIndex-value': `${currentTabState?.zIndex}`,
+            } as React.CSSProperties}/>
 
             <Draggable key={remountKey} handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
                 <div
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
-                    flex flex-col w-screen h-[100dvh] sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
+                    flex flex-col w-screen ${fitHeightMobile ? 'h-fit' : 'h-[100dvh]'} sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
                     overflow-hidden z-[var(--tabIndex-value)] left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)] ${cssStyling}`} 
                     ref={nodeRef}
