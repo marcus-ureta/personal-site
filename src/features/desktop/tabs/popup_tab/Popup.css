@@ -1,0 +1,11 @@
+@reference "@/index.css";
+
+@layer utilities{
+    .heading{
+        @apply font-['Jost'] text-secondary-blue text-[clamp(40px,3.5vw,60px)] font-normal text-center
+    }
+
+    .detail-text{
+        @apply font-['Arial'] text-secondary-blue text-[clamp(12px,2.5vw,20px)] text-center
+    }
+}
