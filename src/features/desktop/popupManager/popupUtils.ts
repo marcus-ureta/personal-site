@@ -31,3 +31,25 @@ export function useShowPopup() {
 
     return showPopUp;
 }
+
+export function useUpdateErrorMessage(){
+    const { setPopupState } = usePopupManager();
+
+    const updateErrorMessage = (error : string) => {
+        setPopupState((prevPopups) => {
+            return prevPopups.map((popup) => {
+                if(popup.Tab === PopupTabs.Failure)
+                {
+                    return{
+                        ...popup,
+                        detailMessage: error
+                    }
+                }
+
+                return popup;
+            })
+        })
+    }
+
+    return updateErrorMessage;
+}

@@ -22,6 +22,7 @@ export interface PopupStates{
     Tab: PopupTabs;
     State: State;
     Icon: string;
+    detailMessage?: string;
 }
 
 export const InitialPopupStates : PopupStates[] = [
@@ -35,6 +36,7 @@ export const InitialPopupStates : PopupStates[] = [
         Tab: PopupTabs.Failure,
         State: State.Inactive,
         Icon: failed,
+        detailMessage: '',
     },
 
     {

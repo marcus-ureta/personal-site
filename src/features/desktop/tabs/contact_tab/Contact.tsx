@@ -1,5 +1,5 @@
 
-import { useShowPopup } from '@/features/desktop/popupManager/popupUtils'
+import { useShowPopup, useUpdateErrorMessage } from '@/features/desktop/popupManager/popupUtils'
 import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 
 import tab_icon from '@icons/tab/contact.svg'
@@ -14,7 +14,9 @@ import { useState } from 'react'
 function Contact() {
 
     const [isEmailReq, setEmailReq] = useState<boolean | null>(null);
+    
     const showPopUp = useShowPopup();
+    const updateErrorMessage = useUpdateErrorMessage();
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
@@ -58,6 +60,9 @@ function Contact() {
             form.reset();
         } else {
             showPopUp(PopupTabs.Failure);
+
+            const data = await response.json();
+            updateErrorMessage(data.error);
             console.log('Something went wrong!');
         }
     }

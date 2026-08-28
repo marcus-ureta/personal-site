@@ -36,7 +36,7 @@ export default async function handler(req: any, res: any) {
     if(!isValidEmail(email))
     {
         return res.status(400).json({
-            error: "Email is not valid!",
+            error: "email is not valid!",
         });
     }
 
@@ -44,7 +44,7 @@ export default async function handler(req: any, res: any) {
     if(name.length < 2 || name.length >= 40)
     {
         return res.status(400).json({
-            error: name.length < 2 ? "Name is too short!" : "Name is too long!",
+            error: name.length < 2 ? "name is too short!" : "name is too long!",
         });
     }
 
@@ -52,7 +52,7 @@ export default async function handler(req: any, res: any) {
     if(message.length <= 10)
     {
         return res.status(400).json({
-            error: "Email message is too short!",
+            error: "email message is too short!",
         });
     }
 
@@ -60,7 +60,7 @@ export default async function handler(req: any, res: any) {
     if(subject.length <= 5 || subject.length >= 50)
     {
         return res.status(400).json({
-            error: subject.length <= 5 ? "Subject Email too short!" : "Subject Email too long!",
+            error: subject.length <= 5 ? "subject email too short!" : "subject email too long!",
         });
     }
 
@@ -68,7 +68,7 @@ export default async function handler(req: any, res: any) {
 
     if (isRateLimited(ip)) {
         return res.status(429).json({
-            error: "Too many submissions. Please try again later.",
+            error: "too many submissions! please try again later.",
         });
     }
 
@@ -94,7 +94,7 @@ ${message}
             console.error(error);
 
             return res.status(500).json({
-                error: "Failed to send email",
+                error: "Could not send email at this time. Please try again another time.",
             });
     }
 }

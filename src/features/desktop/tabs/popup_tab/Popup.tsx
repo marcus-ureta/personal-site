@@ -24,14 +24,14 @@ function WarningPopup() {
     )
 }
 
-function FailurePopup() {
+function FailurePopup({errorMessage} : {errorMessage : string}) {
     console.log('Failure!');
 
     return(
         <>
             <h1 className="heading">failed to send email :c</h1>
             <img src={failure}/>
-            <p className="detail-text">error message</p>
+            <p className="detail-text">{errorMessage}</p>
         </>
     )
 }
@@ -93,7 +93,7 @@ function Popup() {
                 <div className='flex flex-col justify-center items-center mx-[5%] my-[3%] h-[90%]'>
                     {activeTab?.Tab === PopupTabs.Success ? <SuccessPopup/> : ''}
                     {activeTab?.Tab === PopupTabs.Warning ? <WarningPopup/> : ''}
-                    {activeTab?.Tab === PopupTabs.Failure ? <FailurePopup/> : ''}
+                    {activeTab?.Tab === PopupTabs.Failure ? <FailurePopup errorMessage={activeTab.detailMessage!}/> : ''}
                 </div>
             </div>
         </TabTemplate>
