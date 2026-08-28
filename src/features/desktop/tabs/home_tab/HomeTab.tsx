@@ -90,7 +90,7 @@ function HomeTab(){
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
                         <div className={`group home-icon-styling ${buttonClicked === 3 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(3); // PAGE UPDATE HERE
+                        onClick={() => {setButtonClick(3); updatePage(Tabs.Board);
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={board_icon} className="icon-style"/>
