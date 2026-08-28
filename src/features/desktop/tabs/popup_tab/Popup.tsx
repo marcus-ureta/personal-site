@@ -1,6 +1,4 @@
 
-import tab_icon from '@icons/tab/social.svg'
-
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
