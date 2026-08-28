@@ -1,4 +1,6 @@
 
+import { useShowPopup } from '@/features/desktop/popupManager/popupUtils'
+import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 
 import tab_icon from '@icons/tab/contact.svg'
 
@@ -12,6 +14,7 @@ import { useState } from 'react'
 function Contact() {
 
     const [isEmailReq, setEmailReq] = useState<boolean | null>(null);
+    const showPopUp = useShowPopup();
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
@@ -50,9 +53,11 @@ function Contact() {
         setEmailReq(null);
 
         if (response.ok) {
+            showPopUp(PopupTabs.Success);
             console.log('Went ok!');
             form.reset();
         } else {
+            showPopUp(PopupTabs.Failure);
             console.log('Something went wrong!');
         }
     }

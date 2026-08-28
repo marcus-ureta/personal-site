@@ -3,11 +3,11 @@ import { PopupTabs, State } from "./popupManager";
 import { useUpdatePage } from "../tabUtils";
 import { Tabs } from "../tabManager/tabManager";
 
-export function useShowPopup(selectedTab : PopupTabs) {
+export function useShowPopup() {
     const { setPopupState } = usePopupManager();
     const updatePage = useUpdatePage();
 
-    const showPopUp = (): void => {
+    const showPopUp = (selectedTab : PopupTabs): void => {
         setPopupState((prevPopups) => {
             return prevPopups.map((popup) => {
                 if(popup.Tab === selectedTab) {
