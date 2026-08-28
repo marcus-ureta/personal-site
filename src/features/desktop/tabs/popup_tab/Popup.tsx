@@ -90,7 +90,7 @@ function Popup() {
         cssStyling={`${styles.tab}`}
         headerStyling={styles.header}>
             <div className="tab-scrollable">
-                <div className='flex flex-col justify-center items-center mx-[5%] my-[3%] '>
+                <div className='flex flex-col justify-center items-center mx-[5%] my-[3%] h-[90%]'>
                     {activeTab?.Tab === PopupTabs.Success ? <SuccessPopup/> : ''}
                     {activeTab?.Tab === PopupTabs.Warning ? <WarningPopup/> : ''}
                     {activeTab?.Tab === PopupTabs.Failure ? <FailurePopup/> : ''}
