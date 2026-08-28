@@ -65,7 +65,7 @@ function Popup() {
         leftPos: 20,
     }
 
-    const successStylingTab = 'bg-[#BDEEC4] shadow-[inset_0_0_0_4px_#678D56,0_15px_20px_-9px_rgba(0,0,0,0.5)]';
+    const successStylingTab = 'bg-[#BDEEC4] shadow-[inset_0_0_0_4px_#678D56,0_15px_20px_-9px_rgba(0,0,0,0.5)] [--drag-color:#80b369]';
     const successStylingHeader = 'bg-[#37562F] hover:bg-[#548548] border-none';
 
     return(
