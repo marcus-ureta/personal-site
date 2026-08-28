@@ -26,9 +26,11 @@ interface TabTemplateProps{
     thisTab: Tabs;
     headerDetails: HeaderDetails;
     tabDetails: TabDetails;
+    cssStyling?: string;
+    headerStyling?: string;
 }
 
-export function TabTemplate({thisTab, headerDetails, tabDetails, children} : TabTemplateProps & PropsWithChildren){
+export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '', headerStyling = '', children} : TabTemplateProps & PropsWithChildren){
     const { setTabStates, tabState } = useTabManager();
     const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -85,7 +87,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col w-screen h-[100dvh] sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
                     ${getTabStyle()} ${isDragging ? 'drag-style' : ''} 
-                    overflow-hidden z-[var(--tabIndex-value)] left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)]`} 
+                    overflow-hidden z-[var(--tabIndex-value)] left-0 pb-8 sm:pb-[3px] sm:left-[var(--tabPos-left)] ${cssStyling}`} 
                     ref={nodeRef}
                     style={{
                         '--tab-width': `${tabDetails.width}vw`,
@@ -94,7 +96,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, children} : Tab
                         '--tabIndex-value': `${currentTabState?.zIndex}`
                     } as React.CSSProperties}
                 >
-                    <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={thisTab}/>
+                    <TabHeader icon={headerDetails.icon} name={headerDetails.name} isDraggable={true} tab={thisTab} cssStyling={headerStyling}/>
                     {children}
                 </div>
             </Draggable>

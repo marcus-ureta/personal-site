@@ -65,10 +65,15 @@ function Popup() {
         leftPos: 20,
     }
 
+    const successStylingTab = 'bg-[#BDEEC4] shadow-[inset_0_0_0_4px_#678D56,0_15px_20px_-9px_rgba(0,0,0,0.5)]';
+    const successStylingHeader = 'bg-[#37562F] hover:bg-[#548548] border-none';
+
     return(
-        <TabTemplate thisTab={Tabs.Popup} headerDetails={headerDetails} tabDetails={tabDetails}>
+        <TabTemplate thisTab={Tabs.Popup} headerDetails={headerDetails} tabDetails={tabDetails} 
+        cssStyling={successStylingTab}
+        headerStyling={successStylingHeader}>
             <div className="tab-scrollable">
-                <div className='flex flex-col justify-center items-center mx-[5%] my-[3%]'>
+                <div className='flex flex-col justify-center items-center mx-[5%] my-[3%] '>
                     {activeTab?.Tab === PopupTabs.Success ? <SuccessPopup/> : ''}
                     {activeTab?.Tab === PopupTabs.Warning ? <WarningPopup/> : ''}
                     {activeTab?.Tab === PopupTabs.Failure ? <FailurePopup/> : ''}
