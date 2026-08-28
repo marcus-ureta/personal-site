@@ -12,7 +12,10 @@ function WarningPopup() {
     console.log('Failure!');
 
     return(
-        <h1>This is a warning!</h1>
+        <>
+            <h1>be responsible!</h1>
+            <p>messages are automatically reviewed before submission. i trust you but please play nice! c:</p>
+        </>
     )
 }
 
@@ -28,14 +31,22 @@ function SuccessPopup() {
     console.log('Success!');
 
     return(
-        <h1>This is a success!</h1>
+        <>
+            <h1>your email has been sent!</h1>
+            <p>i'll reach out as soon as possible, thank you!</p>
+        </>
     )
 }
 
 function Popup() {
+
+    const { popupState } = usePopupManager();
+    let activeTab = popupState.find(popup => popup.State === State.Active);
+
+
     const headerDetails : HeaderDetails = {
-        icon: tab_icon,
-        name: 'popup name'
+        icon: activeTab?.Icon!,
+        name: activeTab?.Tab.toString().toLowerCase()!
     }
 
     const tabDetails : TabDetails = {
@@ -44,17 +55,9 @@ function Popup() {
         leftPos: 20,
     }
 
-    const { popupState } = usePopupManager();
-
-
-    let activeTab = popupState.find(popup => popup.State === State.Active);
-
     return(
         <TabTemplate thisTab={Tabs.Popup} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
-                <h1>header shit</h1>
-                <p>booyah</p>
-
                 {activeTab?.Tab === PopupTabs.Success ? <SuccessPopup/> : ''}
                 {activeTab?.Tab === PopupTabs.Warning ? <WarningPopup/> : ''}
                 {activeTab?.Tab === PopupTabs.Failure ? <FailurePopup/> : ''}
