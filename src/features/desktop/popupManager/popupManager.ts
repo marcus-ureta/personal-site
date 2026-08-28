@@ -27,7 +27,7 @@ export interface PopupStates{
 export const InitialPopupStates : PopupStates[] = [
     {
         Tab: PopupTabs.Success,
-        State: State.Active,
+        State: State.Inactive,
         Icon: check
     },
 

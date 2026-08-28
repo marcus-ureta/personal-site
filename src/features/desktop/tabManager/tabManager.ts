@@ -65,7 +65,7 @@ export const InitialTabStates: TabState[] = [
 
     {
         Tab: Tabs.Popup,
-        Status: TabStatus.Open,
+        Status: TabStatus.Closed,
         zIndex: 3 
     },
 ]
