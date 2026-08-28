@@ -73,8 +73,8 @@ function Popup() {
         },
 
         [PopupTabs.Warning]: {
-            tab: 'bg-[#BDEEC4] shadow-[inset_0_0_0_4px_#678D56,0_15px_20px_-9px_rgba(0,0,0,0.5)] [--drag-color:#80b369]',
-            header: 'bg-[#37562F] hover:bg-[#548548] border-none',
+            tab: 'bg-[#F4CCA9] shadow-[inset_0_0_0_4px_#8D6D56,0_15px_20px_-9px_rgba(0,0,0,0.5)] [--drag-color:#ba9072]',
+            header: 'bg-[#5C4A30] hover:bg-[#79603e] border-none',
         },
 
         [PopupTabs.Failure]: {

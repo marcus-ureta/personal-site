@@ -33,13 +33,13 @@ export const InitialPopupStates : PopupStates[] = [
 
     {
         Tab: PopupTabs.Failure,
-        State: State.Active,
+        State: State.Inactive,
         Icon: failed,
     },
 
     {
         Tab: PopupTabs.Warning,
-        State: State.Inactive,
+        State: State.Active,
         Icon: warning,
     },
 ]
