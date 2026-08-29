@@ -35,6 +35,15 @@ function Board() {
                         </button>
                     </div>
                 </div>
+
+                <div className='mx-[5%] bg-container-blue flex flex-col py-[12px] border-2 border-secondary-blue'>
+                    <div className='flex flex-row justify-between mb-[8px] mx-[0.5%]'>
+                        <h2 className="font-bold font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">~signed guestbook name</h2>
+                        <h4 className="mr-[1.5%] font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">TIME OF DATE SUBMITTED</h4>
+                    </div>
+
+                    <p className="mx-[1.5%] font-['Arial'] text-secondary-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas ipsum dolor, ut semper nulla eleifend ac. Morbi quis odio est. Suspendisse rutrum scelerisque justo. Sed vel nisi id elit suscipit porttitor in quis ante. Etiam bibendum vitae quam sagittis laoreet.</p>
+                </div>
             </div>
         </TabTemplate>
     )
