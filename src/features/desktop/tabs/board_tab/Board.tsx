@@ -3,12 +3,15 @@ import tab_icon from '@icons/tab/board.svg'
 
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
+import { writeBoardMessage } from '@/services/board'
 
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
+const tryBoardMessage = await writeBoardMessage('test', 'my message');
 
 function Board() {
+
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
         name: 'board'
@@ -27,10 +30,12 @@ function Board() {
                 <div className="my-[3%] mx-[5%]">
                     <div className="flex flex-col bg-container-blue px-[2%] py-[2%] place-items-start gap-y-2 border-2 border-secondary-blue">
                         <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">name:</h3>
-                        <input className="input-styling input-boxes" placeholder='your name'/>
+                        <input className="input-styling input-boxes" placeholder='your name' name='name'/>
+
                         <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">message:</h3>
-                        <textarea className="input-styling input-boxes resize-none" placeholder='your message'/>
-                        <button className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue">
+                        <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message'/>
+
+                        <button onClick={() => tryBoardMessage} className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all">
                             send!
                         </button>
                     </div>
