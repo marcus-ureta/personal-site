@@ -8,7 +8,6 @@ import { writeBoardMessage } from '@/services/board'
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
-const tryBoardMessage = await writeBoardMessage('test', 'my message');
 
 function Board() {
 
@@ -24,20 +23,39 @@ function Board() {
         topPos: 20
     }
 
+    async function handleSubmit(event : React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
+        const name = formData.get('name');
+        const message = formData.get('message');
+
+        console.log(name);
+        console.log(message);
+
+        const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!);
+
+        console.log(tryBoardMessage);
+    }
+
     return(
         <TabTemplate thisTab={Tabs.Board} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
                 <div className="my-[3%] mx-[5%]">
                     <div className="flex flex-col bg-container-blue px-[2%] py-[2%] place-items-start gap-y-2 border-2 border-secondary-blue">
-                        <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">name:</h3>
-                        <input className="input-styling input-boxes" placeholder='your name' name='name'/>
+                        <form onSubmit={handleSubmit} className='w-full '>
+                            <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">name:</h3>
+                            <input className="input-styling input-boxes" placeholder='your name' name='name'/>
 
-                        <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">message:</h3>
-                        <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message'/>
+                            <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">message:</h3>
+                            <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message'/>
 
-                        <button onClick={() => tryBoardMessage} className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all">
-                            send!
-                        </button>
+                            <button type='submit' className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all">
+                                send!
+                            </button>
+                        </form>
                     </div>
                 </div>
 
