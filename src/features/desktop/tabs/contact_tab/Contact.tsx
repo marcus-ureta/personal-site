@@ -80,7 +80,7 @@ function Contact() {
                         <a href="mailto:marcustimothy.ureta@gmail.com">marcustimothy.ureta@gmail.com</a>
                     </span></h2>
 
-                    <form onSubmit={handleSubmit} className='flex flex-col bg-[#F3FAFF] border-secondary-blue border-2 mt-[3%] w-full mb-[2%]'>
+                    <form onSubmit={handleSubmit} className='flex flex-col bg-container-blue border-secondary-blue border-2 mt-[3%] w-full mb-[2%]'>
                         <div className='flex flex-col gap-y-2 md:flex-row md:ml-[2%] mt-[2%]'>
                             <div className='flex flex-col gap-y-2 flex-1'>
                                 <input className='contact-input' placeholder='your name' name='name' required/>

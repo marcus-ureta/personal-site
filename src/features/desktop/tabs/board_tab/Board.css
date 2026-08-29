@@ -1,0 +1,11 @@
+@reference "@/index.css";
+
+@layer utilities{
+    .input-styling{
+        @apply bg-[#567C8D]/50 border-2 border-accent-teal
+    }
+
+    .input-boxes{
+        @apply w-full placeholder-secondary-blue/75 text-secondary-blue placeholder:italic font-[500] px-1 
+    }
+}
