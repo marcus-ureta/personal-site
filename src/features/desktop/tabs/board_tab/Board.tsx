@@ -54,6 +54,7 @@ function Board() {
                 setMessages(await getBoardMessages());
             } catch (error) {
                 console.log('could not fetch data!');
+                console.log(error);
             }
 
             setSending(false);
@@ -77,7 +78,10 @@ function Board() {
 
         setSending(false);
 
-        if(!tryBoardMessage.errorCode) console.log('success!');
+        if(!tryBoardMessage.errorCode){
+            console.log('success!');
+            form.reset();
+        }
         else console.log('failed: ' + tryBoardMessage.errorCode)
 
         setMessages(await getBoardMessages());
@@ -108,7 +112,7 @@ function Board() {
 
                 <div className='flex flex-col my-[2%]'>
                     {messages.map((message, i) => (
-                        <BoardMessage key={i} name={message.message} time={message.timeStamp.toString()} message={message.message}/>
+                        <BoardMessage key={i} name={message.name} time={message.timeStamp.toString()} message={message.message}/>
                     ))}
                 </div>
             </div>

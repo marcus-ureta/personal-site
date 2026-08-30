@@ -17,17 +17,42 @@ export async function writeBoardMessage(name: string, message: string){
         errorCode: 'name not valid!',
     };
 
-    if(!isInputValid(message, 5, 2000)) return {
+    if(!isInputValid(message, 4, 2000)) return {
         success: true,
         messageId: null,
         errorCode: 'message not valid!',
     };
 
+    const now: Date = new Date();
+
+    const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Manila',
+        month: 'long',
+        day: '2-digit',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+    });
+
+    const parts = formatter.formatToParts(now);
+
+    const getPart = (type: string): string => parts.find(part => part.type === type)?.value ?? '';
+
+    const month = getPart('month');
+    const day = getPart('day');
+    const year = getPart('year');
+    const hours = getPart('hour');
+    const minutes = getPart('minute');
+    const dayPeriod = getPart('dayPeriod');
+
+    const currentDate = `${month} ${day}, ${year} @ (${hours}:${minutes} ${dayPeriod})`;
+
     try{
         const boardData = {
             name: name,
             message: message,
-            timeStamp: Date.now()
+            timeStamp: currentDate
         }
 
         const db_refer = ref(database, 'board_messages')
