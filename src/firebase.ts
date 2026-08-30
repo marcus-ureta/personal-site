@@ -1,5 +1,11 @@
+
+declare global {
+    var FIREBASE_APPCHECK_DEBUG_TOKEN: boolean | string;
+}
+
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
 //import { getAnalytics } from "firebase/analytics";
 
 
@@ -17,6 +23,16 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
+
+if (process.env.NODE_ENV === "development") {
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = 
+        import.meta.env.FIREBASE_APP_CHECK_DEBUG; 
+}
+
+initializeAppCheck(app, {
+    provider: new ReCaptchaEnterpriseProvider('6LcEN6AtAAAAAFs-POtFR1m0wRQ5BKxUcAuTEOj1'),
+    isTokenAutoRefreshEnabled: true
+});
 
 // Initialize Realtime Database and get a reference to the service
 export const database = getDatabase(app);

@@ -24,7 +24,7 @@ export async function writeBoardMessage(name: string, message: string, email: st
     };
 
     if(email !== '') return {
-        success: true,
+        success: false,
         messageId: null,
         errorCode: 'bad request!',
     };
