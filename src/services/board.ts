@@ -1,4 +1,4 @@
-import { ref, push, set } from "firebase/database";
+import { ref, push, set, child, get } from "firebase/database";
 import { database } from "../firebase";
 
 function isInputValid(text : string, lowerBound : number, higherBound : number) : boolean{
@@ -50,5 +50,30 @@ export async function writeBoardMessage(name: string, message: string){
             messageId: null,
             errorCode: "message failed to load. please try again.",
         };
+    }
+}
+
+export async function getBoardMessages(){
+    try {
+        const db_refer = ref(database, 'board_messages');
+        const snapshot = await get(db_refer);
+
+        if (!snapshot.exists()) {
+            return [];
+        }
+
+        const data = snapshot.val();
+
+        return Object.entries(data).map(([id, message]) => ({
+            id,
+            ...(message as {
+                name: string;
+                message: string;
+                timeStamp: number;
+            })
+        }));
+    } catch (error) {
+        console.error(error);
+        return [];
     }
 }

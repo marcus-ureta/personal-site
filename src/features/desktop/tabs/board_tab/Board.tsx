@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
-import { writeBoardMessage } from '@/services/board'
+import { writeBoardMessage, getBoardMessages } from '@/services/board'
 
 import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 
@@ -42,9 +42,13 @@ function Board() {
         const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!);
 
         setSending(false);
-        
+
         if(!tryBoardMessage.errorCode) console.log('success!');
         else console.log('failed: ' + tryBoardMessage.errorCode)
+
+        const messages = getBoardMessages();
+
+        console.log(messages);
     }
 
     return(
