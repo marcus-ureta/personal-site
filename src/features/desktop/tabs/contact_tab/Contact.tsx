@@ -60,7 +60,12 @@ function Contact() {
             showPopUp(PopupTabs.Success);
             console.log('Went ok!');
             form.reset();
-        } else {
+        } else if(response.status === 429){
+            showPopUp(PopupTabs.Failure);
+            updateErrorMessage("Sending too many requests! Try again later.");
+            console.log('cloudflare told you to fuck off');
+        } 
+        else {
             showPopUp(PopupTabs.Failure);
 
             const data = await response.json();

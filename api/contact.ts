@@ -63,7 +63,6 @@ export default async function handler(req: any, res: any) {
         });
     }
 
-
     try {
         await resend.emails.send({
             from: "From Personal Website <contact@marcusureta.dev>",
@@ -82,10 +81,10 @@ ${message}
             success: true,
             });
         } catch (error) {
-            console.error(error);
+            console.error('Resend error:', error);
 
-            return res.status(500).json({
-                error: "Could not send email at this time. Please try again another time.",
-            });
+        return res.status(500).json({
+            error: "Could not send email at this time. Please try again another time.",
+        });
     }
 }
