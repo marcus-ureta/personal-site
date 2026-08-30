@@ -7,13 +7,15 @@ import tab_icon from '@icons/tab/contact.svg'
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
+import LoadingScreen from '@/components/loading_screen/LoadingScreen'
+
 import "@/features/desktop/Desktop.css"
 import './Contact.css'
 import { useState } from 'react'
 
 function Contact() {
 
-    const [isEmailReq, setEmailReq] = useState<boolean | null>(null);
+    const [isEmailReq, setEmailReq] = useState<boolean>(false);
     
     const showPopUp = useShowPopup();
     const updateErrorMessage = useUpdateErrorMessage();
@@ -52,7 +54,7 @@ function Contact() {
             }),
         });
 
-        setEmailReq(null);
+        setEmailReq(false);
 
         if (response.ok) {
             showPopUp(PopupTabs.Success);
@@ -70,9 +72,7 @@ function Contact() {
     return(
         <TabTemplate thisTab={Tabs.Contact} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
-                <div className={`${isEmailReq !== null ? '' : 'hidden'} absolute inset-0 bg-gray-500/50 h-[100%] w-[100%] grid place-items-center`}>
-                    <div className="h-16 w-16 animate-spin rounded-full border-4 border-white border-t-transparent"/>
-                </div>
+                <LoadingScreen activateLoad={isEmailReq}/>
 
                 <div className='mx-[20px] sm:mx-[5%] mt-[2.5%]'>
                     <h1 className='text-secondary-blue text-[clamp(40px,3.5vw,60px)] leading-normal'>want to get in touch?</h1>
