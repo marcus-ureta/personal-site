@@ -51,7 +51,7 @@ function Board() {
     useEffect(() => {
         const fetchMessages = async () => {
             try{
-                setMessages(await getBoardMessages());
+                setMessages((await getBoardMessages()).reverse());
             } catch (error) {
                 console.log('could not fetch data!');
                 console.log(error);
@@ -84,7 +84,7 @@ function Board() {
         }
         else console.log('failed: ' + tryBoardMessage.errorCode)
 
-        setMessages(await getBoardMessages());
+        setMessages((await getBoardMessages()).reverse());
 
         console.log(messages);
     }
