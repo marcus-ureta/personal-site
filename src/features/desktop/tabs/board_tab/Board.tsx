@@ -1,15 +1,20 @@
 
 import tab_icon from '@icons/tab/board.svg'
 
+import { useState } from 'react'
+
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
 import { writeBoardMessage } from '@/services/board'
+
+import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
 
 function Board() {
+    const [isSending, setSending] = useState<boolean>(false);
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
@@ -26,6 +31,8 @@ function Board() {
     async function handleSubmit(event : React.FormEvent<HTMLFormElement>){
         event.preventDefault();
 
+        setSending(true);
+
         const form = event.currentTarget;
         const formData = new FormData(form);
 
@@ -34,6 +41,8 @@ function Board() {
 
         const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!);
 
+        setSending(false);
+        
         if(!tryBoardMessage.errorCode) console.log('success!');
         else console.log('failed: ' + tryBoardMessage.errorCode)
     }
@@ -41,6 +50,8 @@ function Board() {
     return(
         <TabTemplate thisTab={Tabs.Board} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
+                <LoadingScreen activateLoad={isSending}/>
+
                 <div className="my-[3%] mx-[5%]">
                     <div className="flex flex-col bg-container-blue px-[2%] py-[2%] place-items-start gap-y-2 border-2 border-secondary-blue">
                         <form onSubmit={handleSubmit} className='w-full '>
