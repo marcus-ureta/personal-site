@@ -24,9 +24,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 
-if (process.env.NODE_ENV === "development") {
-    self.FIREBASE_APPCHECK_DEBUG_TOKEN = 
-        import.meta.env.FIREBASE_APP_CHECK_DEBUG; 
+if (import.meta.env.DEV) {
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN =
+        import.meta.env.FIREBASE_APP_CHECK_DEBUG;
 }
 
 initializeAppCheck(app, {
