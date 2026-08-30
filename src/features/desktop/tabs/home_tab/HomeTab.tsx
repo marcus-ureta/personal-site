@@ -18,6 +18,8 @@ import board_icon from '@icons/home ref/board.svg'
 import blog_icon from '@icons/home ref/blog.svg'
 import contact_icon from '@icons/home ref/contact.svg'
 
+import { useShowPopup } from '@/features/desktop/popupManager/popupUtils'
+import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 
 import { useState } from 'react';
 
@@ -30,6 +32,21 @@ function HomeTab(){
     const [hoverName, setHover] = useState<boolean>(false);
     const { tabState } = useTabManager();
     const updatePage = useUpdatePage();
+
+    const [shownWarning, setShowWarning] = useState<boolean>(false);
+    const showPopup = useShowPopup();
+
+    const handleWarningPopup = () => {
+        setButtonClick(3); 
+        updatePage(Tabs.Board);
+
+        if(shownWarning === false){
+            setShowWarning(true);
+            showPopup(PopupTabs.Warning);
+        }
+
+        return;
+    }
 
     const homeTabIndex : number = tabState.find(tab => tab.Tab === Tabs.Home)?.zIndex!;
 
@@ -90,7 +107,7 @@ function HomeTab(){
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
                         <div className={`group home-icon-styling ${buttonClicked === 3 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(3); updatePage(Tabs.Board);
+                        onClick={() => {handleWarningPopup();
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={board_icon} className="icon-style"/>
@@ -106,7 +123,7 @@ function HomeTab(){
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 5 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(5); updatePage(Tabs.Contact)
+                        onClick={() => {setButtonClick(5); updatePage(Tabs.Contact); 
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={contact_icon} className="icon-style"/>

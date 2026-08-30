@@ -36,14 +36,14 @@ function DesktopView(){
         <div className={getTabContainerStyle()}>
 
             <PopupManagerProvider>
-                <Popup/>
                 <Board/>
                 <Contact/>
+                <HomeTab/>
+                <Popup/>
             </PopupManagerProvider>
             
             <Social/>
             <AboutMe/>
-            <HomeTab/>
         </div>
     )
 }

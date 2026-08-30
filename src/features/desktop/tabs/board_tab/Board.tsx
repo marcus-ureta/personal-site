@@ -34,7 +34,7 @@ function BoardMessage({name, time, message} : {name : string, time: string, mess
 
 function Board() {
     const [isSending, setSending] = useState<boolean>(true);
-    const [messages, setMessages] = useState<Message[]>([])
+    const [messages, setMessages] = useState<Message[]>([]);
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
@@ -49,6 +49,7 @@ function Board() {
     }
 
     useEffect(() => {
+
         const fetchMessages = async () => {
             try{
                 setMessages((await getBoardMessages()).reverse());
