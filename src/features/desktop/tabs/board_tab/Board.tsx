@@ -22,12 +22,12 @@ type Message = {
 function BoardMessage({name, time, message} : {name : string, time: string, message: string}){
     return(
         <div className='mx-[5%] bg-container-blue flex flex-col py-[12px] border-2 border-secondary-blue mb-[1.75%]'>
-            <div className='flex flex-row justify-between mb-[8px] mx-[0.5%]'>
-                <h2 className="font-bold font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">~{name}</h2>
-                <h4 className="mr-[1.5%] font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">{time}</h4>
+            <div className='flex flex-row justify-between mb-[8px] mx-[2%] sm:mx-[0.5%]'>
+                <h2 className="flex-1 font-bold font-['Jost'] text-[20px] sm:text-[clamp(8px,1.5vw,18px)] text-secondary-blue">~{name}</h2>
+                <h4 className="flex-1 mr-[1.5%] font-['Jost'] text-[20px] sm:text-[clamp(8px,1.5vw,18px)] text-secondary-blue text-right">{time}</h4>
             </div>
 
-            <p className="mx-[1.5%] font-['Arial'] text-secondary-blue">{message}</p>
+            <p className="mx-[2%] sm:mx-[1.5%] font-['Arial'] text-secondary-blue">{message}</p>
         </div>
     )
 }
@@ -96,18 +96,18 @@ function Board() {
             <div className="tab-scrollable">
                 <LoadingScreen activateLoad={isSending}/>
 
-                <div className="my-[3%] mx-[5%]">
+                <div className="my-[7%] sm:my-[3%] mx-[5%]">
                     <div className="flex flex-col bg-container-blue px-[2%] py-[2%] place-items-start gap-y-2 border-2 border-secondary-blue">
                         <form onSubmit={handleSubmit} className='w-full '>
-                            <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">name:</h3>
+                            <h3 className="font-['Jost'] font-bold text-secondary-blue text-[20px] sm:text-[clamp(14px,2vw,22px)]">name:</h3>
                             <input className="input-styling input-boxes mb-[1.5%]" placeholder='your name' name='name' required/>
 
-                            <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">message:</h3>
+                            <h3 className="font-['Jost'] font-bold text-secondary-blue text-[20px] sm:text-[clamp(14px,2vw,22px)]">message:</h3>
                             <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message' required/>
 
                             <input className='absolute left-[-9999px]' placeholder='your email' name='email' aria-hidden="true"/>
 
-                            <button type='submit' className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all">
+                            <button type='submit' className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all text-xl sm:text-lg">
                                 send!
                             </button>
                         </form>
