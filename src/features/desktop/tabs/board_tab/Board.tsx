@@ -9,6 +9,9 @@ import { writeBoardMessage, getBoardMessages } from '@/services/board'
 
 import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 
+import { useShowPopup, useUpdatePopupMessage } from '@/features/desktop/popupManager/popupUtils'
+import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
+
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
@@ -36,6 +39,9 @@ function Board() {
     const [isSending, setSending] = useState<boolean>(true);
     const [messages, setMessages] = useState<Message[]>([]);
 
+    const showPopup = useShowPopup();
+    const updatePopupMessage = useUpdatePopupMessage();
+
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
         name: 'board'
@@ -56,9 +62,9 @@ function Board() {
             } catch (error) {
                 console.log('could not fetch data!');
                 console.log(error);
+            } finally {
+                setSending(false);
             }
-
-            setSending(false);
         }
 
         fetchMessages();
@@ -81,10 +87,16 @@ function Board() {
         setSending(false);
 
         if(!tryBoardMessage.errorCode){
+            updatePopupMessage('your message has been added to the board!', PopupTabs.Success);
+            showPopup(PopupTabs.Success);
             console.log('success!');
             form.reset();
         }
-        else console.log('failed: ' + tryBoardMessage.errorCode)
+        else {
+            updatePopupMessage(tryBoardMessage.errorCode, PopupTabs.Failure);
+            showPopup(PopupTabs.Failure)
+            console.log('failed: ' + tryBoardMessage.errorCode)
+        }
 
         setMessages((await getBoardMessages()).reverse());
 

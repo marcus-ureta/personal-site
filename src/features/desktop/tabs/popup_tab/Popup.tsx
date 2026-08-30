@@ -29,21 +29,21 @@ function FailurePopup({errorMessage} : {errorMessage : string}) {
 
     return(
         <>
-            <h1 className="heading">failed to send email :c</h1>
+            <h1 className="heading">action failed :c</h1>
             <img src={failure}/>
             <p className="detail-text">{errorMessage}</p>
         </>
     )
 }
 
-function SuccessPopup() {
+function SuccessPopup({successMessage} : {successMessage : string}) {
     console.log('Success!');
 
     return(
         <>
-            <h1 className="heading">your email has been sent!</h1>
+            <h1 className="heading">action succeed!</h1>
             <img src={success}/>
-            <p className="detail-text">i'll reach out as soon as possible, thank you!</p>
+            <p className="detail-text">{successMessage}</p>
         </>
     )
 }
@@ -91,7 +91,7 @@ function Popup() {
         headerStyling={styles.header}>
             <div className="tab-scrollable">
                 <div className='flex flex-col justify-center items-center mx-[5%] my-[3%] h-[90%]'>
-                    {activeTab?.Tab === PopupTabs.Success ? <SuccessPopup/> : ''}
+                    {activeTab?.Tab === PopupTabs.Success ? <SuccessPopup successMessage={activeTab.detailMessage!}/> : ''}
                     {activeTab?.Tab === PopupTabs.Warning ? <WarningPopup/> : ''}
                     {activeTab?.Tab === PopupTabs.Failure ? <FailurePopup errorMessage={activeTab.detailMessage!}/> : ''}
                 </div>

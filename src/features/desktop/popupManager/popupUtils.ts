@@ -32,13 +32,13 @@ export function useShowPopup() {
     return showPopUp;
 }
 
-export function useUpdateErrorMessage(){
+export function useUpdatePopupMessage(){
     const { setPopupState } = usePopupManager();
 
-    const updateErrorMessage = (error : string) => {
+    const updatePopupMessage = (error : string, tab : PopupTabs) => {
         setPopupState((prevPopups) => {
             return prevPopups.map((popup) => {
-                if(popup.Tab === PopupTabs.Failure)
+                if(popup.Tab === tab)
                 {
                     return{
                         ...popup,
@@ -51,5 +51,5 @@ export function useUpdateErrorMessage(){
         })
     }
 
-    return updateErrorMessage;
+    return updatePopupMessage;
 }

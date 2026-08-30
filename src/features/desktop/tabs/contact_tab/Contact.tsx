@@ -1,5 +1,5 @@
 
-import { useShowPopup, useUpdateErrorMessage } from '@/features/desktop/popupManager/popupUtils'
+import { useShowPopup, useUpdatePopupMessage } from '@/features/desktop/popupManager/popupUtils'
 import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 
 import tab_icon from '@icons/tab/contact.svg'
@@ -18,7 +18,7 @@ function Contact() {
     const [isEmailReq, setEmailReq] = useState<boolean>(false);
     
     const showPopUp = useShowPopup();
-    const updateErrorMessage = useUpdateErrorMessage();
+    const updatePopupMessage = useUpdatePopupMessage();
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
@@ -57,19 +57,20 @@ function Contact() {
         setEmailReq(false);
 
         if (response.ok) {
+            updatePopupMessage('your email has been successfully sent!', PopupTabs.Success);
             showPopUp(PopupTabs.Success);
             console.log('Went ok!');
             form.reset();
         } else if(response.status === 429){
             showPopUp(PopupTabs.Failure);
-            updateErrorMessage("Sending too many requests! Try again later.");
+            updatePopupMessage("Sending too many requests! Try again later.", PopupTabs.Failure);
             console.log('cloudflare told you to fuck off');
         } 
         else {
             showPopUp(PopupTabs.Failure);
 
             const data = await response.json();
-            updateErrorMessage(data.error);
+            updatePopupMessage(data.error, PopupTabs.Failure);
             console.log('Something went wrong!');
         }
     }
