@@ -1,7 +1,27 @@
 import { ref, push, set } from "firebase/database";
 import { database } from "../firebase";
 
+function isInputValid(text : string, lowerBound : number, higherBound : number) : boolean{
+    if(text === '' || text === null || text === undefined) return false;
+    if(text.length < lowerBound) return false;
+    if(text.length > higherBound) return false;
+
+    return true;
+}
+
 export async function writeBoardMessage(name: string, message: string){
+
+    if(!isInputValid(name, 2, 40)) return {
+        success: true,
+        messageId: null,
+        errorCode: 'name not valid!',
+    };
+
+    if(!isInputValid(message, 5, 2000)) return {
+        success: true,
+        messageId: null,
+        errorCode: 'message not valid!',
+    };
 
     try{
         const boardData = {
@@ -28,7 +48,7 @@ export async function writeBoardMessage(name: string, message: string){
         return {
             success: false,
             messageId: null,
-            errorCode: "ADD_MESSAGE_FAILED",
+            errorCode: "message failed to load. please try again.",
         };
     }
 }

@@ -32,12 +32,10 @@ function Board() {
         const name = formData.get('name');
         const message = formData.get('message');
 
-        console.log(name);
-        console.log(message);
-
         const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!);
 
-        console.log(tryBoardMessage);
+        if(!tryBoardMessage.errorCode) console.log('success!');
+        else console.log('failed: ' + tryBoardMessage.errorCode)
     }
 
     return(
@@ -47,10 +45,10 @@ function Board() {
                     <div className="flex flex-col bg-container-blue px-[2%] py-[2%] place-items-start gap-y-2 border-2 border-secondary-blue">
                         <form onSubmit={handleSubmit} className='w-full '>
                             <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">name:</h3>
-                            <input className="input-styling input-boxes" placeholder='your name' name='name'/>
+                            <input className="input-styling input-boxes mb-[1.5%]" placeholder='your name' name='name' required/>
 
                             <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">message:</h3>
-                            <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message'/>
+                            <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message' required/>
 
                             <button type='submit' className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all">
                                 send!
