@@ -9,7 +9,7 @@ function isInputValid(text : string, lowerBound : number, higherBound : number) 
     return true;
 }
 
-export async function writeBoardMessage(name: string, message: string){
+export async function writeBoardMessage(name: string, message: string, email: string){
 
     if(!isInputValid(name, 2, 40)) return {
         success: true,
@@ -21,6 +21,12 @@ export async function writeBoardMessage(name: string, message: string){
         success: true,
         messageId: null,
         errorCode: 'message not valid!',
+    };
+
+    if(email !== '') return {
+        success: true,
+        messageId: null,
+        errorCode: 'bad request!',
     };
 
     const now: Date = new Date();

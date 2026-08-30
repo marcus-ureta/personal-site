@@ -73,8 +73,9 @@ function Board() {
 
         const name = formData.get('name');
         const message = formData.get('message');
+        const email = formData.get('email');
 
-        const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!);
+        const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!, email?.toString()!);
 
         setSending(false);
 
@@ -102,6 +103,8 @@ function Board() {
 
                             <h3 className="font-['Jost'] font-bold text-secondary-blue text-[clamp(14px,2vw,22px)]">message:</h3>
                             <textarea className="input-styling input-boxes resize-none" placeholder='your message' name='message' required/>
+
+                            <input className='absolute left-[-9999px]' placeholder='your email' name='email' aria-hidden="true"/>
 
                             <button type='submit' className="input-styling px-[1.5%] mt-[1.5%] rounded-[5px] font-['Arial'] font-bold text-secondary-blue hover:bg-secondary-blue/15 hover:text-accent-teal transition-all">
                                 send!
