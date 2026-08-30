@@ -12,6 +12,18 @@ import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
+function BoardMessage({name, time, message} : {name : string, time: string, message: string}){
+    return(
+        <div className='mx-[5%] bg-container-blue flex flex-col py-[12px] border-2 border-secondary-blue'>
+            <div className='flex flex-row justify-between mb-[8px] mx-[0.5%]'>
+                <h2 className="font-bold font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">~{name}</h2>
+                <h4 className="mr-[1.5%] font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">{time}</h4>
+            </div>
+
+            <p className="mx-[1.5%] font-['Arial'] text-secondary-blue">{message}</p>
+        </div>
+)
+}
 
 function Board() {
     const [isSending, setSending] = useState<boolean>(false);
@@ -72,14 +84,7 @@ function Board() {
                     </div>
                 </div>
 
-                <div className='mx-[5%] bg-container-blue flex flex-col py-[12px] border-2 border-secondary-blue'>
-                    <div className='flex flex-row justify-between mb-[8px] mx-[0.5%]'>
-                        <h2 className="font-bold font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">~signed guestbook name</h2>
-                        <h4 className="mr-[1.5%] font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">TIME OF DATE SUBMITTED</h4>
-                    </div>
-
-                    <p className="mx-[1.5%] font-['Arial'] text-secondary-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas ipsum dolor, ut semper nulla eleifend ac. Morbi quis odio est. Suspendisse rutrum scelerisque justo. Sed vel nisi id elit suscipit porttitor in quis ante. Etiam bibendum vitae quam sagittis laoreet.</p>
-                </div>
+                <BoardMessage name='obama' time='December 30th, 2026 : 2:36PM' message='yo wahts up my name is feinberg'/>
             </div>
         </TabTemplate>
     )

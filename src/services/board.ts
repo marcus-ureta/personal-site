@@ -1,4 +1,4 @@
-import { ref, push, set, child, get } from "firebase/database";
+import { ref, push, set, get } from "firebase/database";
 import { database } from "../firebase";
 
 function isInputValid(text : string, lowerBound : number, higherBound : number) : boolean{
