@@ -1,7 +1,7 @@
 
 import tab_icon from '@icons/tab/board.svg'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
@@ -12,9 +12,16 @@ import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
+type Message = {
+    name: string;
+    message: string;
+    timeStamp: number;
+    id: string;
+};
+
 function BoardMessage({name, time, message} : {name : string, time: string, message: string}){
     return(
-        <div className='mx-[5%] bg-container-blue flex flex-col py-[12px] border-2 border-secondary-blue'>
+        <div className='mx-[5%] bg-container-blue flex flex-col py-[12px] border-2 border-secondary-blue mb-[1.75%]'>
             <div className='flex flex-row justify-between mb-[8px] mx-[0.5%]'>
                 <h2 className="font-bold font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">~{name}</h2>
                 <h4 className="mr-[1.5%] font-['Jost'] text-[clamp(8px,1.5vw,18px)] text-secondary-blue">{time}</h4>
@@ -22,11 +29,12 @@ function BoardMessage({name, time, message} : {name : string, time: string, mess
 
             <p className="mx-[1.5%] font-['Arial'] text-secondary-blue">{message}</p>
         </div>
-)
+    )
 }
 
 function Board() {
-    const [isSending, setSending] = useState<boolean>(false);
+    const [isSending, setSending] = useState<boolean>(true);
+    const [messages, setMessages] = useState<Message[]>([])
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
@@ -39,6 +47,20 @@ function Board() {
         leftPos: 10,
         topPos: 20
     }
+
+    useEffect(() => {
+        const fetchMessages = async () => {
+            try{
+                setMessages(await getBoardMessages());
+            } catch (error) {
+                console.log('could not fetch data!');
+            }
+
+            setSending(false);
+        }
+
+        fetchMessages();
+    }, [])
 
     async function handleSubmit(event : React.FormEvent<HTMLFormElement>){
         event.preventDefault();
@@ -58,7 +80,7 @@ function Board() {
         if(!tryBoardMessage.errorCode) console.log('success!');
         else console.log('failed: ' + tryBoardMessage.errorCode)
 
-        const messages = getBoardMessages();
+        setMessages(await getBoardMessages());
 
         console.log(messages);
     }
@@ -84,7 +106,11 @@ function Board() {
                     </div>
                 </div>
 
-                <BoardMessage name='obama' time='December 30th, 2026 : 2:36PM' message='yo wahts up my name is feinberg'/>
+                <div className='flex flex-col my-[2%]'>
+                    {messages.map((message, i) => (
+                        <BoardMessage key={i} name={message.message} time={message.timeStamp.toString()} message={message.message}/>
+                    ))}
+                </div>
             </div>
         </TabTemplate>
     )
