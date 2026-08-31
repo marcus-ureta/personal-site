@@ -6,7 +6,6 @@ declare global {
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { initializeAppCheck, ReCaptchaEnterpriseProvider, getToken } from "firebase/app-check";
-//import { getAnalytics } from "firebase/analytics";
 
 
 const firebaseConfig = {
@@ -22,7 +21,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
+
 
 if (import.meta.env.DEV) {
     console.log('is this playing in prod?');
@@ -31,7 +30,7 @@ if (import.meta.env.DEV) {
 }
 
 const appCheck = initializeAppCheck(app, {
-    provider: new ReCaptchaEnterpriseProvider('6LcEN6AtAAAAAOI_lQ9EIIRlWfT79PaxFbVLKy9O'),
+    provider: new ReCaptchaEnterpriseProvider('6Lcws6EtAAAAAMPQNsOAzLgQ4lood-ICCJr264Ob'),
     isTokenAutoRefreshEnabled: true
 });
 
@@ -46,5 +45,4 @@ getToken(appCheck, true)
 });
 
 
-// Initialize Realtime Database and get a reference to the service
 export const database = getDatabase(app);
