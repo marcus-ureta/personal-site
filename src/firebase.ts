@@ -31,7 +31,7 @@ if (import.meta.env.DEV) {
 }
 
 const appCheck = initializeAppCheck(app, {
-    provider: new ReCaptchaEnterpriseProvider('6LcEN6AtAAAAAFs-POtFR1m0wRQ5BKxUcAuTEOj1'),
+    provider: new ReCaptchaEnterpriseProvider('6LcEN6AtAAAAAOI_lQ9EIIRlWfT79PaxFbVLKy9O'),
     isTokenAutoRefreshEnabled: true
 });
 
