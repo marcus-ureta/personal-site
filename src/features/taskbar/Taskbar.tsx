@@ -70,8 +70,10 @@ function Taskbar(){
                     ${tabState.find(tab => tab.Tab === Tabs.Board && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
                     onMouseEnter={() => setHoveredIcon(3)} onMouseLeave={() => setHoveredIcon(null)}
                     onClick={() => updatePage(Tabs.Board)}/>
-                <img src={hoveredIcon === 4 ? blog_hover : blog_icon} className="icon-styling cursor-pointer"
-                    onMouseEnter={() => setHoveredIcon(4)} onMouseLeave={() => setHoveredIcon(null)}/>
+                <img src={hoveredIcon === 4 ? blog_hover : blog_icon} className={`icon-styling cursor-pointer 
+                    ${tabState.find(tab => tab.Tab === Tabs.Blogs && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
+                    onMouseEnter={() => setHoveredIcon(4)} onMouseLeave={() => setHoveredIcon(null)}
+                    onClick={() => updatePage(Tabs.Blogs)}/>
                 <img src={hoveredIcon === 5 ? contact_hover : contact_icon} className={`icon-styling cursor-pointer
                     ${tabState.find(tab => tab.Tab === Tabs.Contact && tab.Status === TabStatus.Open) ? 'active-window' : ''}`}
                     onMouseEnter={() => setHoveredIcon(5)} onMouseLeave={() => setHoveredIcon(null)}
