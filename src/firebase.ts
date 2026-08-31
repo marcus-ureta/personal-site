@@ -5,7 +5,7 @@ declare global {
 
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { initializeAppCheck, ReCaptchaEnterpriseProvider, getToken } from "firebase/app-check";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
 
 
 const firebaseConfig = {
@@ -22,27 +22,20 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-
 if (import.meta.env.DEV) {
-    console.log('is this playing in prod?');
-
-    self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.FIREBASE_APP_CHECK_DEBUG;
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = 
+        import.meta.env.FIREBASE_APP_CHECK_DEBUG || true;
 }
+
 
 const appCheck = initializeAppCheck(app, {
     provider: new ReCaptchaEnterpriseProvider('6Lcws6EtAAAAAMPQNsOAzLgQ4lood-ICCJr264Ob'),
     isTokenAutoRefreshEnabled: true
 });
 
-console.log("App Check initialized:", appCheck);
-
-getToken(appCheck, true)
-    .then((result) => {
-    console.log("🔥 APP CHECK TOKEN:", result.token);
-    })
-    .catch((error) => {
-    console.error("🔥 APP CHECK TOKEN FAILED:", error);
-});
-
+if(appCheck)
+{
+    console.log('App Check Initialization Works!');
+}
 
 export const database = getDatabase(app);
