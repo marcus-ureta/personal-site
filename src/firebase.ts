@@ -5,7 +5,7 @@ declare global {
 
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider, getToken } from "firebase/app-check";
 //import { getAnalytics } from "firebase/analytics";
 
 
@@ -35,7 +35,15 @@ const appCheck = initializeAppCheck(app, {
     isTokenAutoRefreshEnabled: true
 });
 
-console.log(appCheck);
+console.log("App Check initialized:", appCheck);
+
+getToken(appCheck, true)
+    .then((result) => {
+    console.log("🔥 APP CHECK TOKEN:", result.token);
+    })
+    .catch((error) => {
+    console.error("🔥 APP CHECK TOKEN FAILED:", error);
+});
 
 
 // Initialize Realtime Database and get a reference to the service
