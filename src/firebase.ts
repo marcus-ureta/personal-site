@@ -25,6 +25,8 @@ const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 
 if (import.meta.env.DEV) {
+    console.log('is this playing in prod?');
+    
     self.FIREBASE_APPCHECK_DEBUG_TOKEN =
         import.meta.env.FIREBASE_APP_CHECK_DEBUG;
 }
