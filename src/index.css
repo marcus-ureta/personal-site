@@ -23,4 +23,8 @@ h1{
   footer{
     @apply fixed bottom-0 bg-[#2f41568f] w-full h-[5%] border-t-2 border-[#2F4156] flex gap-2 items-center;
   }
+
+  .base-input{
+    @apply bg-accent-teal mb-[3%] border-container-blue border-2 rounded-md pl-[1.5%]
+  }
 }
