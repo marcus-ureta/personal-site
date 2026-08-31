@@ -5,11 +5,12 @@ function BugReportPage(){
     return(
         <>
             <div className="w-full h-screen overflow-y-auto overflow-x-hidden">
-                <div className='flex flex-col justify-center items-center'>
+                <div className='flex flex-col justify-center items-center py-[3%]'>
                     <h1 className="font-['Jost'] text-[clamp(24px,3.5vw,48px)]">so... you found a bug eh?</h1>
                     <h2 className="font-['Jost'] text-[clamp(18px,3vw,30px)]">well, let's report it!</h2>
+                    <h4 className='mt-[16px] text-blue-400 underline hover:cursor-pointer'>return to site</h4>
 
-                    <form className='flex flex-col w-[80%] max-w-[720px] overflow-auto'>
+                    <form className='flex flex-col w-[80%] max-w-[720px] overflow-auto mt-[5%] sm:mt-[2%]'>
                         <h3>Bug Report Title</h3>
                         <input className='base-input' placeholder='Bug Title' required/>
 
