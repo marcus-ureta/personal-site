@@ -26,15 +26,16 @@ const app = initializeApp(firebaseConfig);
 
 if (import.meta.env.DEV) {
     console.log('is this playing in prod?');
-    
-    self.FIREBASE_APPCHECK_DEBUG_TOKEN =
-        import.meta.env.FIREBASE_APP_CHECK_DEBUG;
+
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.FIREBASE_APP_CHECK_DEBUG;
 }
 
-initializeAppCheck(app, {
+const appCheck = initializeAppCheck(app, {
     provider: new ReCaptchaEnterpriseProvider('6LcEN6AtAAAAAFs-POtFR1m0wRQ5BKxUcAuTEOj1'),
     isTokenAutoRefreshEnabled: true
 });
+
+console.log(appCheck);
 
 
 // Initialize Realtime Database and get a reference to the service
