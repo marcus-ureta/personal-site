@@ -74,7 +74,7 @@ function HomeTab(){
 
                     {/* PFP IMAGE */}
                     <div className="flex justify-center sm:justify-start items-center col-span-1 mt-[3%] sm:mt-0 mb-[2.5%] sm:mb-0 mr-0 sm:mr-5">
-                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none translate-x-0 sm:-translate-x-2.5 transition-all duration-300 hover:border-primary-blue hover:bg-accent-teal/85 hover:shadow-lg hover:shadow-accent-teal/90" draggable={false}/>
+                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none translate-x-0 sm:-translate-x-2.5 transition-all duration-300 hover:border-primary-blue hover:bg-accent-teal/85 hover:shadow-lg hover:shadow-accent-teal/90" draggable={false} loading='eager'/>
                     </div>
                     
                     <h2 className="text-secondary-blue text-[clamp(26px,2.5vw,38px)] italic font-['Arial'] font-[550] tracking-[-0.06em] block sm:hidden text-center mx-2">college student and programmer</h2>
@@ -86,21 +86,21 @@ function HomeTab(){
                         <div className={`group home-icon-styling ${buttonClicked === 0 ? 'animate-open-icon' : ''}`} 
                         onClick={() => {setButtonClick(0); updatePage(Tabs.About)}}
                         onAnimationEnd={() => setButtonClick(null)}>
-                            <img src={about_icon} className="icon-style"/>
+                            <img src={about_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">about</p>
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 1 ? 'animate-open-icon' : ''}`} 
                         onClick={() => {setButtonClick(1); updatePage(Tabs.Social)}}
                         onAnimationEnd={() => setButtonClick(null)}>
-                            <img src={socials_icon} className="icon-style"/>
+                            <img src={socials_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">socials</p>
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 2 ? 'animate-open-icon' : ''}`} 
                         onClick={() => {setButtonClick(2); goURL('https://marcusureta-portfolio.vercel.app')}}
                         onAnimationEnd={() => setButtonClick(null)}>
-                            <img src={portfolio_icon} className="icon-style"/>
+                            <img src={portfolio_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">portfolio</p>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ function HomeTab(){
                         onClick={() => {handleWarningPopup();
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
-                            <img src={board_icon} className="icon-style"/>
+                            <img src={board_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">board</p>
                         </div>
 
@@ -118,7 +118,7 @@ function HomeTab(){
                         onClick={() => {setButtonClick(4); updatePage(Tabs.Blogs);
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
-                            <img src={blog_icon} className="icon-style"/>
+                            <img src={blog_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">blogs</p>
                         </div>
 
@@ -126,7 +126,7 @@ function HomeTab(){
                         onClick={() => {setButtonClick(5); updatePage(Tabs.Contact); 
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
-                            <img src={contact_icon} className="icon-style"/>
+                            <img src={contact_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">contact</p>
                         </div>
                     </div>
