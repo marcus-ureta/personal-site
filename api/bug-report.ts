@@ -55,8 +55,11 @@ export default async function handler(req: any, res: any) {
     const combinedDescription = `**Description:**\n${description}\n\n**Expected Output:**\n${expectedOutput}\n\n**Steps to Reproduce:**\n${stepsToReproduce}\n\n**Evidence URL:**\n${evidenceUrl}\n\n**Additional Information:**\n${additionalInfo}\n\n**Email:**\n${email}`;
 
     try{
+        const signal = AbortSignal.timeout(15000);
+
         await fetch('https://api.github.com/repos/marcus-ureta/personal-site/issues', {
             method: 'POST',
+            signal,
             headers: {  
                 'Accept': 'application/vnd.github+json',
                 'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,

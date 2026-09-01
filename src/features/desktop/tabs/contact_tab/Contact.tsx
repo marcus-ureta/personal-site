@@ -38,10 +38,11 @@ function Contact() {
         const form = event.currentTarget;
         const formData = new FormData(form);
 
-        
+        const signal = AbortSignal.timeout(15000);
 
         const response = await fetch("/api/contact", {
             method: "POST",
+            signal,
             headers: {
                 "Content-Type": "application/json",
             },
