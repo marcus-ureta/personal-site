@@ -1,9 +1,15 @@
 
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 
 function BugReportPage(){
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        setIsLoading(true);
         event.preventDefault();
 
         const form = event.currentTarget;
@@ -26,6 +32,8 @@ function BugReportPage(){
             }),
         });
 
+        setIsLoading(false);
+
         if(response.ok) console.log('Bug report submitted successfully!');
         else console.error('Failed to submit bug report.');
 
@@ -34,6 +42,8 @@ function BugReportPage(){
 
     return(
         <>
+            {isLoading && <LoadingScreen activateLoad={isLoading} />}
+
             <div className="w-full h-screen overflow-y-auto overflow-x-hidden">
                 <div className='flex flex-col justify-center items-center py-[3%]'>
                     <h1 className="font-['Jost'] text-[clamp(24px,3.5vw,48px)]">so... you found a bug eh?</h1>
