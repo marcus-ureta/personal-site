@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import useSound from 'use-sound';
+import { useSoundSettings } from "@/features/soundContext/SoundContext";
 
 export const goURL = (link : string) => {
     window.open(link);
@@ -27,6 +28,7 @@ export function useMediaQuery(query: string): boolean {
 }
 
 export function useSFX(){
+    const { enabled } = useSoundSettings();
     let randPitch = Math.random() * (1.1 - 0.85) + 0.85;
 
     const [playIconClick] = useSound("/sfx/icon_click.wav", {
@@ -54,9 +56,17 @@ export function useSFX(){
     });
 
     return {
-        playIconClick,
-        playStartDrag,
-        playEndDrag,
-        playCloseTab
+        playIconClick: () => {
+            if(enabled) playIconClick();
+        },
+        playStartDrag: () => {
+            if(enabled) playStartDrag();
+        },
+        playEndDrag: () => {
+            if(enabled) playEndDrag();
+        },
+        playCloseTab: () => {
+            if(enabled) playCloseTab();
+        }
     };
 }
