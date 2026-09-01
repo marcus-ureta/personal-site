@@ -7,7 +7,9 @@ import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 function BugReportPage(){
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [showMessage, setShowMessage] = useState<boolean | null>(true);
+    const [showMessage, setShowMessage] = useState<boolean | null>(null);
+
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         setIsLoading(true);
@@ -40,6 +42,7 @@ function BugReportPage(){
             setShowMessage(true);
         } else {
             console.error('Failed to submit bug report.');
+            setErrorMessage((await response.json()).error || 'An error occurred while submitting the bug report.');
             setShowMessage(false);
         }
 
@@ -55,6 +58,14 @@ function BugReportPage(){
                     <h1 className='text-[clamp(18px,3vw,24px)] text-center'>bug report submitted!</h1>
                     <p className='text-[clamp(14px,2.5vw,18px)] text-center'>thank you for your report! i'll look into it as soon as possible.</p>
                     <button className='bg-[#80b369] hover:cursor-pointer w-fit mx-auto px-[5%] py-[2%] border-[#37562F] border-2 rounded-xl hover:bg-[#37562F] hover:border-[#80b369] hover:text-hover-white transition-all' onClick={() => setShowMessage(null)}>Close Message</button>
+                </div>
+            </div>
+
+            <div className={`fixed top-0 left-0 w-full h-full bg-black/50 z-[999] flex justify-center items-center transition-all ${showMessage === false ? '' : 'hidden'}`}>
+                <div className='bg-[#FB9D9D] w-[80%] max-w-[400px] h-fit p-[2%] rounded-xl border-4 border-[#8D5656] flex flex-col gap-y-4'>
+                    <h1 className='text-[clamp(18px,3vw,24px)] text-center'>could not submit report :c</h1>
+                    <p className='text-[clamp(14px,2.5vw,18px)] text-center'>{errorMessage}</p>
+                    <button className='bg-[#874747] hover:cursor-pointer w-fit mx-auto px-[5%] py-[2%] border-[#562F2F] border-2 rounded-xl hover:bg-[#562F2F] hover:border-[#874747] hover:text-hover-white transition-all' onClick={() => setShowMessage(null)}>Close Message</button>
                 </div>
             </div>
 
