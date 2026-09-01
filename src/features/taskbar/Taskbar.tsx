@@ -13,6 +13,9 @@ import bug_hover from '@/assets/icons/bug/bug icon-hover.svg'
 import sound_icon from '@/assets/icons/sound/sound.svg'
 import sound_hover from '@/assets/icons/sound/sound-hover.svg'
 
+import sound_mute_hover from '@/assets/icons/sound/mute icon-hover.svg'
+import sound_mute from '@/assets/icons/sound/mute.svg'
+
 import home_icon from '@/assets/icons/taskbar ref/home.svg'
 import about_icon from '@/assets/icons/taskbar ref/about.svg'
 import social_icon from '@/assets/icons/taskbar ref/social.svg'
@@ -29,6 +32,7 @@ import contact_hover from '@/assets/icons/tab/contact.svg'
 
 import './Taskbar.css'
 import { useSFX } from "@/utils/webUtils"
+import { useSoundSettings } from "../soundContext/SoundContext"
 
 
 function Taskbar(){
@@ -43,6 +47,20 @@ function Taskbar(){
 
     const updatePage = useUpdatePage();
     const { playIconClick } = useSFX();
+    const { enabled, setEnabled } = useSoundSettings();
+
+    const getSoundIcon = () => {
+        if(!enabled)
+        {
+            if(soundHover) return sound_mute_hover
+            else return sound_mute
+        }
+        else
+        {
+            if(soundHover) return sound_hover
+            else return sound_icon
+        }
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -87,8 +105,9 @@ function Taskbar(){
                     <img src={bugHover ? bug_hover : bug_icon} alt="Bug Icon" onMouseEnter={() => 
                     setBugHover(true)} onMouseLeave={() => setBugHover(false)} loading='eager'/>
                 </Link>
-                <img src={soundHover ? sound_hover : sound_icon} alt="Sound Icon" 
-                    onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)} loading='eager'/>
+                <img src={getSoundIcon()} alt="Sound Icon" 
+                    onMouseEnter={() => setSoundHover(true)} onMouseLeave={() => setSoundHover(false)} loading='eager'
+                    onClick={() => setEnabled(!enabled)}/>
                 <div className="flex flex-col -gap-y-1 hover:text-hover-white">
                 <p className="border-b">{currentTime.toLocaleTimeString([], {
                     hour: '2-digit', minute: '2-digit'
