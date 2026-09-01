@@ -7,6 +7,7 @@ import LoadingScreen from '@/components/loading_screen/LoadingScreen'
 function BugReportPage(){
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [showMessage, setShowMessage] = useState<boolean | null>(true);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         setIsLoading(true);
@@ -34,8 +35,13 @@ function BugReportPage(){
 
         setIsLoading(false);
 
-        if(response.ok) console.log('Bug report submitted successfully!');
-        else console.error('Failed to submit bug report.');
+        if(response.ok) {
+            console.log('Bug report submitted successfully!');
+            setShowMessage(true);
+        } else {
+            console.error('Failed to submit bug report.');
+            setShowMessage(false);
+        }
 
         console.log(formData);
     }
@@ -43,6 +49,15 @@ function BugReportPage(){
     return(
         <>
             {isLoading && <LoadingScreen activateLoad={isLoading} />}
+
+            <div className={`fixed top-0 left-0 w-full h-full bg-black/50 z-[999] flex justify-center items-center transition-all ${showMessage === true ? '' : 'hidden'}`}>
+                <div className='bg-[#BDEEC4] w-[80%] max-w-[400px] h-fit p-[2%] rounded-xl border-4 border-[#A8D8B9] flex flex-col gap-y-4'>
+                    <h1 className='text-[clamp(18px,3vw,24px)] text-center'>bug report submitted!</h1>
+                    <p className='text-[clamp(14px,2.5vw,18px)] text-center'>thank you for your report! i'll look into it as soon as possible.</p>
+                    <button className='bg-[#80b369] hover:cursor-pointer w-fit mx-auto px-[5%] py-[2%] border-[#37562F] border-2 rounded-xl hover:bg-[#37562F] hover:border-[#80b369] hover:text-hover-white transition-all' onClick={() => setShowMessage(null)}>Close Message</button>
+                </div>
+            </div>
+
 
             <div className="w-full h-screen overflow-y-auto overflow-x-hidden">
                 <div className='flex flex-col justify-center items-center py-[3%]'>
@@ -55,19 +70,19 @@ function BugReportPage(){
                         <input className='base-input' placeholder='Bug Title' required name='title'/>
 
                         <h3>Bug Description</h3>
-                        <textarea className='base-input' placeholder='What Happened?' required name='description'/>
+                        <textarea className='base-input resize-none' placeholder='What Happened?' required name='description'/>
 
                         <h3>Expected Output</h3>
-                        <textarea className='base-input' placeholder='What Should Happen?' required name='expectedOutput'/>
+                        <textarea className='base-input resize-none' placeholder='What Should Happen?' required name='expectedOutput'/>
 
                         <h3>Steps to Reproduce the Bug</h3>
-                        <textarea className='base-input' placeholder='How to Reproduce?' required name='stepsToReproduce'/>
+                        <textarea className='base-input resize-none' placeholder='How to Reproduce?' required name='stepsToReproduce'/>
 
                         <h3>Video or Screenshot Evidence (Optional!)</h3>
                         <input className='base-input' placeholder='Video/Screenshot URL' name='evidenceUrl'/>
 
                         <h3>Additional Information (Optional!)</h3>
-                        <textarea className='base-input' placeholder='Additional Information' name='additionalInfo'/>
+                        <textarea className='base-input resize-none' placeholder='Additional Information' name='additionalInfo'/>
 
                         <h3>Email (Optional!)</h3>
                         <input className='base-input' placeholder='Email' name='email' type='email'/>
