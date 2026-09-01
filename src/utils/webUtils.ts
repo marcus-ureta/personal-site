@@ -37,13 +37,13 @@ export function useSFX(){
 
     const [playStartDrag] = useSound("/sfx/start_drag.wav", {
         playbackRate: randPitch,
-        volume: 0.25,
+        volume: 0.05,
         interrupt: false,
     });
 
     const [playEndDrag] = useSound("/sfx/end_drag.wav", {
         playbackRate: randPitch,
-        volume: 0.25,
+        volume: 0.05,
         interrupt: false,
     });
 

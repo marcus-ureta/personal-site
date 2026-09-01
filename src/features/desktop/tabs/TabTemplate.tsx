@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, type PropsWithChildren,} from 'react';
 
 import {getTabStyle} from '../tabUtils'
-import { useMediaQuery } from '@/utils/webUtils';
+import { useMediaQuery, useSFX } from '@/utils/webUtils';
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '../tabManager/tabManager'
 import TabHeader from "@/features/desktop/tabs/TabHeader"
@@ -35,6 +35,8 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '',
     const { setTabStates, tabState } = useTabManager();
     const [playClosingAnim, setClosingAnim] = useState<boolean | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
+
+    const { playStartDrag, playEndDrag } = useSFX();
     
     const currentTabState = tabState.find(tab => tab.Tab == thisTab);
     const checkTabState : boolean = currentTabState?.Status == (TabStatus.Closed);
@@ -86,7 +88,7 @@ export function TabTemplate({thisTab, headerDetails, tabDetails, cssStyling= '',
                 '--tabIndex-value': `${currentTabState?.zIndex}`,
             } as React.CSSProperties}/>
 
-            <Draggable key={remountKey} handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => setIsDragging(true)} onStop={() => setIsDragging(false)}>
+            <Draggable key={remountKey} handle=".handle-bar" nodeRef={nodeRef} allowAnyClick={false} bounds="body" onStart={() => { setIsDragging(true); playStartDrag(); }} onStop={() => { setIsDragging(false); playEndDrag(); }}>
                 <div
                     className={`${playClosingAnim && !checkTabState ? 'animate-tab-close' : 'animate-tab-popup'} ${checkTabState && !playClosingAnim ? 'hidden' : ''}
                     flex flex-col w-screen ${fitHeightMobile ? 'h-fit' : 'h-[100dvh]'} sm:w-[var(--tab-width)] sm:h-[var(--tab-height)]
