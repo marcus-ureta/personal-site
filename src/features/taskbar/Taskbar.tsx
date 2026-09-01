@@ -50,6 +50,8 @@ function Taskbar(){
     const { enabled, setEnabled } = useSoundSettings();
 
     const getSoundIcon = () => {
+        localStorage.setItem("soundEnabled", String(enabled));
+
         if(!enabled)
         {
             if(soundHover) return sound_mute_hover

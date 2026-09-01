@@ -8,7 +8,9 @@ type SoundContextType = {
 const SoundContext = createContext<SoundContextType | null>(null);
 
 export function SoundProvider({ children }: PropsWithChildren) {
-    const [enabled, setEnabled] = useState(true);
+    const saved = localStorage.getItem("soundEnabled");
+    const initialEnabled = (saved !== null ? saved === "true" : true);
+    const [enabled, setEnabled] = useState(initialEnabled);
 
     return (
         <SoundContext.Provider value={{ enabled, setEnabled }}>
