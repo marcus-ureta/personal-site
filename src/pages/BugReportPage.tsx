@@ -22,6 +22,7 @@ function BugReportPage(){
                 evidenceUrl: formData.get("evidenceUrl"),
                 additionalInfo: formData.get("additionalInfo"),
                 email: formData.get("email"),
+                tos: formData.get("tos_acceptance")
             }),
         });
 
@@ -60,6 +61,8 @@ function BugReportPage(){
 
                         <h3>Email (Optional!)</h3>
                         <input className='base-input' placeholder='Email' name='email' type='email'/>
+
+                        <input className='absolute left-[-9999px]' name="tos_acceptance"/>
 
                         <button className='bg-primary-blue hover:cursor-pointer w-fit mx-auto px-[3%] py-[0.5%] border-secondary-blue border-2 rounded-xl hover:bg-secondary-blue hover:border-primary-blue hover:text-hover-white transition-all' type="submit">Submit Report</button>
                     </form>

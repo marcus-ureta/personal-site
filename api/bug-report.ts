@@ -7,7 +7,7 @@ export default async function handler(req: any, res: any) {
         });
     }
 
-    let { title, description, expectedOutput, stepsToReproduce, evidenceUrl, additionalInfo, email } = req.body;
+    let { title, description, expectedOutput, stepsToReproduce, evidenceUrl, additionalInfo, email, tos } = req.body;
 
     if(!title || !description || !expectedOutput || !stepsToReproduce) {
         return res.status(400).json({
@@ -15,11 +15,18 @@ export default async function handler(req: any, res: any) {
         });
     }
 
+    if(tos !== '') {
+        return res.status(400).json({
+            error: 'bad request!'
+        });
+    }
+
+
     if(!evidenceUrl) evidenceUrl = "N/A";
     if(!additionalInfo) additionalInfo = "N/A";
     if(!email) email = "N/A";
-
     
+
     if(title.length < 5 || title.length > 100) {
         return res.status(400).json({
             error: title.length < 5 ? "title is too short!" : "title is too long!",
