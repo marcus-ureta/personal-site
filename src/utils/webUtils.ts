@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import useSound from 'use-sound';
 
 export const goURL = (link : string) => {
     window.open(link);
@@ -23,4 +24,39 @@ export function useMediaQuery(query: string): boolean {
     }, [matches, query]);
 
     return matches;
+}
+
+export function useSFX(){
+    let randPitch = Math.random() * (1.1 - 0.85) + 0.85;
+
+    const [playIconClick] = useSound("/sfx/icon_click.wav", {
+        playbackRate: randPitch,
+        volume: 0.25,
+        interrupt: false,
+    });
+
+    const [playStartDrag] = useSound("/sfx/start_drag.wav", {
+        playbackRate: randPitch,
+        volume: 0.25,
+        interrupt: false,
+    });
+
+    const [playEndDrag] = useSound("/sfx/end_drag.wav", {
+        playbackRate: randPitch,
+        volume: 0.25,
+        interrupt: false,
+    });
+
+    const [playCloseTab] = useSound("/sfx/close_tab.wav", {
+        playbackRate: randPitch,
+        volume: 0.25,
+        interrupt: false,
+    });
+
+    return {
+        playIconClick,
+        playStartDrag,
+        playEndDrag,
+        playCloseTab
+    };
 }

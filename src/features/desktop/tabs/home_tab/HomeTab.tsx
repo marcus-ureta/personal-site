@@ -6,7 +6,7 @@ import TabHeader from "../TabHeader"
 import {getTabStyle, useUpdatePage} from '../../tabUtils'
 import { Tabs } from '@/features/desktop/tabManager/tabManager'
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
-import { goURL } from '@/utils/webUtils'
+import { goURL, useSFX } from '@/utils/webUtils'
 
 import "@/features/desktop/Desktop.css"
 import './HomeTab.css'
@@ -35,6 +35,8 @@ function HomeTab(){
 
     const [shownWarning, setShowWarning] = useState<boolean>(false);
     const showPopup = useShowPopup();
+
+    const { playIconClick } = useSFX();
 
     const handleWarningPopup = () => {
         setButtonClick(3); 
@@ -84,21 +86,21 @@ function HomeTab(){
                 <div className="flex justify-between w-full h-full px-[5%] mt-[3%] mb-[2.5%] flex-col sm:flex-row gap-y-4">
                     <div className="grid grid-cols-3 gap-x-3 sm:w-[50%] w-full place-items-center sm:place-items-start">
                         <div className={`group home-icon-styling ${buttonClicked === 0 ? 'animate-open-icon' : ''}`} 
-                        onClick={() => {setButtonClick(0); updatePage(Tabs.About)}}
+                        onClick={() => {setButtonClick(0); updatePage(Tabs.About); playIconClick();}}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={about_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">about</p>
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 1 ? 'animate-open-icon' : ''}`} 
-                        onClick={() => {setButtonClick(1); updatePage(Tabs.Social)}}
+                        onClick={() => {setButtonClick(1); updatePage(Tabs.Social); playIconClick();}}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={socials_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">socials</p>
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 2 ? 'animate-open-icon' : ''}`} 
-                        onClick={() => {setButtonClick(2); goURL('https://marcusureta-portfolio.vercel.app')}}
+                        onClick={() => {setButtonClick(2); playIconClick(); goURL('https://marcusureta-portfolio.vercel.app')}}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={portfolio_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">portfolio</p>
@@ -107,7 +109,7 @@ function HomeTab(){
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
                         <div className={`group home-icon-styling ${buttonClicked === 3 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {handleWarningPopup();
+                        onClick={() => {playIconClick(); handleWarningPopup();
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={board_icon} className="icon-style" loading='eager'/>
@@ -115,7 +117,7 @@ function HomeTab(){
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 4 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(4); updatePage(Tabs.Blogs);
+                        onClick={() => {setButtonClick(4); playIconClick(); updatePage(Tabs.Blogs);
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={blog_icon} className="icon-style" loading='eager'/>
@@ -123,7 +125,7 @@ function HomeTab(){
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 5 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(5); updatePage(Tabs.Contact); 
+                        onClick={() => {setButtonClick(5); playIconClick(); updatePage(Tabs.Contact); 
                             }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={contact_icon} className="icon-style" loading='eager'/>
