@@ -47,9 +47,9 @@ export function useSFX(){
         interrupt: false,
     });
 
-    const [playCloseTab] = useSound("/sfx/close_tab.wav", {
+    const [playCloseTab] = useSound("/sfx/close.wav", {
         playbackRate: randPitch,
-        volume: 0.25,
+        volume: 0.1,
         interrupt: false,
     });
 

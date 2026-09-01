@@ -2,6 +2,7 @@
 import { useUpdatePage } from '../tabUtils';
 import {useTabManager} from '@/features/desktop/tabManager/TabManagerContext'
 import { Tabs, TabStatus} from '@/features/desktop/tabManager/tabManager'
+import { useSFX } from '@/utils/webUtils';
 
 interface HeaderProps{
     icon: string;
@@ -14,8 +15,10 @@ interface HeaderProps{
 export const TabHeader = ({icon, name, isDraggable = true, tab, cssStyling = ''}: HeaderProps) => {
     const { setTabStates } = useTabManager();
     const updatePage = useUpdatePage();
-
+    const { playCloseTab } = useSFX();
+    
     const closeTab = (Tab? : Tabs) => {
+        playCloseTab();
         setTabStates((previousTabs) => {
             const newTabs = previousTabs.map((tab) => {
                 if (tab.Tab === Tab) {
