@@ -54,7 +54,7 @@ function AboutMe() {
                         </div>
 
                         <div className="relative z-10 aspect-square h-auto w-[64px]">
-                            <img src={dlsu} className="ml-auto h-full w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline"/>
+                            <img src={dlsu} className="ml-auto h-full w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline" loading="lazy"/>
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@ function AboutMe() {
                         </div>
 
                         <div className="relative z-10 aspect-square h-auto w-[86px]">
-                            <img src={ciit} className="ml-auto h-full w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline"/>
+                            <img src={ciit} className="ml-auto h-full w-full object-contain opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline" loading="lazy"/>
                         </div>
                     </div>
                 </div>

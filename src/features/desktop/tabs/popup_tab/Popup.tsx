@@ -17,7 +17,7 @@ function WarningPopup() {
 
     return(
         <>
-            <img className="w-[150px] h-auto object-contain" src={warning}/>
+            <img className="w-[150px] h-auto object-contain" src={warning} loading="lazy"/>
             <h1 className="heading">be responsible!</h1>
             <p className="detail-text">messages are automatically reviewed before submission. i trust you but please play nice! c:</p>
         </>
@@ -30,7 +30,7 @@ function FailurePopup({errorMessage} : {errorMessage : string}) {
     return(
         <>
             <h1 className="heading">action failed :c</h1>
-            <img src={failure}/>
+            <img src={failure} loading="lazy"/>
             <p className="detail-text">{errorMessage}</p>
         </>
     )
@@ -42,7 +42,7 @@ function SuccessPopup({successMessage} : {successMessage : string}) {
     return(
         <>
             <h1 className="heading">action succeed!</h1>
-            <img src={success}/>
+            <img src={success} loading="lazy"/>
             <p className="detail-text">{successMessage}</p>
         </>
     )
