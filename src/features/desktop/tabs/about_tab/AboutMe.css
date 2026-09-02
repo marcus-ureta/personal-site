@@ -10,11 +10,11 @@
 .batman-theme{
     --section-border-color: transparent;
     
-    --text-color: #c9bb8bbd;
+    --text-color: #c9b98b62;
 
-    --chip-bg-color: rgba(126, 75, 47, 0.35);
-    --chip-text-color: #c9bb8bbd;
-    --chip-border-color: #90562153;
+    --chip-bg-color: rgba(126, 75, 47, 0.21);
+    --chip-text-color: #c9b98b62;
+    --chip-border-color: #90572132;
 }
 
 li{
