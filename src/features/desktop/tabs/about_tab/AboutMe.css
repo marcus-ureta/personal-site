@@ -1,20 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @reference "@/index.css";
 
+:root{
+    --section-border-color: var(--color-secondary-blue);
+    
+    --text-color: var(--color-secondary-blue);
+    --text-header-hover: #567599;
+    --text-skills-header-hover: var(--color-accent-teal);
+}
+
+.batman-theme{
+    --section-border-color: transparent;
+    
+    --text-color: var(--color-hover-white);
+    --text-header-hover: #dedcdc;
+    --text-skills-header-hover: #dedcdc;
+}
+
+li{
+    @apply text-[var(--text-color)]
+}
+
 @layer utilities{
     .header-text{
-        @apply font-["Jost"] text-[var(--color-secondary-blue)] font-bold text-[clamp(36px,5vw,52px)] mb-[2%] sm:mb-[0.5%] hover:text-[clamp(38px,5vw,54px)] hover:text-[#567599] transition-all w-fit select-none
+        @apply font-["Jost"] text-[var(--text-color)] font-bold text-[clamp(36px,5vw,52px)] mb-[2%] sm:mb-[0.5%] hover:text-[clamp(38px,5vw,54px)] hover:text-[var(--text-header-hover)] transition-all w-fit select-none
     }
 
     .skills-header{
-        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%] font-bold mt-[2%] hover:text-[var(--color-accent-teal)] transition-all w-fit select-none
+        @apply font-["Arial"] text-[var(--text-color)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%] font-bold mt-[2%] hover:text-[var(--text-skills-header-hover)] transition-all w-fit select-none
     }
 
     .paragraph{
-        @apply font-["Arial"] text-[var(--color-secondary-blue)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%]
+        @apply font-["Arial"] text-[var(--text-color)] text-[clamp(20px,5vw,28px)] ml-1 mb-[2.5%] sm:mb-[1%]
     }
 
     .section-style{
-        @apply mx-[3.5%] mt-[2%] max-w-[87%] sm:max-w-[91%] pb-[1.5%] border-b-2 border-accent-teal
+        @apply mx-[3.5%] mt-[2%] max-w-[87%] sm:max-w-[91%] pb-[1.5%] border-b-2 border-[var(--section-border-color)]
     }
 }

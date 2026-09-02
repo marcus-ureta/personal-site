@@ -53,7 +53,7 @@ function AboutMe() {
 
     return(
         <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails}>
-            <div className="tab-scrollable">
+            <div className={`tab-scrollable ${activeTheme === BackgroundTheme.Batman ? 'batman-theme' : ''}`}>
                 {/* FUN SECTION */}
                 {showBackground && (
                     <div onAnimationEnd={handleAnimationEnd} 
@@ -150,18 +150,18 @@ function AboutMe() {
                 </div>
 
                 {/* INTERESTS & FUN FACTS */}
-                <div className={`section-style ${activeTheme !== null ? '!border-none' : ''}`}>
-                    <h2 className={`header-text ${activeTheme !== null ? '!text-hover-white' : ''}`}>INTERESTS & FUN FACTS</h2>
+                <div className={`section-style`}>
+                    <h2 className={`header-text`}>INTERESTS & FUN FACTS</h2>
                     <ul className={`list-disc list-inside -space-y-0.5 paragraph my-[2%] transition-all duration-500`}>
-                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>programming silly things</li>
-                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>listening to music 🎶</li>
-                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                        <li className={`w-fit `}>programming silly things</li>
+                        <li className={`w-fit `}>listening to music 🎶</li>
+                        <li className={`w-fit `} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             the batman (2022) is the best batman film
                         </li>
-                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>bnd is the best peter parker spiderman film</li>
-                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>i LOVE hollow knight and silksong</li>
+                        <li className={`w-fit `}>bnd is the best peter parker spiderman film</li>
+                        <li className={`w-fit `}>i LOVE hollow knight and silksong</li>
                     </ul>
-                    <p className={`paragraph mt-[1%] ${activeTheme !== null ? '!text-hover-white' : ''}`}>just a couple of interesting details you may want to know! c:</p>
+                    <p className={`paragraph mt-[1%]`}>just a couple of interesting details you may want to know! c:</p>
                 </div>
             </div>
         </TabTemplate>
