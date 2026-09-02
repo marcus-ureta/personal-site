@@ -1,0 +1,39 @@
+.chip {
+    font-family: Arial, sans-serif;
+    font-size: clamp(18px, 5vw, 28px);
+
+    background-color: var(
+        --chip-bg-color,
+        var(--color-secondary-blue)
+    );
+
+    color: var(
+        --chip-text-color,
+        white
+    );
+
+    width: fit-content;
+
+    padding: 0.5rem 1rem;
+    border-radius: 14px;
+
+    border: 3px solid var(
+        --chip-border-color,
+        var(--color-accent-teal)
+    );
+
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.chip:hover {
+    transform: scale(1.1);
+
+    background-color: var(--color-accent-teal);
+
+    color: var(--color-secondary-blue);
+
+    border-color: white;
+
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
