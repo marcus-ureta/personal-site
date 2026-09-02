@@ -28,7 +28,13 @@ function AboutMe() {
     return(
         <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
+                {/* FUN SECTION */}
+                <div className='fixed bg-gray-500/50 left-0 h-full w-[100%] top-0 z-[-1]'>
+                    <img src='https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXB2YmRnNTczaXN1ZTFuaWVuYjUwdHM2cWV3Zm41dWF5d2lyNTRhcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3T4oJvjGDuaX6exxMA/giphy.gif' width='100%' height='100%' className='object-cover'/>
+                </div>
+
                 {/* GENERAL INFORMATION SECTION */}
+
                 <div className='section-style'>
                     <h2 className="header-text">GENERAL INFORMATION</h2>
                     <p className="paragraph">hi! i'm Marcus Timothy Ureta, a computer science student currently studying at {" "}
