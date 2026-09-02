@@ -14,22 +14,28 @@ import ciit from '@/assets/tab-specific/about/ciit.webp'
 
 import { useState } from 'react';
 
+
+
 function AboutMe() {
-    const [hoverBatman, setHoverBatman] = useState(false);
-    const [showBatman, setShowBatman] = useState(false);
+    enum BackgroundTheme {
+        Batman,
+    }
+
+    const [activeTheme, setTheme] = useState<BackgroundTheme | null>(null);
+    const [showBackground, setShowBackground] = useState(false);
 
     const handleMouseEnter = () => {
-        setHoverBatman(true);
-        setShowBatman(true);
+        setTheme(BackgroundTheme.Batman);
+        setShowBackground(true);
     };
 
     const handleMouseLeave = () => {
-        setHoverBatman(false);
+        setTheme(null);
     };
 
     const handleAnimationEnd = () => {
-        if (!hoverBatman) {
-            setShowBatman(false);
+        if (activeTheme === null) {
+            setShowBackground(false);
         }
     };
     
@@ -49,10 +55,12 @@ function AboutMe() {
         <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
                 {/* FUN SECTION */}
-                {showBatman && (
-                    <div onAnimationEnd={handleAnimationEnd} className={`${hoverBatman ? 'animate-fade-in-tab' : 'animate-fade-out-tab'} fixed bg-gray-500/50 left-0 h-full w-[100%] top-0 z-[-1] transition-all duration-200`}>
+                {showBackground && (
+                    <div onAnimationEnd={handleAnimationEnd} 
+                    className={`${activeTheme === BackgroundTheme.Batman ? 'animate-fade-in-tab' : 'animate-fade-out-tab'} fixed bg-gray-500/50 left-0 h-full w-[100%] top-0 z-[-1] transition-all duration-200`}>
                         <img src='https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXB2YmRnNTczaXN1ZTFuaWVuYjUwdHM2cWV3Zm41dWF5d2lyNTRhcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3T4oJvjGDuaX6exxMA/giphy.gif' width='100%' height='100%' className='object-cover'/>
-                    </div>)}
+                    </div>
+                )}
 
 
                 {/* GENERAL INFORMATION SECTION */}
@@ -142,18 +150,18 @@ function AboutMe() {
                 </div>
 
                 {/* INTERESTS & FUN FACTS */}
-                <div className={`section-style ${hoverBatman ? '!border-none' : ''}`}>
-                    <h2 className={`header-text ${hoverBatman ? '!text-hover-white' : ''}`}>INTERESTS & FUN FACTS</h2>
+                <div className={`section-style ${activeTheme !== null ? '!border-none' : ''}`}>
+                    <h2 className={`header-text ${activeTheme !== null ? '!text-hover-white' : ''}`}>INTERESTS & FUN FACTS</h2>
                     <ul className={`list-disc list-inside -space-y-0.5 paragraph my-[2%] transition-all duration-500`}>
-                        <li className={`w-fit ${hoverBatman ? 'text-hover-white' : ''}`}>programming silly things</li>
-                        <li className={`w-fit ${hoverBatman ? 'text-hover-white' : ''}`}>listening to music 🎶</li>
-                        <li className={`w-fit ${hoverBatman ? 'text-hover-white' : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>programming silly things</li>
+                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>listening to music 🎶</li>
+                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             the batman (2022) is the best batman film
                         </li>
-                        <li className={`w-fit ${hoverBatman ? 'text-hover-white' : ''}`}>bnd is the best peter parker spiderman film</li>
-                        <li className={`w-fit ${hoverBatman ? 'text-hover-white' : ''}`}>i LOVE hollow knight and silksong</li>
+                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>bnd is the best peter parker spiderman film</li>
+                        <li className={`w-fit ${activeTheme !== null ? 'text-hover-white' : ''}`}>i LOVE hollow knight and silksong</li>
                     </ul>
-                    <p className={`paragraph mt-[1%] ${hoverBatman ? '!text-hover-white' : ''}`}>just a couple of interesting details you may want to know! c:</p>
+                    <p className={`paragraph mt-[1%] ${activeTheme !== null ? '!text-hover-white' : ''}`}>just a couple of interesting details you may want to know! c:</p>
                 </div>
             </div>
         </TabTemplate>
