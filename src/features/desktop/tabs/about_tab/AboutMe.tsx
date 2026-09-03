@@ -15,10 +15,10 @@ import ciit from '@/assets/tab-specific/about/ciit.webp'
 import { useState } from 'react';
 
 
-
 function AboutMe() {
     enum BackgroundTheme {
         Batman,
+        HollowKnight,
     }
 
     const [activeTheme, setTheme] = useState<BackgroundTheme | null>(null);
@@ -38,7 +38,20 @@ function AboutMe() {
             setShowBackground(false);
         }
     };
-    
+
+    const ThemeBackground = ({ theme } : {theme : BackgroundTheme}) => {
+        switch (theme) {
+            case BackgroundTheme.Batman:
+                return <img src='https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXB2YmRnNTczaXN1ZTFuaWVuYjUwdHM2cWV3Zm41dWF5d2lyNTRhcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3T4oJvjGDuaX6exxMA/giphy.gif' width='100%' height='100%' className='object-cover'/>;
+
+            case BackgroundTheme.HollowKnight:
+                return <img src='https://media1.tenor.com/m/krjbCFr5U_QAAAAC/hollow-knight.gif' width='100%' height='100%' className='object-cover'/>;
+
+            default:
+                return null;
+        }
+    };
+
 
     const headerDetails : HeaderDetails = {
         icon: icon,
@@ -52,13 +65,13 @@ function AboutMe() {
     }
 
     return(
-        <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails}>
-            <div className={`tab-scrollable ${activeTheme === BackgroundTheme.Batman ? 'batman-theme' : ''}`}>
+        <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails} headerStyling={`${showBackground ? 'opacity-50' : ''}`}>
+            <div className={`tab-scrollable ${activeTheme === BackgroundTheme.Batman ? 'batman-theme' : activeTheme === BackgroundTheme.HollowKnight ? 'hollow-knight-theme' : ''}`}>
                 {/* FUN SECTION */}
                 {showBackground && (
                     <div onAnimationEnd={handleAnimationEnd} 
-                    className={`${activeTheme === BackgroundTheme.Batman ? 'animate-fade-in-tab' : 'animate-fade-out-tab'} fixed bg-gray-500/50 left-0 h-full w-[100%] top-0 z-[-1] transition-all duration-200`}>
-                        <img src='https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXB2YmRnNTczaXN1ZTFuaWVuYjUwdHM2cWV3Zm41dWF5d2lyNTRhcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3T4oJvjGDuaX6exxMA/giphy.gif' width='100%' height='100%' className='object-cover'/>
+                    className={`${activeTheme !== null ? 'animate-fade-in-tab' : 'animate-fade-out-tab'} fixed bg-gray-500/50 left-0 h-full w-[100%] top-0 z-[-1] transition-all duration-200`}>
+                        <ThemeBackground theme={activeTheme!} />
                     </div>
                 )}
 
@@ -159,7 +172,9 @@ function AboutMe() {
                             the batman (2022) is the best batman film
                         </li>
                         <li className='w-fit'>bnd is the best peter parker spiderman film</li>
-                        <li className='w-fit'>i LOVE hollow knight and silksong</li>
+                        <li className='w-fit' onMouseEnter={() => handleMouseEnter(BackgroundTheme.HollowKnight)} onMouseLeave={handleMouseLeave}>
+                            i LOVE hollow knight and silksong
+                        </li>
                     </ul>
                     <p className='paragraph mt-[1%]'>just a couple of interesting details you may want to know! c:</p>
                 </div>

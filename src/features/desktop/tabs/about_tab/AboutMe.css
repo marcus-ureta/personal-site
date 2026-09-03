@@ -17,6 +17,16 @@
     --chip-border-color: #90572132;
 }
 
+.hollow-knight-theme{
+    --section-border-color: transparent;
+
+    --text-color: rgba(47, 65, 86, 0.6);
+
+    --chip-bg-color: #2f41564d;
+    --chip-text-color: #ffffff41;
+    --chip-border-color: #567c8d3f;
+}
+
 li{
     @apply text-[var(--text-color)]
 }
