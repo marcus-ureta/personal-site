@@ -55,6 +55,30 @@ export function useSFX(){
         interrupt: false,
     });
 
+    const [playNoteSound_1] = useSound("/sfx/note_sound_1.mp3", {
+        playbackRate: randPitch,
+        volume: 0.015,
+        interrupt: false,
+    });
+
+    const [playNoteSound_2] = useSound("/sfx/note_sound_2.mp3", {
+        playbackRate: randPitch,
+        volume: 0.015,
+        interrupt: false,
+    });
+
+    const [playNoteSound_3] = useSound("/sfx/note_sound_3.mp3", {
+        playbackRate: randPitch,
+        volume: 0.015,
+        interrupt: false,
+    });
+
+    const [playNoteSound_4] = useSound("/sfx/note_sound_4.mp3", {
+        playbackRate: randPitch,
+        volume: 0.015,
+        interrupt: false,
+    });
+
     return {
         playIconClick: () => {
             if(enabled) playIconClick();
@@ -67,6 +91,19 @@ export function useSFX(){
         },
         playCloseTab: () => {
             if(enabled) playCloseTab();
+        },
+
+        playNoteSound_1: () => {
+            if(enabled) playNoteSound_1();
+        },
+        playNoteSound_2: () => {
+            if(enabled) playNoteSound_2();
+        },
+        playNoteSound_3: () => {
+            if(enabled) playNoteSound_3();
+        },
+        playNoteSound_4: () => {
+            if(enabled) playNoteSound_4();
         }
     };
 }
