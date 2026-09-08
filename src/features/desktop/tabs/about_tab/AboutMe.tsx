@@ -19,6 +19,7 @@ function AboutMe() {
     enum BackgroundTheme {
         Batman,
         HollowKnight,
+        Spiderman,
     }
 
     const [activeTheme, setTheme] = useState<BackgroundTheme | null>(null);
@@ -47,6 +48,9 @@ function AboutMe() {
             case BackgroundTheme.HollowKnight:
                 return <img src='https://media1.tenor.com/m/krjbCFr5U_QAAAAC/hollow-knight.gif' width='100%' height='100%' className='object-cover'/>;
 
+            case BackgroundTheme.Spiderman:
+                return <img src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExczY3ejU3bTFra2l3MTNkbzVuMm9zNnlydXg3OG4yZ2diNmNtMnhqZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yX8b6qiEoULQAtjjyJ/giphy.gif' width='100%' height='100%' className='object-cover -translate-y-30'/> 
+
             default:
                 return null;
         }
@@ -66,7 +70,7 @@ function AboutMe() {
 
     return(
         <TabTemplate thisTab={Tabs.About} headerDetails={headerDetails} tabDetails={tabDetails} headerStyling={`${showBackground ? 'opacity-50' : ''}`}>
-            <div className={`tab-scrollable ${activeTheme === BackgroundTheme.Batman ? 'batman-theme' : activeTheme === BackgroundTheme.HollowKnight ? 'hollow-knight-theme' : ''}`}>
+            <div className={`tab-scrollable ${activeTheme === BackgroundTheme.Batman ? 'batman-theme' : activeTheme === BackgroundTheme.HollowKnight ? 'hollow-knight-theme' : activeTheme === BackgroundTheme.Spiderman ? 'spiderman-theme' : ''}`}>
                 {/* FUN SECTION */}
                 {showBackground && (
                     <div onAnimationEnd={handleAnimationEnd} 
@@ -171,10 +175,12 @@ function AboutMe() {
                         <li className='w-fit' onMouseEnter={() => handleMouseEnter(BackgroundTheme.Batman)} onMouseLeave={handleMouseLeave}>
                             the batman (2022) is the best batman film
                         </li>
-                        <li className='w-fit'>bnd is the best peter parker spiderman film</li>
+                        <li className='w-fit' onMouseEnter={() => handleMouseEnter(BackgroundTheme.Spiderman)} onMouseLeave={handleMouseLeave}>bnd is the best peter parker spiderman film</li>
                         <li className='w-fit' onMouseEnter={() => handleMouseEnter(BackgroundTheme.HollowKnight)} onMouseLeave={handleMouseLeave}>
                             i LOVE hollow knight and silksong
                         </li>
+                        <li>my highest subway surfer no coin run reached 289,419 score</li>
+                        <li>marshmallow boy release coming in 3-5 business days</li>
                     </ul>
                     <p className='paragraph mt-[1%]'>just a couple of interesting details you may want to know! c:</p>
                 </div>

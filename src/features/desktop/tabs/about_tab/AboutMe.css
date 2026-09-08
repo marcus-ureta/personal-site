@@ -20,7 +20,17 @@
 .hollow-knight-theme{
     --section-border-color: transparent;
 
-    --text-color: rgba(47, 65, 86, 0.6);
+    --text-color: #447BBE41;
+
+    --chip-bg-color: #2f41564d;
+    --chip-text-color: #447BBE41;
+    --chip-border-color: #567c8d3f;
+}
+
+.spiderman-theme{
+    --section-border-color: transparent;
+
+    --text-color: #ffffff41;
 
     --chip-bg-color: #2f41564d;
     --chip-text-color: #ffffff41;
