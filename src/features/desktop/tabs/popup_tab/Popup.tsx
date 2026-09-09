@@ -13,7 +13,6 @@ import { usePopupManager } from '../../popupManager/popupManagerContext'
 import { PopupTabs, State } from '../../popupManager/popupManager'
 
 function WarningPopup() {
-    console.log('Failure!');
 
     return(
         <>
@@ -25,7 +24,6 @@ function WarningPopup() {
 }
 
 function FailurePopup({errorMessage} : {errorMessage : string}) {
-    console.log('Failure!');
 
     return(
         <>
@@ -37,7 +35,6 @@ function FailurePopup({errorMessage} : {errorMessage : string}) {
 }
 
 function SuccessPopup({successMessage} : {successMessage : string}) {
-    console.log('Success!');
 
     return(
         <>

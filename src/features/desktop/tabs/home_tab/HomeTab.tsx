@@ -25,6 +25,16 @@ import { useState, useRef } from 'react';
 
 import HighlightMessage from '@/components/highlight_message/HighlightMessage'
 
+import { useSoundSettings } from "@/features/soundContext/SoundContext"
+
+
+import bug_icon from '@/assets/icons/bug/bug icon.svg'
+
+import sound_icon from '@/assets/icons/sound/sound.svg'
+import sound_mute from '@/assets/icons/sound/mute.svg'
+import { Link } from 'react-router-dom'
+
+
 function HomeTab(){
     // Click Animation
     const [buttonClicked, setButtonClick] = useState<number | null>(null);
@@ -39,6 +49,22 @@ function HomeTab(){
     const showPopup = useShowPopup();
 
     const { playIconClick } = useSFX();
+
+
+    const { enabled, setEnabled } = useSoundSettings();
+
+    const getSoundIcon = () => {
+        localStorage.setItem("soundEnabled", String(enabled));
+
+        if(!enabled)
+        {
+            return sound_mute
+        }
+        else
+        {
+            return sound_icon
+        }
+    }
 
     const handleWarningPopup = () => {
         setButtonClick(3); 
@@ -87,9 +113,10 @@ function HomeTab(){
                 <div className="sm:grid sm:grid-cols-3 mt-[2.5%] justify-between w-full h-full">
                     {/* TEXT COMPONENTS */}
                     <div className="flex flex-col col-span-2 text-center sm:text-start mx-[7%]">
-                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3 transition-all w-fit h-fit">
+                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3 transition-all h-fit">
                             <HighlightMessage message='welcome!'/>
                         </h1>
+
                         <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] leading-none transition-all">i'm{" "}
                             <span className="inline-grid" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                                 <span className={`[grid-area:1/1] ${hoverName ? 'animate-disable-home-text' : 'animate-enable-home-text'}`} style={{ color: "#F39A5A" }}>Marcus</span>
@@ -134,27 +161,43 @@ function HomeTab(){
 
                     <div className="grid grid-cols-3 gap-x-3 gap-y-0 sm:w-[50%] w-full ml-auto place-items-center sm:place-items-end">
                         <div className={`group home-icon-styling ${buttonClicked === 3 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {playIconClick(); handleWarningPopup();
-                            }}
+                        onClick={() => {playIconClick(); handleWarningPopup();}}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={board_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">board</p>
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 4 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(4); playIconClick(); updatePage(Tabs.Blogs);
-                            }}
+                        onClick={() => {setButtonClick(4); playIconClick(); updatePage(Tabs.Blogs);}}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={blog_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">blogs</p>
                         </div>
 
                         <div className={`group home-icon-styling ${buttonClicked === 5 ? 'animate-open-icon' : ''}`}
-                        onClick={() => {setButtonClick(5); playIconClick(); updatePage(Tabs.Contact); 
-                            }}
+                        onClick={() => {setButtonClick(5); playIconClick(); updatePage(Tabs.Contact); }}
                         onAnimationEnd={() => setButtonClick(null)}>
                             <img src={contact_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">contact</p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-x-3 gap-y-0 w-full ml-auto place-items-center sm:place-items-end sm:hidden">
+                        <div className={`group home-icon-styling`}>
+                            <Link to="/bug-report">
+                                <img src={bug_icon} alt="Bug Icon" loading='eager'/>
+                            </Link>
+                            <p className="icon-text translate-y-1.5">bugs</p>
+                        </div>
+
+                        <div className={`group home-icon-styling`}>
+                            <img src={getSoundIcon()} onClick={() => setEnabled(!enabled)} className="icon-style" loading='eager'/>
+                            <p className="icon-text">sound</p>
+                        </div>
+
+                        <div className={`group home-icon-styling`}>
+                            <img src={blog_icon} className="icon-style" loading='eager'/>
+                            <p className="icon-text">credits</p>
                         </div>
                     </div>
                 </div>
