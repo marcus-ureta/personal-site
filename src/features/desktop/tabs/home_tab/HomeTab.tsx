@@ -21,18 +21,19 @@ import contact_icon from '@icons/home ref/contact.svg'
 import { useShowPopup } from '@/features/desktop/popupManager/popupUtils'
 import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import HighlightMessage from '@/components/highlight_message/HighlightMessage'
 
 function HomeTab(){
-
     // Click Animation
     const [buttonClicked, setButtonClick] = useState<number | null>(null);
 
     const [hoverName, setHover] = useState<boolean>(false);
     const { tabState } = useTabManager();
     const updatePage = useUpdatePage();
+    
+    const imageRef = useRef<HTMLImageElement>(null);
 
     const [shownWarning, setShowWarning] = useState<boolean>(false);
     const showPopup = useShowPopup();
@@ -50,6 +51,27 @@ function HomeTab(){
 
         return;
     }
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+        const img = imageRef.current;
+
+        if (!img) return;    
+
+        const rect = img.getBoundingClientRect();
+
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+
+        img.style.transform = `translate(${x * 0.075}px, ${y * 0.075}px)`;
+    };
+
+    const handleMouseLeave = () => {
+        const img = imageRef.current;
+
+        if (!img) return;
+
+        img.style.transform = "translate(0, 0)";
+    };
 
     const homeTabIndex : number = tabState.find(tab => tab.Tab === Tabs.Home)?.zIndex!;
 
@@ -79,7 +101,7 @@ function HomeTab(){
 
                     {/* PFP IMAGE */}
                     <div className="flex justify-center sm:justify-start items-center col-span-1 mt-[3%] sm:mt-0 mb-[2.5%] sm:mb-0 mr-0 sm:mr-5">
-                        <img src={pfp} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none translate-x-0 sm:-translate-x-2.5 transition-all duration-300 hover:border-primary-blue hover:bg-accent-teal/85 hover:shadow-lg hover:shadow-accent-teal/90" draggable={false} loading='eager'/>
+                        <img src={pfp} ref={imageRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="w-32 h-auto sm:w-[clamp(320px,15%,320px)] rounded-full bg-secondary-blue/85 overflow-hidden object-fit border-accent-teal border-5 select-none translate-x-0 sm:-translate-x-2.5 transition-[border-color,background-color,box-shadow] duration-300 hover:border-primary-blue hover:bg-accent-teal/85 hover:shadow-lg hover:shadow-accent-teal/90" draggable={false} loading='eager'/>
                     </div>
                     
                     <h2 className="text-secondary-blue text-[clamp(26px,2.5vw,38px)] italic font-['Arial'] font-[550] tracking-[-0.06em] block sm:hidden text-center mx-2">college student and programmer</h2>
