@@ -144,11 +144,11 @@
     @keyframes click-effect {
         0%{
             transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1);
-            opacity:1;
+            opacity:0.5;
         }
 
         100%{
-            transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1.5);
+            transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1.75);
             opacity:0;
         }
     }

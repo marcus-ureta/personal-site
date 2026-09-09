@@ -1,7 +1,7 @@
 
 import Background from '@/components/moving_background/Background.tsx'
 
-import Crosshair from '@/assets/crosshair.svg'
+import Crosshair from '@/assets/crosshair.webp'
 
 import DesktopView from '@/features/desktop/DesktopView.tsx'
 import { TabManagerProvider } from '@/features/desktop/tabManager/TabManagerContext.tsx'
@@ -22,6 +22,7 @@ function DesktopPage(){
             setImgRot(Math.floor(Math.random() * (360 - 0 + 1) + 1));
             setMouseClick(true);
         };
+        
         window.addEventListener('click', handleMouseClick);
 
         return () => window.removeEventListener('click', handleMouseClick);
@@ -42,12 +43,14 @@ function DesktopPage(){
                 <Taskbar/>
             </TabManagerProvider>
 
-            <img onAnimationEnd={handleAnimationEnd} src={Crosshair} className={`origin-center fixed w-[24px] h-auto pointer-events-none ${mouseClick ? 'animate-click-effect' : 'hidden'} z-50 transition-all`}
+            <img onAnimationEnd={handleAnimationEnd} src={Crosshair} className={`origin-center fixed w-[24px] h-auto pointer-events-none ${mouseClick ? 'animate-click-effect' : 'hidden'} z-50 transition-all drop-shadow-5xl`}
             style={{
                 top: mousePos.y,
                 left: mousePos.x,
                 '--rotation': `${imageRot}deg`,
             } as React.CSSProperties}/>
+
+            
         </>
     )
 }
