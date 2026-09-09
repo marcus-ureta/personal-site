@@ -23,6 +23,7 @@ import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 
 import { useState } from 'react';
 
+import HighlightMessage from '@/components/highlight_message/HighlightMessage'
 
 function HomeTab(){
 
@@ -56,7 +57,7 @@ function HomeTab(){
             <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
                 style={{
                     '--tabIndex-value': `${homeTabIndex}`
-            } as React.CSSProperties}>
+                } as React.CSSProperties}>
                     
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
@@ -64,7 +65,9 @@ function HomeTab(){
                 <div className="sm:grid sm:grid-cols-3 mt-[2.5%] justify-between w-full h-full">
                     {/* TEXT COMPONENTS */}
                     <div className="flex flex-col col-span-2 text-center sm:text-start mx-[7%]">
-                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3 transition-all">welcome!</h1>
+                        <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] mt-3 transition-all w-fit h-fit">
+                            <HighlightMessage message='welcome!'/>
+                        </h1>
                         <h1 className="text-secondary-blue text-[clamp(64px,5vw,96px)] leading-none transition-all">i'm{" "}
                             <span className="inline-grid" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                                 <span className={`[grid-area:1/1] ${hoverName ? 'animate-disable-home-text' : 'animate-enable-home-text'}`} style={{ color: "#F39A5A" }}>Marcus</span>
