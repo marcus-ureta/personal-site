@@ -102,13 +102,14 @@ function HomeTab(){
     const homeTabIndex : number = tabState.find(tab => tab.Tab === Tabs.Home)?.zIndex!;
 
     return(
-            <div className={`w-[95vw] h-auto sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
+            <div className={`w-[95vw] h-auto max-h-[640px] sm:w-[70vw] ${getTabStyle()} top-1/2 left-1/2 -translate-x-1/2 -translate-y-[49%] sm:-translate-y-[54%] animate-fade-in-up z-[var(--tabIndex-value)]`}
                 style={{
                     '--tabIndex-value': `${homeTabIndex}`
                 } as React.CSSProperties}>
                     
                 <TabHeader icon={icon} name='home' isDraggable={false}/>
 
+                <div className="tab-scrollable block sm:hidden">
                 {/* TAB COMPONENTS */}
                 <div className="sm:grid sm:grid-cols-3 mt-[2.5%] justify-between w-full h-full">
                     {/* TEXT COMPONENTS */}
@@ -200,6 +201,7 @@ function HomeTab(){
                             <p className="icon-text">credits</p>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
     )
