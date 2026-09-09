@@ -17,7 +17,6 @@ function DesktopPage(){
 
     useEffect(() => {
         const handleMouseClick = (e : MouseEvent) => {
-            console.log(e.clientX + ' ' + e.clientY);
             setPosition({x: e.clientX, y: e.clientY});
             setImgRot(Math.floor(Math.random() * (360 - 0 + 1) + 1));
             setMouseClick(true);
