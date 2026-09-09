@@ -13,17 +13,23 @@ function DesktopPage(){
 
     const [mouseClick, setMouseClick] = useState(false);
     const [mousePos, setPosition] = useState({ x: 0, y: 0 });
+    const [imageRot, setImgRot] = useState(0);
 
     useEffect(() => {
         const handleMouseClick = (e : MouseEvent) => {
             console.log(e.clientX + ' ' + e.clientY);
             setPosition({x: e.clientX, y: e.clientY});
+            setImgRot(Math.floor(Math.random() * (360 - 0 + 1) + 1));
             setMouseClick(true);
         };
         window.addEventListener('click', handleMouseClick);
 
         return () => window.removeEventListener('click', handleMouseClick);
     }, []);
+
+    const handleAnimationEnd = (): void => {
+        setMouseClick(false);
+    };
 
     return(
         <>
@@ -36,12 +42,12 @@ function DesktopPage(){
                 <Taskbar/>
             </TabManagerProvider>
 
-            <img src={Crosshair} className={`fixed scale-60 pointer-events-none ${mouseClick ? 'block' : 'hidden'} z-50`}
+            <img onAnimationEnd={handleAnimationEnd} src={Crosshair} className={`origin-center fixed w-[24px] h-auto pointer-events-none ${mouseClick ? 'animate-click-effect' : 'hidden'} z-50 transition-all`}
             style={{
                 top: mousePos.y,
                 left: mousePos.x,
-                transform: `translate(-80%, -75%)`,
-            }}/>
+                '--rotation': `${imageRot}deg`,
+            } as React.CSSProperties}/>
         </>
     )
 }
