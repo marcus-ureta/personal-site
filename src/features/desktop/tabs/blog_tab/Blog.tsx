@@ -9,13 +9,13 @@ import article from '@/assets/tab-specific/blog/list.svg'
 import search from '@/assets/tab-specific/blog/search.svg'
 import tag from '@/assets/tab-specific/blog/tag.svg'
 
-
 import { useState } from 'react'
+
 
 function BlogPost() {
     return(
-        <div className='py-3 bg-container-blue border-2 border-secondary-blue my-[24px] px-4 cursor-pointer'>
-            <div className='w-[75%]'>
+        <div className='bg-container-blue border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full'>
+            <div className='w-[75%] py-3 px-4 '>
                 <h1 className="font-['Arial'] text-xl text-secondary-blue font-bold">Article Title</h1>
                 <p className="font-['Arial']  mt-2">Article Description</p>
 
@@ -27,7 +27,7 @@ function BlogPost() {
                 </div>
             </div>
 
-            {/* BLOG IMAGE HERE */}
+            <div className='bg-gray-400 w-[40%] rounded-tl-4xl rounded-bl-4xl'/>
         </div>
     )
 }
@@ -44,7 +44,8 @@ function Blog() {
         leftPos: 20,
     }
 
-    const [selectedValue, setSelectedValue] = useState("");
+    const [tagSelectedValue, setTagSelectedValue] = useState("");
+    const [articleSelectedValue, setArticleSelectedValue] = useState("");
 
 
     return(
@@ -62,7 +63,7 @@ function Blog() {
                                 <div className='relative w-[45%]'>
                                     <img src={tag} className='w-5 h-auto absolute top-1/2 -translate-y-1/2 left-2'/>
 
-                                    <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-8 py-0.5 w-full">
+                                    <select value={tagSelectedValue} onChange={(e) => setTagSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-8 py-0.5 w-full">
                                         <option value="" disabled hidden>
                                             Search by Tag
                                         </option>
@@ -75,7 +76,7 @@ function Blog() {
                                 <div className='relative w-[45%]'>
                                     <img src={article} className='w-5 h-auto absolute top-1/2 -translate-y-1/2 left-2'/>
 
-                                    <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-8 py-0.5 w-full">
+                                    <select value={articleSelectedValue} onChange={(e) => setArticleSelectedValue(e.target.value)} disabled={true} className="bg-gray-300 border-2 border-secondary-blue px-8 py-0.5 w-full">
                                         <option value="" disabled hidden>
                                             Search by No.
                                         </option>
