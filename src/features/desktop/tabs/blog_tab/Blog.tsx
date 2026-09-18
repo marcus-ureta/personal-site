@@ -3,6 +3,8 @@ import tab_icon from '@icons/tab/blog.svg'
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
+import { Tags } from '@/features/posts/blogTags'
+
 import "@/features/desktop/Desktop.css"
 
 import article from '@/assets/tab-specific/blog/list.svg'
@@ -10,6 +12,7 @@ import search from '@/assets/tab-specific/blog/search.svg'
 import tag from '@/assets/tab-specific/blog/tag.svg'
 
 import { useState } from 'react'
+import { map } from 'firebase/firestore/pipelines'
 
 
 function BlogPost() {
@@ -67,9 +70,10 @@ function Blog() {
                                         <option value="" disabled hidden>
                                             Search by Tag
                                         </option>
-                                        
-                                        <option value="apple">Apple</option>
-                                        <option value="banana">Banana</option>
+
+                                        {Tags.map((tag, i) => (
+                                            <option key={i} value={tag}>{tag}</option>
+                                        ))}
                                     </select>
                                 </div>
 
