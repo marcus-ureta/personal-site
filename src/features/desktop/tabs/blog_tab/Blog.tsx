@@ -5,6 +5,11 @@ import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
 import "@/features/desktop/Desktop.css"
 
+import article from '@/assets/tab-specific/blog/list.svg'
+import search from '@/assets/tab-specific/blog/search.svg'
+import tag from '@/assets/tab-specific/blog/tag.svg'
+
+
 import { useState } from 'react'
 
 function BlogPost() {
@@ -53,26 +58,39 @@ function Blog() {
                             <p className="font-['Arial] text-xl text-secondary-blue">i write posts about any topics that pique my interests. there is a total of <span className='font-bold'>X</span> blog posts currently! </p>
 
                             <div className='flex flex-row my-[16px] justify-between'>
-                                <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-4 py-0.5 w-[45%]">
-                                    <option value="" disabled hidden>
-                                        Search by Tag
-                                    </option>
-                                    
-                                    <option value="apple">Apple</option>
-                                    <option value="banana">Banana</option>
-                                </select>
 
-                                <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-4 py-0.5 w-[45%]">
-                                    <option value="" disabled hidden>
-                                        Search by No.
-                                    </option>
-                                    
-                                    <option value="apple">Apple</option>
-                                    <option value="banana">Banana</option>
-                                </select>
+                                <div className='relative w-[45%]'>
+                                    <img src={tag} className='w-5 h-auto absolute top-1/2 -translate-y-1/2 left-2'/>
+
+                                    <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-8 py-0.5 w-full">
+                                        <option value="" disabled hidden>
+                                            Search by Tag
+                                        </option>
+                                        
+                                        <option value="apple">Apple</option>
+                                        <option value="banana">Banana</option>
+                                    </select>
+                                </div>
+
+                                <div className='relative w-[45%]'>
+                                    <img src={article} className='w-5 h-auto absolute top-1/2 -translate-y-1/2 left-2'/>
+
+                                    <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)} className="bg-container-blue border-2 border-secondary-blue px-8 py-0.5 w-full">
+                                        <option value="" disabled hidden>
+                                            Search by No.
+                                        </option>
+                                        
+                                        <option value="apple">Apple</option>
+                                        <option value="banana">Banana</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <input placeholder='Search by Title' className="bg-container-blue border-2 border-secondary-blue px-4 py-0.5 w-full"/>
+                            <div className='relative w-full'>
+                                <img src={search} className='w-5 h-auto absolute top-1/2 -translate-y-1/2 left-2'/>
+
+                                <input placeholder='Search by Title' className="bg-container-blue border-2 border-secondary-blue px-8 py-0.5 w-full"/>
+                            </div>
                         </div>
 
                         <div className='w-[95%] border-t border-secondary-blue mt-6'>
