@@ -3,7 +3,7 @@ import tab_icon from '@icons/tab/blog.svg'
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
-import { Tags } from '@/features/posts/blogTags'
+import { Tags } from '@/features/blog/blogTags'
 
 import "@/features/desktop/Desktop.css"
 
@@ -109,7 +109,7 @@ function Blog() {
                         <div className='w-[95%] border-t border-secondary-blue mt-6'>
                             {tags.map((tag, i) => (
                                 <BlogPost title="Article Title" description="Article Description" date="August 3, 2026" tag={tag.toString()} articleNo={i + 1}/>
-                            ))}
+                            )).reverse()}
                         </div>
                     </div>
                 </div>
