@@ -1,4 +1,4 @@
-import { Children, type PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 
 import tab_icon from '@icons/tab/blog.svg'
 

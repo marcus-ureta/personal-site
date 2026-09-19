@@ -5,7 +5,7 @@ import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
 
 import { Tags } from '@/features/blog/blogTags'
-import { type BlogDetail, BlogDetails } from '@/features/blog/blogDetails'
+import { BlogDetails } from '@/features/blog/blogDetails'
 
 
 import "@/features/desktop/Desktop.css"
@@ -25,17 +25,22 @@ type BlogPostProps = {
 };
 
 function BlogPost({title, description, date, tag, articleNo} : BlogPostProps & {articleNo : number}) {
+
+    const openPage = () => {
+        console.log('opening the blog page');
+    }
+
     return(
-        <div className='bg-container-blue border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full'>
+        <div className='bg-container-blue border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full hover:bg-accent-teal group transition-all duration-200' onClick={() => openPage()}>
             <div className='w-[75%] py-3 px-4 '>
-                <h1 className="font-['Arial'] text-xl text-secondary-blue font-bold">{title}</h1>
-                <p className="font-['Arial']  mt-2">{description}</p>
+                <h1 className="font-['Arial'] text-xl text-secondary-blue group-hover:text-accent-beige font-bold">{title}</h1>
+                <p className="font-['Arial']  mt-2 group-hover:text-hover-white">{description}</p>
 
                 <div className='flex flex-row gap-x-4 mt-2'>
-                    <h3 className="font-['Arial'] text-sm">{articleNo}.</h3>
-                    <h3 className="font-['Arial'] text-sm">{date.toUpperCase()}.</h3>
+                    <h3 className="font-['Arial'] text-sm group-hover:text-hover-white">{articleNo}.</h3>
+                    <h3 className="font-['Arial'] text-sm group-hover:text-hover-white">{date.toUpperCase()}.</h3>
 
-                    <h4 className="bg-[#6A848F] text-white px-3 font-['Arial'] text-sm rounded-2xl">{tag}</h4>
+                    <h4 className="bg-[#6A848F] text-white px-3 font-['Arial'] text-sm rounded-2xl group-hover:bg-primary-blue">{tag}</h4>
                 </div>
             </div>
 
