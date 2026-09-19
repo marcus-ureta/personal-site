@@ -1,6 +1,6 @@
 
-export const Tags : string[] = [
-    "web-dev",
-    "web-design",
-    "game-dev"
-];
+export enum Tags {
+    webDev = "web-dev",
+    webDesign = "web-design",
+    gameDev = "game-dev"
+}

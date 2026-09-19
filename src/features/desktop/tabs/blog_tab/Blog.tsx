@@ -12,21 +12,27 @@ import search from '@/assets/tab-specific/blog/search.svg'
 import tag from '@/assets/tab-specific/blog/tag.svg'
 
 import { useState } from 'react'
-import { map } from 'firebase/firestore/pipelines'
 
 
-function BlogPost() {
+type BlogPostProps = {
+    title: string,
+    description: string,
+    date: string,
+    tag: string
+};
+
+function BlogPost({title, description, date, tag, articleNo} : BlogPostProps & {articleNo : number}) {
     return(
         <div className='bg-container-blue border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full'>
             <div className='w-[75%] py-3 px-4 '>
-                <h1 className="font-['Arial'] text-xl text-secondary-blue font-bold">Article Title</h1>
-                <p className="font-['Arial']  mt-2">Article Description</p>
+                <h1 className="font-['Arial'] text-xl text-secondary-blue font-bold">{title}</h1>
+                <p className="font-['Arial']  mt-2">{description}</p>
 
                 <div className='flex flex-row gap-x-4 mt-2'>
-                    <h3 className="font-['Arial'] text-sm">#1.</h3>
-                    <h3 className="font-['Arial'] text-sm">AUGUST 3, 2026.</h3>
+                    <h3 className="font-['Arial'] text-sm">{articleNo}.</h3>
+                    <h3 className="font-['Arial'] text-sm">{date.toUpperCase()}.</h3>
 
-                    <h4 className="bg-[#6A848F] text-white px-3 font-['Arial'] text-sm rounded-2xl">web-dev</h4>
+                    <h4 className="bg-[#6A848F] text-white px-3 font-['Arial'] text-sm rounded-2xl">{tag}</h4>
                 </div>
             </div>
 
@@ -50,6 +56,8 @@ function Blog() {
     const [tagSelectedValue, setTagSelectedValue] = useState("");
     const [articleSelectedValue, setArticleSelectedValue] = useState("");
 
+    const tags = Object.values(Tags);
+
 
     return(
         <TabTemplate thisTab={Tabs.Blogs} headerDetails={headerDetails} tabDetails={tabDetails}>
@@ -71,7 +79,7 @@ function Blog() {
                                             Search by Tag
                                         </option>
 
-                                        {Tags.map((tag, i) => (
+                                        {tags.map((tag, i) => (
                                             <option key={i} value={tag}>{tag}</option>
                                         ))}
                                     </select>
@@ -99,7 +107,9 @@ function Blog() {
                         </div>
 
                         <div className='w-[95%] border-t border-secondary-blue mt-6'>
-                            {BlogPost()}
+                            {tags.map((tag, i) => (
+                                <BlogPost title="Article Title" description="Article Description" date="August 3, 2026" tag={tag.toString()} articleNo={i + 1}/>
+                            ))}
                         </div>
                     </div>
                 </div>
