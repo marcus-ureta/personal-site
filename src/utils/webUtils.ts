@@ -79,6 +79,12 @@ export function useSFX(){
         interrupt: false,
     });
 
+    const [playBlogClick] = useSound("/sfx/blog_click.wav", {
+        playbackRate: randPitch,
+        volume: 0.1,
+        interrupt: false,
+    });
+
     return {
         playIconClick: () => {
             if(enabled) playIconClick();
@@ -104,6 +110,11 @@ export function useSFX(){
         },
         playNoteSound_4: () => {
             if(enabled) playNoteSound_4();
+        },
+
+
+        playBlogClick: () => {
+            if(enabled) playBlogClick();
         }
     };
 }

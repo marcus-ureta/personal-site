@@ -17,6 +17,8 @@ import tag from '@/assets/tab-specific/blog/tag.svg'
 
 import { useState } from 'react'
 
+import { useSFX } from '@/utils/webUtils';
+
 
 type BlogPostProps = {
     title: string,
@@ -29,8 +31,10 @@ function BlogPost({title, description, date, tag, articleNo, index} : BlogPostPr
 
     const updatePage = useUpdatePage();
     const { setOpenBlogPost } = useBlogContext();
+    const { playBlogClick } = useSFX();
 
     const openPage = () => {
+        playBlogClick();
         setOpenBlogPost(index);
         updatePage(Tabs.BlogPost);
         
