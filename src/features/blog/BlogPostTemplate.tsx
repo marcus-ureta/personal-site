@@ -21,7 +21,7 @@ function BlogPostTemplate({children} : PropsWithChildren) {
 
 
     return(
-        <TabTemplate thisTab={Tabs.Blogs} headerDetails={headerDetails} tabDetails={tabDetails}>
+        <TabTemplate thisTab={Tabs.BlogPost} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
                 {children}
             </div>

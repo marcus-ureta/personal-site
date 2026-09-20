@@ -2,11 +2,11 @@ import tab_icon from '@icons/tab/blog.svg'
 
 import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
+import { useUpdatePage } from '@/features/desktop/tabUtils'
 
 
 import { Tags } from '@/features/blog/blogTags'
 import { BlogDetails } from '@/features/blog/blogDetails'
-
 
 import "@/features/desktop/Desktop.css"
 
@@ -26,7 +26,10 @@ type BlogPostProps = {
 
 function BlogPost({title, description, date, tag, articleNo} : BlogPostProps & {articleNo : number}) {
 
+    const updatePage = useUpdatePage();
+
     const openPage = () => {
+        updatePage(Tabs.BlogPost);
         console.log('opening the blog page');
     }
 
@@ -115,9 +118,9 @@ function Blog() {
                         </div>
 
                         <div className='w-[95%] border-t border-secondary-blue mt-6'>
-                            {BlogDetails.map((blog, i) => (
-                                <BlogPost key={i} title={blog.title} description={blog.description} date={blog.date} tag={blog.tag} articleNo={i + 1}/>
-                            )).reverse()}
+                            {BlogDetails.reverse().map((blog, i) => (
+                                <BlogPost key={i} title={blog.title} description={blog.description} date={blog.date} tag={blog.tag} articleNo={BlogDetails.length - i}/>
+                            ))}
                         </div>
                     </div>
                 </div>

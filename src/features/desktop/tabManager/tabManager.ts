@@ -4,7 +4,10 @@ export const Tabs = {
     About: "About",
     Social: "Social",
     Board: "Board",
+    
     Blogs: "Blogs",
+    BlogPost: "BlogPost",
+
     Contact: "Contact",
     Popup: "Popup"
 } as const
@@ -53,6 +56,12 @@ export const InitialTabStates: TabState[] = [
 
     {
         Tab: Tabs.Blogs,
+        Status: TabStatus.Closed,
+        zIndex: 3 
+    },
+
+    {
+        Tab: Tabs.BlogPost,
         Status: TabStatus.Closed,
         zIndex: 3 
     },

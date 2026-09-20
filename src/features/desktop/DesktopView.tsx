@@ -7,7 +7,10 @@ import HomeTab from "./tabs/home_tab/HomeTab.tsx"
 import Social from "./tabs/social_tab/Social.tsx"
 import Contact from "./tabs/contact_tab/Contact.tsx"
 import Board from './tabs/board_tab/Board.tsx';
+
 import Blog from './tabs/blog_tab/Blog.tsx'
+import BlogPostTemplate from '../blog/BlogPostTemplate.tsx';
+
 import Popup from './tabs/popup_tab/Popup.tsx';
 
 import "./Desktop.css"
@@ -37,12 +40,14 @@ function DesktopView(){
         <div className={getTabContainerStyle()}>
 
             <PopupManagerProvider>
-                <Blog/>
                 <Board/>
                 <Contact/>
                 <HomeTab/>
                 <Popup/>
             </PopupManagerProvider>
+
+            <BlogPostTemplate/>
+            <Blog/>
             
             <Social/>
             <AboutMe/>
