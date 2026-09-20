@@ -78,7 +78,7 @@ function Blog() {
 
                         <div className='w-[95%] sm:w-[70%]'>
                             <h1 className="font-['Jost'] text-5xl mb-[3%] text-secondary-blue font-semibold">~my diary!</h1>
-                            <p className="font-['Arial] text-xl text-secondary-blue">i write posts about any topics that pique my interests. there is a total of <span className='font-bold'>{BlogDetails.length}</span> blog posts currently! </p>
+                            <p className="font-['Arial] text-xl text-secondary-blue">i write posts about any topics that pique my interests. there are a total of <span className='font-bold'>{BlogDetails.length}</span> blog posts currently! </p>
 
                             <div className='flex flex-row my-[16px] justify-between'>
 

@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { PopupManagerProvider } from '@/features/desktop/popupManager/popupManagerContext.tsx';
+import { BlogProvider } from '@/features/blog/BlogContext.tsx';
 
 import AboutMe from "./tabs/about_tab/AboutMe.tsx"
 import HomeTab from "./tabs/home_tab/HomeTab.tsx"
@@ -46,9 +47,13 @@ function DesktopView(){
                 <Popup/>
             </PopupManagerProvider>
 
-            <BlogPostTemplate/>
-            <Blog/>
-            
+
+            <BlogProvider>
+                <BlogPostTemplate/>
+                <Blog/>
+            </BlogProvider>
+
+
             <Social/>
             <AboutMe/>
         </div>
