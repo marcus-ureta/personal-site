@@ -17,16 +17,6 @@ export type BlogDetail = {
 
 export const BlogDetails : BlogDetail[] = [
     {
-        title: "Article Title #3",
-        description: "Article Description #3",
-        date: "August 3, 2026",
-        tag: Tags.gameDev,
-
-        blogImage: '',
-        blogComponent: BlogPost_1
-    },
-
-    {
         title: "Article Title #2",
         description: "Article Description #2",
         date: "August 3, 2026",

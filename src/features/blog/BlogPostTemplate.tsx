@@ -34,7 +34,7 @@ function BlogPostTemplate() {
 
 
     return(
-        <TabTemplate thisTab={Tabs.BlogPost} headerDetails={headerDetails} tabDetails={tabDetails}>
+        <TabTemplate thisTab={Tabs.BlogPost} headerDetails={headerDetails} tabDetails={tabDetails} cssStyling='bg-[#F4F5F6]'>
             <div className="tab-scrollable">
                 <BlogComponent/>
             </div>
