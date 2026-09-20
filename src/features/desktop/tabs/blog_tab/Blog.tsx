@@ -4,6 +4,7 @@ import {TabTemplate, type HeaderDetails, type TabDetails} from '../TabTemplate'
 import {Tabs} from '@/features/desktop/tabManager/tabManager'
 import { useUpdatePage } from '@/features/desktop/tabUtils'
 
+import { useBlogContext } from '@/features/blog/BlogContext.tsx';
 
 import { Tags } from '@/features/blog/blogTags'
 import { BlogDetails } from '@/features/blog/blogDetails'
@@ -24,12 +25,15 @@ type BlogPostProps = {
     tag: string
 };
 
-function BlogPost({title, description, date, tag, articleNo} : BlogPostProps & {articleNo : number}) {
+function BlogPost({title, description, date, tag, articleNo, index} : BlogPostProps & {articleNo : number, index : number}) {
 
     const updatePage = useUpdatePage();
+    const { setOpenBlogPost } = useBlogContext();
 
     const openPage = () => {
+        setOpenBlogPost(index);
         updatePage(Tabs.BlogPost);
+        
         console.log('opening the blog page');
     }
 
@@ -119,7 +123,7 @@ function Blog() {
 
                         <div className='w-[95%] border-t border-secondary-blue mt-6'>
                             {BlogDetails.reverse().map((blog, i) => (
-                                <BlogPost key={i} title={blog.title} description={blog.description} date={blog.date} tag={blog.tag} articleNo={BlogDetails.length - i}/>
+                                <BlogPost key={i} title={blog.title} description={blog.description} date={blog.date} tag={blog.tag} articleNo={BlogDetails.length - i} index={i}/>
                             ))}
                         </div>
                     </div>

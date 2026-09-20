@@ -1,4 +1,3 @@
-import { type PropsWithChildren } from 'react';
 
 import tab_icon from '@icons/tab/blog.svg'
 
@@ -7,7 +6,12 @@ import {Tabs} from '@/features/desktop/tabManager/tabManager'
 
 import "@/features/desktop/Desktop.css"
 
-function BlogPostTemplate({children} : PropsWithChildren) {
+import { useBlogContext } from '@/features/blog/BlogContext.tsx';
+import { BlogDetails } from './blogDetails';
+import { useEffect } from 'react';
+
+
+function BlogPostTemplate() {
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
         name: 'blog'
@@ -19,11 +23,20 @@ function BlogPostTemplate({children} : PropsWithChildren) {
         leftPos: 20,
     }
 
+    const { openedBlogPost } = useBlogContext();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [openedBlogPost]);
+
+    const BlogComponent = BlogDetails[openedBlogPost].blogComponent;
+
+
 
     return(
         <TabTemplate thisTab={Tabs.BlogPost} headerDetails={headerDetails} tabDetails={tabDetails}>
             <div className="tab-scrollable">
-                {children}
+                <BlogComponent/>
             </div>
         </TabTemplate>
     )

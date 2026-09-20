@@ -1,7 +1,9 @@
 import { type ComponentType } from "react";
 import { Tags } from "./blogTags"
 
-import BlogPostTemplate from "./BlogPostTemplate";
+
+import BlogPost_1 from "./posts/1-10/BlogPost_1";
+import BlogPost_2 from "./posts/1-10/BlogPost_2";
 
 export type BlogDetail = {
     title: string,
@@ -21,9 +23,9 @@ export const BlogDetails : BlogDetail[] = [
         tag: Tags.gameDev,
 
         blogImage: '',
-        blogComponent: BlogPostTemplate
+        blogComponent: BlogPost_1
     },
-    
+
     {
         title: "Article Title #2",
         description: "Article Description #2",
@@ -31,7 +33,7 @@ export const BlogDetails : BlogDetail[] = [
         tag: Tags.webDev,
 
         blogImage: '',
-        blogComponent: BlogPostTemplate
+        blogComponent: BlogPost_2
     },
 
     {
@@ -41,6 +43,6 @@ export const BlogDetails : BlogDetail[] = [
         tag: Tags.webDesign,
 
         blogImage: '',
-        blogComponent: BlogPostTemplate
+        blogComponent: BlogPost_1
     }
 ]
