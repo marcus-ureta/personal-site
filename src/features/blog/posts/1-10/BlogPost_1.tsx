@@ -24,13 +24,22 @@ function BlogPost_1(){
             </div>
 
             <div className='mt-7 mb-12'>
-                <h1 className="font-bold text-secondary-blue text-3xl mb-3">How I Designed My Site Layout:</h1>
+                <h1 className="font-bold text-secondary-blue text-3xl mb-5">How I Designed My Site Layout:</h1>
 
-                <p>hey</p>
+                <p className='mb-4'>Truth be told when I was first designing my site, I had no idea on where to begin. At the time, there was so many considerations I had to think about while developing the site. Some questions I asked myself at the time were: </p>
+
+                <ul className="list-disc list-inside -space-y-0.5 mb-4 marker:black">
+                    <li style={{color: "black"}}>How should the site look?</li>
+                    <li style={{color: "black"}}>What kind of features do I want?</li>
+                    <li style={{color: "black"}}>Should the site be like this other site?</li>
+                    <li style={{color: "black"}}>How do I want my mobile site to look?</li>
+                </ul>
+
+                <p className='mb-4'>To tackle these issues, I decided to fully focus on outlining what kind of features I wanted for the site first, then base my site design around those features. This methodology ensures that I have a clear idea of the MVP (Minimum Viable Product) for the project. Allowing me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
             </div>
             
             <div className='mt-7 mb-12'>
-                <h1 className="font-bold text-secondary-blue text-3xl mb-3">How to NOT Lose Motivation:</h1>
+                <h1 className="font-bold text-secondary-blue text-3xl mb-5">How to NOT Lose Motivation:</h1>
 
                 <p>hey</p>
             </div>

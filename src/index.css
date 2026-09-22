@@ -9,10 +9,6 @@ body{
   height: 95vh;
 }
 
-*p{
-  font-family: 'Arial', sans-serif;
-}
-
 h1{
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
