@@ -17,7 +17,7 @@ export type BlogDetail = {
 
 export const BlogDetails : BlogDetail[] = [
     {
-        title: "Article Title #2",
+        title: "How to Code Your Personal Site 401!",
         description: "Article Description #2",
         date: "August 3, 2026",
         tag: Tags.webDev,
@@ -27,7 +27,7 @@ export const BlogDetails : BlogDetail[] = [
     },
 
     {
-        title: "Article Title #1",
+        title: "The Process of Designing My Personal Site!",
         description: "Article Description #1",
         date: "August 3, 2026",
         tag: Tags.webDesign,
