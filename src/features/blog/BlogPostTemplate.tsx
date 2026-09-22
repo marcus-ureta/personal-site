@@ -40,8 +40,8 @@ function BlogPostTemplate() {
 
                 <div className='mx-[5%] w-[85%] my-8'>
 
-                    <div className='flex flex-col gap-y-4 justify-center border-b border-secondary-color px-5 py-2'>
-                        <h1 className="items-center flex flex-col text-secondary-blue font-bold">{BlogDetails[openedBlogPost].title}</h1>
+                    <div className='flex flex-col gap-y-4 justify-center border-b border-secondary-color px-5 py-2 mb-6'>
+                        <h1 className="items-center flex flex-col text-secondary-blue font-bold text-[clamp(32px,1.5vw,64px)]">{BlogDetails[openedBlogPost].title}</h1>
 
                         <div className='flex justify-between'>
                             <h2 className="text-secondary-blue font-['Arial']">{BlogDetails[openedBlogPost].date}</h2>
