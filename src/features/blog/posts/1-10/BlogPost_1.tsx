@@ -31,7 +31,7 @@ function BlogPost_1(){
             <div className='blog-section'>
                 <h1 className="blog-header-text">How I Designed My Site Layout:</h1>
 
-                <p>Truth be told when I was first designing my site, I had no idea on where to begin. At the time, there was so many considerations I had to think about while developing the site. Some questions I asked myself at the time were: </p>
+                <p>Truth be told when I was first designing my site, I had no idea on where to begin. At the time, there were so many considerations I had to think about while developing the site. Some questions I asked myself at the time were: </p>
 
                 <ul className="list-disc list-inside -space-y-0.5 mb-4 marker:black">
                     <li style={{color: "black"}}>How should the site look?</li>
@@ -40,14 +40,14 @@ function BlogPost_1(){
                     <li style={{color: "black"}}>How do I want my mobile site to look?</li>
                 </ul>
 
-                <p>To tackle these issues, I decided to fully focus on outlining what kind of features I wanted for the site first, then base my site design around those features. This methodology ensures that I have a clear idea of the MVP (Minimum Viable Product) for the project. Allowing me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
+                <p>To tackle these issues, I decided to focus on outlining the features I wanted for the site first, then base my design around those features. This methodology ensured that I had a clear idea of the MVP (Minimum Viable Product) for the project. This allowed me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
 
 
                 <h2 className="blog-subheader-text">FEATURE PORTION:</h2>
-                <p>When outlining all the features I wanted for the site, I decided to just start out by listing out all the core features required. Which looked something similar like this: </p>
+                <p>When outlining all the features I wanted for the site, I decided to just start out by listing out all the core features required. Which looked something like this: </p>
 
                 <ul className="list-disc list-inside space-y-0.5 mb-4 marker:black">
-                    <li style={{color: "black"}}>Inspired by a desktop-based OS, in which there are;</li>
+                    <li style={{color: "black"}}>Inspired by a desktop-based OS, the site would have:</li>
                     
                     <ul className="list-[circle] list-inside ml-6 marker:black">
                         <li style={{color: "black"}}>Rectangular viewing areas for the content on the site, called tabs.</li>
@@ -60,19 +60,19 @@ function BlogPost_1(){
                         <li style={{color: "black"}}>Properly working z-index stacking between tabs</li>
                     </ul>
                     
-                    <li style={{color: "black"}}>In terms of content, I wanted there to be an:</li>
+                    <li style={{color: "black"}}>In terms of content, I wanted there to be:</li>
 
                     <ul className="list-[circle] list-inside ml-6 marker:black">
-                        <li style={{color: "black"}}>about me section,</li>
-                        <li style={{color: "black"}}>socials page,</li>
-                        <li style={{color: "black"}}>They act as an interesting visual way of accessing information on the site.</li>
+                        <li style={{color: "black"}}>an about me section,</li>
+                        <li style={{color: "black"}}>a socials page,</li>
+                        <li style={{color: "black"}}>contact form</li>
                     </ul>
 
                     <li style={{color: "black"}}>Interactable Background</li>
                     <li style={{color: "black"}}>Sound Effects</li>
                 </ul>
 
-                <p>After listing them out, I then decided to list out any additional features I wanted for the site. These ideas could come from any other inspirations I might have seen before. Take for instance: the message board! This is an idea that came to me while I was surfing through the indie-web that I thought would be a fun addition to the site. Of course, the message board itself isn't the only other additional feature. Things such as the bug report page, blog, click effects, any any other features not mentioned previously were added due to external influences! To me, this felt like my own way of adding a unique personality to my site that no one has probably done before.</p>
+                <p>After listing them out, I then decided to list out any additional features I wanted for the site. These ideas could come from other sites and projects that inspired me. Take, for instance, the message board! This is an idea that came to me while I was surfing through the indie-web that I thought would be a fun addition to the site. Of course, the message board itself isn't the only other additional feature. Things such as the bug report page, blog, click effects, any other features not mentioned previously were added due to external influences! To me, this felt like my own way of giving the site a unique personality that was distinctly mine.</p>
 
                 <p>In my opinion, it's important to jot down any ideas you may have during the brainstorming period. It helps you remember key details and what your target deliverable is. </p>
 
