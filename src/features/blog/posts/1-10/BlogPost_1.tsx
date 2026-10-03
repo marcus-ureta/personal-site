@@ -6,6 +6,8 @@ function BlogPost_1(){
         <>
             <p>(article description)</p>
 
+
+            {/* It All Starts With An Idea... */}
             <div className='blog-section'>
                 <h1 className="blog-header-text">It All Starts With An Idea...</h1>
 
@@ -25,6 +27,7 @@ function BlogPost_1(){
                 <p>Later on, I got some of my ideas from the indie web too! </p>
             </div>
 
+            {/* How I Designed My Site Layout */}
             <div className='blog-section'>
                 <h1 className="blog-header-text">How I Designed My Site Layout:</h1>
 
@@ -106,7 +109,8 @@ function BlogPost_1(){
                 <p>I noticed that without a taskbar at the bottom, there happened to be a lot of whitespace that could be filled up. This later on gave me the idea to implement a fully functioning time system, bug report & sound icon, and the ability to see which tabs are open with the taskbar too!</p>
 
             </div>
-            
+
+            {/* How to not Lose Motivation */}
             <div className='blog-section'>
                 <h1 className="blog-header-text">How to NOT Lose Motivation:</h1>
 
@@ -118,6 +122,16 @@ function BlogPost_1(){
                 <p>So you might be asking right now: What's the point of this section? Well, I'd like to argue that THIS is the most important section of the entire blog! </p>
                 <p>If there's one thing that I want you to takeaway from this blog, it's that you should always find a way to stay motivated when working on a project. Without it, no matter how grand the ideas you may have are, as long as you don't have that urge to keep pushing through despite rough patches, then your never gonna finish that project! </p>
                 <p>Find your own motivation. Try occasionally showing your project off to your friends and see what their reactions are like! Or maybe you find satisfaction somewhere else, then go do that as well! The point of the matter is that you should find what makes your project worth doing. That way, you have a point of reference for why you're still continuing to work on your project.</p>
+            </div>
+
+            {/* Milanote Designing */}
+            <div className='blog-section'>
+                <h1 className="blog-header-text">Milanote Designing:</h1>
+                <p>Initially, when I was beginning to design the project, I actually only used Figma to design the web layout. However, it was really hard for me to visualize all the things I wanted for the site. After all, I didn't really have a moodboard, typography, color pallete, or even any clear inspirations that I can get from reference easily.</p>
+
+                <p>Fortunately, this is where Milanote comes in! Milanote is one of the primary tools I use to visualize the general 'feel' of the site. I used Milanote to design every important visual element needed for the website. This includes the previous elements which I discussed earlier such as typography, moodboard, color palette, and the background design.</p>
+
+                <p>Essentially, I used Milanote as a gateway to visualize and layout my site. Without it, designing the site would have been extremely difficult and messy! </p>
             </div>
         </>
     )
