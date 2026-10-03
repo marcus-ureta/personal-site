@@ -1,0 +1,15 @@
+@reference "@/index.css";
+
+@layer utilities{
+    .blog-section{
+        @apply mt-7 mb-12
+    }
+
+    .blog-header-text{
+        @apply font-bold text-secondary-blue text-3xl mb-5
+    }
+
+    .blog-section p{
+        @apply mb-4
+    }
+}
