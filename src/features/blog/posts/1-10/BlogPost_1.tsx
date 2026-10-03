@@ -39,6 +39,7 @@ function BlogPost_1(){
 
                 <p>To tackle these issues, I decided to fully focus on outlining what kind of features I wanted for the site first, then base my site design around those features. This methodology ensures that I have a clear idea of the MVP (Minimum Viable Product) for the project. Allowing me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
 
+
                 <h2 className="blog-subheader-text">FEATURE PORTION:</h2>
                 <p>When outlining all the features I wanted for the site, I decided to just start out by listing out all the core features required. Which looked something similar like this: </p>
 
@@ -71,6 +72,39 @@ function BlogPost_1(){
                 <p>After listing them out, I then decided to list out any additional features I wanted for the site. These ideas could come from any other inspirations I might have seen before. Take for instance: the message board! This is an idea that came to me while I was surfing through the indie-web that I thought would be a fun addition to the site. Of course, the message board itself isn't the only other additional feature. Things such as the bug report page, blog, click effects, any any other features not mentioned previously were added due to external influences! To me, this felt like my own way of adding a unique personality to my site that no one has probably done before.</p>
 
                 <p>In my opinion, it's important to jot down any ideas you may have during the brainstorming period. It helps you remember key details and what your target deliverable is. </p>
+
+
+                <h2 className="blog-subheader-text">DESIGN PORTION:</h2>
+                <p>After finalizing all the features, I finally moved on to designing the rough layout for the site! Now, even though I have finished all the prerequisites, it's not like this would be a cakewalk. I still need to put my own 'spin' on the idea after all. </p>
+
+                <p>In this phase of the journey, I decided to hunt for inspirations and understand the design philosophy behind the inspirations for my site. I did this so I could further understand what kind of considerations I should take into account when planning my website out in Figma.</p>
+
+                <p>In this portion, I will be listing out of all my sources of inspiration for the site layout, along with what I'm going to use and learn from each of them.</p>
+
+
+                <p className="font-bold text-secondary-blue mt-6">main inspiration: shar site</p>
+                <p>Okayyy. I understand, I've been glazing the hell out of her site for the past few paragraphs. So, instead of just praising the site like I've done previously, I'm going to go in-depth on the exact features I want from it. Understanding how and why she made those features in that manner.</p>
+
+                <p>In that case, I would like to address the elephant in the room and discuss about the feature most prominently ported from shar's site: the draggable windows. To me, this was a no-brainer to implement into my site; in fact it is the CRUX of the entire project.</p>
+
+                <p>But why is this the case? Why do I think this is such a good idea? Well for me as a developer, I always value interactivity when developing any project. It goes back to an old Gabe Newell quote regarding realism in video games:</p>
+
+                <p>“So we had to come up with some notion of what fun was. We knew it was an ad hoc definition, and it was the degrees to which the game recognizes and responds to the player’s choices and actions […] The point I would make is, if I go up to a wall and shoot it, to me it feels like the wall is ignoring me. I’m getting a narcissistic injury when the world is ignoring me.”</p>
+
+                <p>For me, this quote completely signifies my entire philosophy when it comes to development. I always want to make sure my works keep people engaged and make them appreciate all the actions they can take. In web development in particular, I can fulfill my user's "narcissistic" tendency by making them feel active and giving them actions that matter on my site. </p>
+
+                <p>This is why an idea like a draggable window tab is so enticing and intriguing to me. Of course, the uniqueness of the idea itself is already ingenious, but what really sells me is how the feature rewards users when they interact with my site. </p>
+
+                <p>Before moving forward, there is something I would like to mention. And that's the fact that while a desktop-based OS website is a novel idea, it isn't exactly a 'new' idea. However, despite this, none of the other websites I've visited really had any nice or smooth mobile support; all of them except for shar's site.</p>
+
+                <p>To me, this is still what makes shar's site special even after a year since seeing her video. The design she made back then was simple, but timeless in its own way due to the way how she constructed her site. </p>
+
+
+                <p className="font-bold text-secondary-blue mt-6">additional inspiration</p>
+                <p>Aside from shar's site, I also took inspiration from other operating-system based websites. Due to these inspirations, I decided to lean more on an "operating-system" based web-design for the site. This is how I got the idea to implement a taskbar on the website!</p>
+
+                <p>I noticed that without a taskbar at the bottom, there happened to be a lot of whitespace that could be filled up. This later on gave me the idea to implement a fully functioning time system, bug report & sound icon, and the ability to see which tabs are open with the taskbar too!</p>
+
             </div>
             
             <div className='blog-section'>
