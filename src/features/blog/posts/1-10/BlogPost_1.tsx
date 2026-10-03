@@ -40,7 +40,7 @@ function BlogPost_1(){
                     <li style={{color: "black"}}>How do I want my mobile site to look?</li>
                 </ul>
 
-                <p>To tackle these issues, I decided to focus on outlining the features I wanted for the site first, then base my design around those features. This methodology ensured that I had a clear idea of the MVP (Minimum Viable Product) for the project. This allowed me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
+                <p>To tackle these issues, I chose to focus on outlining the features I wanted for the site first, then base my design around those features. This methodology ensured that I had a clear idea of the MVP (Minimum Viable Product) for the project. This allowed me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
 
 
                 <h2 className="blog-subheader-text">FEATURE PORTION:</h2>
@@ -80,7 +80,7 @@ function BlogPost_1(){
                 <h2 className="blog-subheader-text">DESIGN PORTION:</h2>
                 <p>After finalizing all the features, I finally moved on to designing the rough layout for the site! Now, even though I have finished all the prerequisites, it's not like this would be a cakewalk. I still need to put my own 'spin' on the idea after all. </p>
 
-                <p>In this phase of the journey, I decided to hunt for inspirations and understand the design philosophy behind the inspirations for my site. I did this so I could further understand what I should take into account when planning my website out in Figma.</p>
+                <p>In this phase of the journey, I ended up hunting for inspirations and understand the design philosophy behind the inspirations for my site. I did this so I could further understand what I should take into account when planning my website out in Figma.</p>
 
                 <p>In this portion, I will be listing all my sources of inspiration for the site layout, along with what I'm going to use and learn from each of them.</p>
 
@@ -147,29 +147,29 @@ function BlogPost_1(){
                 <p className="font-bold text-secondary-blue mt-6">First Phase - Designing the Initial Home Layout:</p>
                 <p>In the first phase, I decided to design from the ground up. This meant initially designing the background and the taskbar for the site. This was fairly easy, as I already had a solid framework for what I wanted based on the inspirations I gathered in Milanote.</p>
 
-                <p>However, designing the background was tricky because I didn't want a flashy or distracting background. At the same time, I still wanted it to be interactive and aesthetically pleasing. This led me to create multiple prototypes to see which version would fit the site best. In order to decide which version would fit the site the most, I asked one of my front-end developer friends for his input. He said he liked the first version the best, so I decided to follow along with what he said! (attach image showcase here).</p>
+                <p>However, designing the background was tricky because I didn't want a flashy or distracting background. At the same time, I still wanted it to be interactive and aesthetically pleasing. This led me to create multiple prototypes to see which version would fit the site best. In order to decide which version would fit the site the most, I asked one of my front-end developer friends for his input. He said he liked the first version the best, so I settled and followed along with what he said! (attach image showcase here).</p>
 
-                <p>Truth be told, I'm not actually a great designer. But instead of trying to mask this fact, I decided to get assistance and look for someone who DOES know how to design. This is something I believe you should follow too if you're not particularly great at designing like me! Always look for help in areas where you're not exactly confident at. Of course, this doesn't mean you have to delegate all your issues to other people. And perhaps you don't have any easily available compatriots who can assist you. But I do want you to consider the idea, as I truly believe that being some kind of one-man army or 10x developer will always lead you to have a weak point.</p>
+                <p>Truth be told, I'm not actually a great designer. But instead of trying to mask this fact, I opted to get assistance and look for someone who DOES know how to design. This is something I believe you should follow too if you're not particularly great at designing like me! Always look for help in areas where you're not exactly confident at. Of course, this doesn't mean you have to delegate all your issues to other people. And perhaps you don't have any easily available compatriots who can assist you. But I do want you to consider the idea, as I truly believe that being some kind of one-man army or 10x developer will always lead you to have a weak point.</p>
 
                 <p className="font-bold text-secondary-blue mt-6">Second Phase - Styling of Base 'Tabs':</p>
-                <p>In this phase, I decided to focus on refining the look of the tabs to its fullest. As stated before, because it is the crux of the site, it was really important for me to get the design implemented correctly.</p>
+                <p>In this phase, I focused on refining the look of the tabs to its fullest. As stated before, because it is the crux of the site, it was really important for me to get the design implemented correctly.</p>
 
-                <p>At first, I decided to create the home tab as a reference point for all the other tabs to come. Of course, I need to design the tab container which will store all the contents inside that tab. For this, I decided to copy shar's style, but add a tab icon at the top left along with the tab name. </p>
+                <p>At first, I ended up creating the home tab as a reference point for all the other tabs to come. Of course, I need to design the tab container which will store all the contents inside that tab. For this, I decided to copy shar's style, but add a tab icon at the top left along with the tab name. </p>
 
                 <p>Now that I've designed the container, I can move on to the actual contents for the home tab. I knew I wanted it to serve as the main navigation and landing page for the site. This meant that I wanted it to hold all of my basic information while also acting as a way to navigate through all the other tabs. For the layout design, I once again took inspiration from shar's site. However, I decided to add a twist by including my profile picture. I know it might seem "uninspired", but it was really hard for me to reimagine this without sacrificing mobile-friendly support. I'm sure it's possible, but I just couldn't find a way to do it without sacrificing either the tab functionality or mobile accessibility. </p>
 
-                <p>Once I completed the design for the home tab layout, I decided to create a tab template based on it. It contained the fonts, color scheme, general tab layout, and consistent icon/image sizes if I ever needed them. This ensured that design elements such as the color palette and fonts wouldn't change drastically throughout the site. However, I did deviate a bit with the font sizes for some sections. But for the most part, the sizes did stay consistent throughout all the tabs.</p>
+                <p>Once I completed the design for the home tab layout, I created a tab template based on it. It contained the fonts, color scheme, general tab layout, and consistent icon/image sizes if I ever needed them. This ensured that design elements such as the color palette and fonts wouldn't change drastically throughout the site. However, I did deviate a bit with the font sizes for some sections. But for the most part, the sizes did stay consistent throughout all the tabs.</p>
 
                 <p className="font-bold text-secondary-blue mt-6">Third Phase - Creation of Remaining Tabs:</p>
                 <p>Afterwards, I was able to design the rest of the tabs based on my template and design inspirations. Each of these tabs would have the same 'tab' design as each other (with one exception); however, they would differ in terms of their content.</p>
 
                 <ul className="list-disc list-inside -space-y-0.5 my-6 marker:black">
                     <li style={{color: "black", fontWeight: "bold"}}>About Me:</li>
-                        <p className='mt-2'>For this tab, I decided to take inspiration from <span className='font-bold'>(*ring ring*)</span>, oh can you guess who? It's from shar! Now, I only really needed the content layout from her, so things like Education, General Information, and Interests were taken. Afterwards, I decided to just design the layout of the page and filled it with all the relevant information.</p>
+                        <p className='mt-2'>For this tab, I ended up taking inspiration from <span className='font-bold'>(*ring ring*)</span>, oh can you guess who? It's from shar! Now, I only really needed the content layout from her, so things like Education, General Information, and Interests were taken. Afterwards, I just designed the layout of the page and filled it with all the relevant information.</p>
                     <li style={{color: "black", fontWeight: "bold"}}>Socials:</li>
-                        <p className='mt-2'>For my socials, I decided to not make anything too complex, and I opted to just do a simple page displaying all my socials in a grid format. Yeah, there's not much to say here lowkey.</p>
+                        <p className='mt-2'>For my socials, I wanted to not try and make anything too complex, and opted to just do a simple page displaying all my socials in a grid format. Yeah, there's not much to say here lowkey.</p>
                     <li style={{color: "black", fontWeight: "bold"}}>Contact:</li>
-                        <p className='mt-2'>One thing I knew I definitely wanted in my contacts tab was a contact form where people could send me an email through the site. In terms of design, I decided to take inspiration from Wix sites and how they designed their own contact form. The only things I really changed were the contents and structure of the message itself. </p>
+                        <p className='mt-2'>One thing I knew I definitely wanted in my contacts tab was a contact form where people could send me an email through the site. In terms of design, I took inspiration from Wix sites and how they designed their own contact form. The only things I really changed were the contents and structure of the message itself. </p>
 
                         <p className='mt-2'>One thing I do want to mention is that there are technical cons of a contact form, but I'm implementing one for the sake of learning how to build it. Because of these technical cons, I did decide to put my email on the contact tab just in case the form doesn't work.</p>
                     <li style={{color: "black", fontWeight: "bold"}}>Message Board:</li>
@@ -185,13 +185,13 @@ function BlogPost_1(){
                 </ul>
 
                 <p className="font-bold text-secondary-blue mt-6">Fourth Phase - Finalization and Polish:</p>
-                <p>Finally, in the last phase I decided to clean-up whatever work was still needed. For example, I decided to finish designing my credits.txt and fully locked in my background design. I also applied any further revisions I deemed necessary for the site that I had neglected to address until now.</p>
+                <p>Finally, in the last phase I chose to clean-up whatever work was still needed. For example, I finished designing my credits.txt and fully locked in my background design. I also applied any further revisions I deemed necessary for the site that I had neglected to address until now.</p>
 
 
                 <h2 className="blog-subheader-text">MOBILE & DESKTOP</h2>
                 <p>Lastly, I decided to design my site desktop-first rather than using the usual mobile-first approach. Usually, this would actually be a big mistake. However, since the site's features were catered towards desktop users, I elected to design the desktop first then convert the design to mobile in Figma. </p>
 
-                <p>For the mobile design, I decided to follow shar's implementation of it on her site. Instead of the site simply becoming a smaller version of the desktop-application, it actually becomes a phone! I think this is extremely intuitive and creative. Instead of trying to fight my design architecture against the dimensions of a phone, we just go with the flow and play to its own strengths! </p>
+                <p>For the mobile design, I ended up following shar's implementation of it on her site. Instead of the site simply becoming a smaller version of the desktop-application, it actually becomes a phone! I think this is extremely intuitive and creative. Instead of trying to fight my design architecture against the dimensions of a phone, we just go with the flow and play to its own strengths! </p>
             </div>
 
             {/* Conclusion */}
