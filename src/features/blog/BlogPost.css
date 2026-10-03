@@ -9,6 +9,10 @@
         @apply font-bold text-secondary-blue text-3xl mb-5
     }
 
+    .blog-subheader-text{
+        @apply mt-8 mb-4 font-semibold font-['Jost'] text-xl text-secondary-blue
+    }
+
     .blog-section p{
         @apply mb-4
     }

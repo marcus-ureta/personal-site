@@ -17,7 +17,7 @@ function BlogPost_1(){
 
                 <p>This doesn't mean I gave up on trying to develop the site, it just meant that I'd have to wait for the right moment when the stars aligned. Fortunately, at around July 17, I decided to finally start working on that idea!</p>
 
-                <h2 className="mt-6 mb-4 font-semibold font-['Jost'] text-xl">ADDITIONALLY:</h2>
+                <h2 className="blog-subheader-text">ADDITIONALLY:</h2>
                 <p>I would also like to mention another source of inspiration I had during this period of time: the indie web!</p>
 
                 <p>The indie web is a collection of personal websites where people can express themselves freely within the modern internet climate. One of the most popular indie-web host websites is titled Neocities, which I've learnt from a creator named 'Marighoul'. </p>
@@ -38,6 +38,39 @@ function BlogPost_1(){
                 </ul>
 
                 <p>To tackle these issues, I decided to fully focus on outlining what kind of features I wanted for the site first, then base my site design around those features. This methodology ensures that I have a clear idea of the MVP (Minimum Viable Product) for the project. Allowing me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
+
+                <h2 className="blog-subheader-text">FEATURE PORTION:</h2>
+                <p>When outlining all the features I wanted for the site, I decided to just start out by listing out all the core features required. Which looked something similar like this: </p>
+
+                <ul className="list-disc list-inside space-y-0.5 mb-4 marker:black">
+                    <li style={{color: "black"}}>Inspired by a desktop-based OS, in which there are;</li>
+                    
+                    <ul className="list-[circle] list-inside ml-6 marker:black">
+                        <li style={{color: "black"}}>Rectangular viewing areas for the content on the site, called tabs.</li>
+                        <ul className="list-[circle] list-inside ml-11 marker:black">
+                            <li style={{color: "black"}}>You can move these tabs around the screen</li>
+                            <li style={{color: "black"}}>You can close the tabs</li>
+                            <li style={{color: "black"}}>They act as an interesting visual way of accessing information on the site.</li>
+                        </ul>
+
+                        <li style={{color: "black"}}>Properly working z-index stacking between tabs</li>
+                    </ul>
+                    
+                    <li style={{color: "black"}}>In terms of content, I wanted there to be an:</li>
+
+                    <ul className="list-[circle] list-inside ml-6 marker:black">
+                        <li style={{color: "black"}}>about me section,</li>
+                        <li style={{color: "black"}}>socials page,</li>
+                        <li style={{color: "black"}}>They act as an interesting visual way of accessing information on the site.</li>
+                    </ul>
+
+                    <li style={{color: "black"}}>Interactable Background</li>
+                    <li style={{color: "black"}}>Sound Effects</li>
+                </ul>
+
+                <p>After listing them out, I then decided to list out any additional features I wanted for the site. These ideas could come from any other inspirations I might have seen before. Take for instance: the message board! This is an idea that came to me while I was surfing through the indie-web that I thought would be a fun addition to the site. Of course, the message board itself isn't the only other additional feature. Things such as the bug report page, blog, click effects, any any other features not mentioned previously were added due to external influences! To me, this felt like my own way of adding a unique personality to my site that no one has probably done before.</p>
+
+                <p>In my opinion, it's important to jot down any ideas you may have during the brainstorming period. It helps you remember key details and what your target deliverable is. </p>
             </div>
             
             <div className='blog-section'>
