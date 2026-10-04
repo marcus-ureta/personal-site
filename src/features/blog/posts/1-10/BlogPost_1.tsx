@@ -1,4 +1,5 @@
 
+import { goURL } from "@/utils/webUtils"
 import "@/features/blog/BlogPost.css"
 
 function BlogPost_1(){
@@ -102,7 +103,20 @@ function BlogPost_1(){
 
                 <p>But why is this the case? Why do I think this is such a good idea? Well for me, as a developer, I always value interactivity when developing any project. It goes back to an old Gabe Newell quote regarding realism in video games:</p>
 
-                <p>“So we had to come up with some notion of what fun was. We knew it was an ad hoc definition, and it was the degrees to which the game recognizes and responds to the player’s choices and actions […] The point I would make is, if I go up to a wall and shoot it, to me it feels like the wall is ignoring me. I’m getting a narcissistic injury when the world is ignoring me.”</p>
+                <div className='border-l-2 border-secondary-blue ml-0.5 pl-4 my-6 hover:border-primary-blue transition-all'>
+
+                    <div className='bg-primary-blue pl-4 py-5 hover:bg-container-blue transition-all'>
+                        <p className="w-[90%]">So we had to come up with some notion of what fun was. We knew it was an ad hoc definition, and it was the degrees to which the game recognizes and responds to the player’s choices and actions […] The point I would make is, if I go up to a wall and shoot it, to me it feels like the wall is ignoring me. I’m getting a narcissistic injury when the world is ignoring me.</p>
+
+
+                        <div className='flex flex-row items-start gap-2 group cursor-pointer w-fit' onClick={() => goURL("https://www.youtube.com/watch?v=MGpFEv1-mAo")}>
+                            <p className="text-secondary-blue relative pl-7 before:absolute before:h-[0.1rem] hover:before:h-[0.15rem] before:w-4 before:bg-secondary-blue before:left-[0%] before:top-3 mb-0! group-hover:font-bold transition-all duration-200">Gabe Newell, 202X</p>
+
+                            <a className="text-secondary-blue after:content-['↗']"/>
+                        </div>
+                    </div>
+
+                </div>
 
                 <p>For me, this quote completely signifies my entire philosophy when it comes to development. I always want to make sure my works keep people engaged and make them appreciate all the actions they can take. In web development in particular, I can fulfill that 'narcissistic' tendency in my users by making them feel active and giving them actions that matter on my site. </p>
 
