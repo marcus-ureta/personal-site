@@ -2,6 +2,9 @@
 import background from "@/assets/blogs/blog_1/background_design.webp"
 import landing_page from "@/assets/blogs/blog_1/landing_page.webp"
 import tab_example from "@/assets/blogs/blog_1/tab_example.webp"
+import simone_computer from "@/assets/blogs/blog_1/simone_computer.webp"
+
+import {goURL} from '@/utils/webUtils'
 
 import Quotation from '@/components/quotation/Quotation'
 
@@ -122,7 +125,18 @@ function BlogPost_1(){
 
 
                 <p className="font-bold text-secondary-blue mt-6">additional inspiration</p>
-                <p>Aside from shar's site, I also took inspiration from other operating-system-based websites. Due to these inspirations, I decided to lean more on the idea of an os-based design for the site. This is how I got the idea to implement a taskbar on the website!</p>
+                <p>Aside from shar's site, I also took inspiration from other {" "}
+                    <div className="inline-block relative group" onClick={() => goURL("https://simone.computer/#/webdesktops")}>
+                        <span className="font-bold text-accent-teal group-hover:text-[#F39A5A] cursor-pointer transition-all duration-100">
+                            operating-system-based websites
+                        </span>
+                        <span className="before:content-['_↗'] text-accent-teal group-hover:text-[#F39A5A] transition-all duration-100">.</span>
+                    </div>
+                {" "}Due to these inspirations, I decided to lean more on the idea of an os-based design for the site. This is how I got the idea to implement a taskbar on the website!</p>
+
+                <a href='src/assets/blogs/blog_1/simone_computer.webp' target='_blank' rel='noopener noreferrer'>
+                    <img src={simone_computer} alt="Operating System Websites" className='max-h-[290px] hover:scale-102 transition-all duration-200'/>
+                </a>
 
                 <p>I noticed that without a taskbar at the bottom, there was a lot of whitespace that could be filled up. This later gave me the idea to implement a fully functioning time system, bug report and sound icons, and a way to see which tabs are open with the taskbar!</p>
 
