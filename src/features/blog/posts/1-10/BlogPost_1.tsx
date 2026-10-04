@@ -3,6 +3,7 @@ import background from "@/assets/blogs/blog_1/background_design.webp"
 import landing_page from "@/assets/blogs/blog_1/landing_page.webp"
 import tab_example from "@/assets/blogs/blog_1/tab_example.webp"
 import simone_computer from "@/assets/blogs/blog_1/simone_computer.webp"
+import neocities from "@/assets/blogs/blog_1/neocities.webp"
 
 import {goURL} from '@/utils/webUtils'
 
@@ -29,7 +30,18 @@ function BlogPost_1(){
                 <p>This doesn't mean I gave up on trying to develop the site. It just meant that I'd have to wait for the right moment when the stars aligned. Fortunately, around July 17, I decided to finally start working on that idea!</p>
 
                 <h2 className="blog-subheader-text">ADDITIONALLY:</h2>
-                <p>I would also like to mention another source of inspiration I had during this period of time: the indie web!</p>
+                <p>I would also like to mention another source of inspiration I had during this period of time: {" "}
+                    <div className="inline-block relative group" onClick={() => goURL("https://neocities.org/")}>
+                        <span className="font-bold text-accent-teal group-hover:text-[#F39A5A] cursor-pointer transition-all duration-100">
+                            the indie web!
+                        </span>
+                        <span className="before:content-['_↗'] text-accent-teal group-hover:text-[#F39A5A] transition-all duration-100">.</span>
+                    </div>
+                </p>
+
+                <a href='src/assets/blogs/blog_1/neocities.webp' target='_blank' rel='noopener noreferrer'>
+                    <img src={neocities} alt="Neocities" className='max-h-[260px] hover:scale-102 transition-all duration-200'/>
+                </a>
 
                 <p>The indie web is a collection of personal websites where people can express themselves freely within the modern internet climate. One of the most popular indie-web hosts is Neocities, which I learned about from a creator named 'Marighoul'. </p>
 
