@@ -1,5 +1,7 @@
 
 import { goURL } from "@/utils/webUtils"
+import quote from "@/assets/icons/blog/quotes.svg"
+
 import "@/features/blog/BlogPost.css"
 
 function BlogPost_1(){
@@ -103,14 +105,17 @@ function BlogPost_1(){
 
                 <p>But why is this the case? Why do I think this is such a good idea? Well for me, as a developer, I always value interactivity when developing any project. It goes back to an old Gabe Newell quote regarding realism in video games:</p>
 
-                <div className='border-l-2 border-secondary-blue ml-0.5 pl-4 my-6 hover:border-primary-blue transition-all'>
+                <div className='border-l-2 border-secondary-blue ml-0.5 pl-4 my-6 hover:border-primary-blue transition-all group cursor-pointer' onClick={() => goURL("https://www.youtube.com/watch?v=MGpFEv1-mAo")}>
 
-                    <div className='bg-primary-blue pl-4 py-5 hover:bg-container-blue transition-all'>
+                    <div className='bg-primary-blue pl-4 py-5 group-hover:bg-container-blue transition-all'>
+
+                        <img src={quote} alt="Quote" className="w-8 h-8 mb-4 select-none pointer-events-none" />
+
                         <p className="w-[90%]">So we had to come up with some notion of what fun was. We knew it was an ad hoc definition, and it was the degrees to which the game recognizes and responds to the player’s choices and actions […] The point I would make is, if I go up to a wall and shoot it, to me it feels like the wall is ignoring me. I’m getting a narcissistic injury when the world is ignoring me.</p>
 
 
-                        <div className='flex flex-row items-start gap-2 group cursor-pointer w-fit' onClick={() => goURL("https://www.youtube.com/watch?v=MGpFEv1-mAo")}>
-                            <p className="text-secondary-blue relative pl-7 before:absolute before:h-[0.1rem] hover:before:h-[0.15rem] before:w-4 before:bg-secondary-blue before:left-[0%] before:top-3 mb-0! group-hover:font-bold transition-all duration-200">Gabe Newell, 202X</p>
+                        <div className='flex flex-row items-start gap-2 w-fit'>
+                            <p className="text-secondary-blue relative pl-7 before:absolute before:h-[0.1rem] group-hover:before:h-[0.15rem] before:w-4 before:bg-secondary-blue before:left-[0%] before:top-3 mb-0! group-hover:font-bold transition-all duration-200">Gabe Newell, 2023</p>
 
                             <a className="text-secondary-blue after:content-['↗']"/>
                         </div>
