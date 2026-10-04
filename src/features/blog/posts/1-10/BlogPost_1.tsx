@@ -47,27 +47,35 @@ function BlogPost_1(){
                 <p>When outlining all the features I wanted for the site, I decided to start by listing all the core features required. Which looked something like this: </p>
 
                 <div className='p-4 border-2 border-black rounded-lg my-6 w-full h-fit shadow-xl bg-container-blue/75'>
-                    <ul className="list-disc list-inside space-y-0.5 marker:black">
+                    <ul className="list-disc list-inside space-y-0.8 marker:black">
+
                         <li style={{color: "black"}}>Inspired by a desktop-based OS, the site would have:</li>
                         
-                        <ul className="list-[circle] list-inside ml-6 marker:black">
-                            <li style={{color: "black"}}>Rectangular viewing areas for the content on the site, called tabs.</li>
-                            <ul className="list-[circle] list-inside ml-11 marker:black">
-                                <li style={{color: "black"}}>The ability to move these tabs around the screen.</li>
-                                <li style={{color: "black"}}>The ability to close tabs.</li>
-                                <li style={{color: "black"}}>They act as an interesting visual way of accessing information on the site.</li>
-                            </ul>
+                        <div className='border-l-2 border-zinc-500 ml-0.5'>
+                            <ul className="relative list-[circle] list-inside ml-6 marker:black">
+                                <li style={{color: "black"}}>Rectangular viewing areas for the content on the site, called tabs.</li>
+                                
+                                <div className='border-l-2 border-zinc-500 ml-0.5'>
+                                    <ul className="list-[square] list-inside ml-11 marker:black">
+                                        <li style={{color: "black"}}>The ability to move these tabs around the screen.</li>
+                                        <li style={{color: "black"}}>The ability to close tabs.</li>
+                                        <li style={{color: "black"}}>They act as an interesting visual way of accessing information on the site.</li>
+                                    </ul>
+                                </div>
 
-                            <li style={{color: "black"}}>Properly working z-index stacking between tabs</li>
-                        </ul>
-                        
+                                <li style={{color: "black"}}>Properly working z-index stacking between tabs</li>
+                            </ul>
+                        </div>
+
                         <li style={{color: "black"}}>In terms of content, I wanted there to be:</li>
 
-                        <ul className="list-[circle] list-inside ml-6 marker:black">
-                            <li style={{color: "black"}}>an about me section,</li>
-                            <li style={{color: "black"}}>a socials page,</li>
-                            <li style={{color: "black"}}>contact form</li>
-                        </ul>
+                        <div className='border-l-2 border-zinc-500 ml-0.5'>
+                            <ul className="list-[circle] list-inside ml-6 marker:black">
+                                <li style={{color: "black"}}>an about me section,</li>
+                                <li style={{color: "black"}}>a socials page,</li>
+                                <li style={{color: "black"}}>contact form</li>
+                            </ul>
+                        </div>
 
                         <li style={{color: "black"}}>An interactable background,</li>
                         <li style={{color: "black"}}>and sound effects</li>
