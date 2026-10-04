@@ -43,7 +43,7 @@ function BlogPost_1(){
                 <p>To tackle these issues, I chose to focus on outlining the features I wanted for the site first, then base my design around those features. This methodology ensured that I had a clear idea of the MVP (Minimum Viable Product) for the project. This allowed me to fully envision the site as a whole rather than trying to design a blank canvas. </p>
 
 
-                <h2 className="blog-subheader-text">FEATURE PORTION:</h2>
+                <h2 className="blog-subheader-text mt-10!">FEATURE PORTION:</h2>
                 <p>When outlining all the features I wanted for the site, I decided to start by listing all the core features required. Which looked something like this: </p>
 
                 <ul className="list-disc list-inside space-y-0.5 mb-4 marker:black">
@@ -77,7 +77,7 @@ function BlogPost_1(){
                 <p>In my opinion, it's important to jot down any ideas you may have during the brainstorming period. It helps you remember key details and what your target deliverable is. </p>
 
 
-                <h2 className="blog-subheader-text">DESIGN PORTION:</h2>
+                <h2 className="blog-subheader-text mt-10!">DESIGN PORTION:</h2>
                 <p>After finalizing all the features, I finally moved on to designing the rough layout for the site! Now, even though I have finished all the prerequisites, it's not like this would be a cakewalk. I still need to put my own 'spin' on the idea after all. </p>
 
                 <p>In this phase of the journey, I ended up hunting for inspiration and trying to understand the design philosophy behind the inspirations for my site. I did this so I could further understand what I should take into account when planning my website out in Figma.</p>
