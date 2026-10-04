@@ -1,5 +1,7 @@
 
 import background from "@/assets/blogs/blog_1/background_design.webp"
+import landing_page from "@/assets/blogs/blog_1/landing_page.webp"
+import tab_example from "@/assets/blogs/blog_1/tab_example.webp"
 
 import Quotation from '@/components/quotation/Quotation'
 
@@ -120,7 +122,7 @@ function BlogPost_1(){
 
 
                 <p className="font-bold text-secondary-blue mt-6">additional inspiration</p>
-                <p>Aside from shar's site, I also took inspiration from other operating-system-based websites. Due to these inspirations, I decided to lean more on an "operating-system-based" web-design for the site. This is how I got the idea to implement a taskbar on the website!</p>
+                <p>Aside from shar's site, I also took inspiration from other operating-system-based websites. Due to these inspirations, I decided to lean more on the idea of an os-based design for the site. This is how I got the idea to implement a taskbar on the website!</p>
 
                 <p>I noticed that without a taskbar at the bottom, there was a lot of whitespace that could be filled up. This later gave me the idea to implement a fully functioning time system, bug report and sound icons, and a way to see which tabs are open with the taskbar!</p>
 
@@ -166,7 +168,7 @@ function BlogPost_1(){
                 <p>However, designing the background was tricky because I didn't want a flashy or distracting background. At the same time, I still wanted it to be interactive and aesthetically pleasing. This led me to create multiple prototypes to see which version would fit the site best. To decide which version I should use, I asked one of my front-end developer friends for his input. He said he liked the first version the best, so I settled and followed along with what he said!</p>
 
                 <a href='src/assets/blogs/blog_1/background_design.webp' target='_blank' rel='noopener noreferrer'>
-                    <img src={background} alt="Background Design" className='object-scale-down! bg-[#1e1e1e] hover:scale-102 transition-all duration-200 hover:bg-[#1e1e1e]/95!'/>
+                    <img src={background} alt="Background Design" className='max-h-[360px] object-scale-down! bg-[#1e1e1e] hover:scale-102 transition-all duration-200 hover:bg-[#1e1e1e]/95!'/>
                 </a>
 
                 <p>Truth be told, I'm not actually a great designer. But instead of trying to mask this fact, I opted to get assistance and look for someone who DOES know how to design. This is something I believe you should follow too if you're not particularly great at designing like me! Always look for help in areas where you're not exactly confident at. Of course, this doesn't mean you have to delegate all your issues to other people. And perhaps you don't have any easily available compatriots who can assist you. But I do want you to consider the idea, as I truly believe that being some kind of one-man army or 10x developer will always lead you to have a weak point.</p>
@@ -178,7 +180,15 @@ function BlogPost_1(){
 
                 <p>Now that I've designed the container, I can move on to the actual contents for the home tab. I knew I wanted it to serve as the main navigation and landing page for the site. This meant that I needed it to hold all of my basic information while also acting as a way to navigate through all the other tabs. For the layout design, I once again took inspiration from shar's site. However, I decided to add a twist by including my profile picture. I know it might seem "uninspired", but it was really hard for me to reimagine this without sacrificing mobile-friendly support. I'm sure it's possible, but I just couldn't find a way to do it without sacrificing either the tab functionality or mobile accessibility. </p>
 
+                <a href='src/assets/blogs/blog_1/landing_page.webp' target='_blank' rel='noopener noreferrer'>
+                    <img src={landing_page} alt="Landing Page Design" className='bg-[#1e1e1e] hover:scale-102 transition-all duration-200 max-h-[280px]'/>
+                </a>
+
                 <p>Once I completed the design for the home tab layout, I created a tab template based on it. It contained the fonts, color scheme, general tab layout, and consistent icon/image sizes if I ever needed them. This ensured that design elements such as the color palette and fonts wouldn't change drastically throughout the site. However, I did deviate a bit with the font sizes for some sections. But for the most part, the sizes did stay consistent throughout all the tabs.</p>
+
+                <a href='src/assets/blogs/blog_1/tab_example.webp' target='_blank' rel='noopener noreferrer'>
+                    <img src={tab_example} alt="Tab Example" className='bg-[#1e1e1e] hover:scale-102 transition-all duration-200 object-scale-down! max-h-[200px]'/>
+                </a>
 
                 <p className="font-bold text-secondary-blue mt-6">Third Phase - Creation of Remaining Tabs:</p>
                 <p>Afterwards, I was able to design the rest of the tabs based on my template and design inspirations. Each of these tabs would have the same 'tab' design as each other (with one exception); however, they would differ in terms of their content.</p>
