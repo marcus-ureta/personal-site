@@ -20,4 +20,12 @@
     .blog-section a img{
         @apply w-full h-auto object-cover my-6 rounded-lg shadow-xl border-2 rounded-l
     }
+
+    .video-container{
+        @apply relative my-5 shadow-xl border-2 border-secondary-blue
+    }
+
+    .video-container video{
+        @apply block w-full h-auto object-cover
+    }
 }

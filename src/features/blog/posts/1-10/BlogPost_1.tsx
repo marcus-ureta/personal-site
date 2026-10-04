@@ -5,6 +5,11 @@ import tab_example from "@/assets/blogs/blog_1/tab_example.webp"
 import simone_computer from "@/assets/blogs/blog_1/simone_computer.webp"
 import neocities from "@/assets/blogs/blog_1/neocities.webp"
 
+import shar_site from '@/assets/blogs/blog_1/shar_site.mp4'
+import milanote_design from '@/assets/blogs/blog_1/milanote_design.mp4'
+import figma_desktop from '@/assets/blogs/blog_1/figma_desktop.mp4'
+import figma_mobile from '@/assets/blogs/blog_1/figma_mobile.mp4'
+
 import {goURL} from '@/utils/webUtils'
 
 import Quotation from '@/components/quotation/Quotation'
@@ -22,6 +27,13 @@ function BlogPost_1(){
                 <h1 className="blog-header-text">It All Starts With An Idea...</h1>
 
                 <p>About a year ago, I saw a YouTube video by a creator named 'shar', an animation and freelance YouTuber. Her video was mainly about showcasing her site and the process of how she developed it.</p>
+
+                <div className="video-container">
+                    <video className='max-h-[360px]' preload="metadata" autoPlay muted loop playsInline>
+                        <source src={shar_site} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
 
                 <p>When I first saw the video, it actually gave me a whole new perspective on web development. You see, I always thought that web development was a really boring and mindless job. Every website I see nowadays just look so similar to each other and feels devoid of any creativity. So I was never really interested in learning web development because I thought it was something that I wouldn't really enjoy. </p>
 
@@ -175,6 +187,13 @@ function BlogPost_1(){
 
                 <p>Fortunately, this is where Milanote comes in! Milanote is one of the primary tools I use to visualize the general 'feel' of the site. I used Milanote to design the important visual elements of the website. This included elements I discussed earlier, such as typography, moodboards, color palettes, and the background design.</p>
 
+                <div className="video-container">
+                    <video className='max-h-[360px]' preload="metadata" autoPlay muted loop playsInline>
+                        <source src={milanote_design} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
                 <p>Essentially, I used Milanote as a gateway to visualize and lay out my site. Without it, designing the site would have been extremely difficult and messy! </p>
             </div>
 
@@ -243,11 +262,25 @@ function BlogPost_1(){
                 <p className="font-bold text-secondary-blue mt-6">Fourth Phase - Finalization and Polish:</p>
                 <p>Finally, in the last phase I chose to clean up whatever work was still needed. For example, I finished designing my credits.txt and fully locked in my background design. I also applied any further revisions I deemed necessary for the site that I had neglected to address until now.</p>
 
+                <div className="video-container">
+                    <video className='max-h-[300px]' preload="metadata" autoPlay muted loop playsInline>
+                        <source src={figma_desktop} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
 
                 <h2 className="blog-subheader-text">MOBILE & DESKTOP</h2>
                 <p>Lastly, I decided to design my site desktop-first rather than using the usual mobile-first approach. Usually, this would actually be a big mistake. However, since the site's features were catered towards desktop users, I elected to design the desktop first, then convert the design to mobile in Figma. </p>
 
                 <p>For the mobile design, I ended up following shar's implementation of it on her site. Instead of the site simply becoming a smaller version of the desktop-application, it actually becomes a phone! I think this is extremely intuitive and creative. Instead of trying to fight my design architecture against the dimensions of a phone, we just go with the flow and play to its own strengths! </p>
+
+                <div className="video-container">
+                    <video className='max-h-[360px]' preload="metadata" autoPlay muted loop playsInline>
+                        <source src={figma_mobile} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
             {/* Conclusion */}
