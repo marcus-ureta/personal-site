@@ -41,11 +41,13 @@ function BlogPost({title, description, date, tag, articleNo, index} : BlogPostPr
         console.log('opening the blog page');
     }
 
+    const minDescription = description.length > 150 ? description.substring(0, 150).replace(/\s+\S*$/, "") + "..." : description;
+
     return(
         <div className='bg-container-blue border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full hover:bg-accent-teal group transition-all duration-200' onClick={() => openPage()}>
             <div className='w-[75%] py-3 px-4 '>
                 <h1 className="font-['Arial'] text-xl text-secondary-blue group-hover:text-accent-beige font-bold">{title}</h1>
-                <p className="font-['Arial']  mt-2 group-hover:text-hover-white">{description}</p>
+                <p className="font-['Arial']  mt-2 group-hover:text-hover-white">{minDescription}</p>
 
                 <div className='flex flex-row gap-x-4 mt-2'>
                     <h3 className="font-['Arial'] text-sm group-hover:text-hover-white">{articleNo}.</h3>

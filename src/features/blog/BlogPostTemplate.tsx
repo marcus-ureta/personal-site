@@ -17,7 +17,7 @@ function BlogPostTemplate() {
 
     const headerDetails : HeaderDetails = {
         icon: tab_icon,
-        name: BlogDetails[openedBlogPost].title
+        name: BlogDetails[openedBlogPost].title.length <= 32 ? BlogDetails[openedBlogPost].title : 'Blog #' + (openedBlogPost + 1),
     }
 
     const tabDetails : TabDetails = {

@@ -14,12 +14,14 @@ import {goURL} from '@/utils/webUtils'
 
 import Quotation from '@/components/quotation/Quotation'
 
+import {BlogDetails} from '@/features/blog/blogDetails';
+
 import "@/features/blog/BlogPost.css"
 
 function BlogPost_1(){
     return(
         <>
-            <p>(article description)</p>
+            <p>{BlogDetails[0].description}</p>
 
 
             {/* It All Starts With An Idea... */}
