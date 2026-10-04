@@ -1,4 +1,6 @@
 
+import background from "@/assets/blogs/blog_1/background_design.webp"
+
 import Quotation from '@/components/quotation/Quotation'
 
 import "@/features/blog/BlogPost.css"
@@ -161,7 +163,11 @@ function BlogPost_1(){
                 <p className="font-bold text-secondary-blue mt-6">First Phase - Designing the Initial Home Layout:</p>
                 <p>In the first phase, I decided to design from the ground up. This meant initially designing the background and the taskbar for the site. This was fairly easy, as I already had a solid framework for what I wanted based on the inspirations I gathered in Milanote.</p>
 
-                <p>However, designing the background was tricky because I didn't want a flashy or distracting background. At the same time, I still wanted it to be interactive and aesthetically pleasing. This led me to create multiple prototypes to see which version would fit the site best. To decide which version I should use, I asked one of my front-end developer friends for his input. He said he liked the first version the best, so I settled and followed along with what he said! (attach image showcase here).</p>
+                <p>However, designing the background was tricky because I didn't want a flashy or distracting background. At the same time, I still wanted it to be interactive and aesthetically pleasing. This led me to create multiple prototypes to see which version would fit the site best. To decide which version I should use, I asked one of my front-end developer friends for his input. He said he liked the first version the best, so I settled and followed along with what he said!</p>
+
+                <a href='src/assets/blogs/blog_1/background_design.webp' target='_blank' rel='noopener noreferrer'>
+                    <img src={background} alt="Background Design" className='object-scale-down! bg-[#1e1e1e] hover:scale-102 transition-all duration-200 hover:bg-[#1e1e1e]/95!'/>
+                </a>
 
                 <p>Truth be told, I'm not actually a great designer. But instead of trying to mask this fact, I opted to get assistance and look for someone who DOES know how to design. This is something I believe you should follow too if you're not particularly great at designing like me! Always look for help in areas where you're not exactly confident at. Of course, this doesn't mean you have to delegate all your issues to other people. And perhaps you don't have any easily available compatriots who can assist you. But I do want you to consider the idea, as I truly believe that being some kind of one-man army or 10x developer will always lead you to have a weak point.</p>
 
