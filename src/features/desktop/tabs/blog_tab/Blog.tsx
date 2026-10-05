@@ -24,10 +24,11 @@ type BlogPostProps = {
     title: string,
     description: string,
     date: string,
-    tag: string
+    tag: string,
+    image: string
 };
 
-function BlogPost({title, description, date, tag, articleNo, index} : BlogPostProps & {articleNo : number, index : number}) {
+function BlogPost({title, description, date, tag, image, articleNo, index} : BlogPostProps & {articleNo : number, index : number}) {
 
     const updatePage = useUpdatePage();
     const { setOpenBlogPost } = useBlogContext();
@@ -44,8 +45,8 @@ function BlogPost({title, description, date, tag, articleNo, index} : BlogPostPr
     const minDescription = description.length > 150 ? description.substring(0, 150).replace(/\s+\S*$/, "") + "..." : description;
 
     return(
-        <div className='bg-container-blue border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full hover:bg-accent-teal group transition-all duration-200' onClick={() => openPage()}>
-            <div className='w-[75%] py-3 px-4 '>
+        <div className='bg-container-blue overflow-hidden border-2 border-secondary-blue my-[24px] cursor-pointer flex flex-row w-full hover:bg-accent-teal group transition-all duration-200' onClick={() => openPage()}>
+            <div className='sm:w-[60%] w-[90%] py-3 px-4 sm:pl-4 sm:pr-7'>
                 <h1 className="font-['Arial'] text-xl text-secondary-blue group-hover:text-accent-beige font-bold">{title}</h1>
                 <p className="font-['Arial']  mt-2 group-hover:text-hover-white">{minDescription}</p>
 
@@ -57,7 +58,8 @@ function BlogPost({title, description, date, tag, articleNo, index} : BlogPostPr
                 </div>
             </div>
 
-            <div className='bg-gray-400 w-[40%] rounded-tl-4xl rounded-bl-4xl'/>
+            {/* <div className='bg-gray-400 w-[40%] rounded-tl-4xl rounded-bl-4xl'/> */}
+            <img src={image} alt={title} className='sm:block hidden w-[40%] max-h-[160px] ring-3 ring-secondary-blue rounded-l-4xl bg-[#1e1e1e] object-cover shadow-[-12px_4px_12.5px_0px] shadow-secondary-blue/15 blur-[0.75px] group-hover:blur-[0px] transition-all duration-150'/>
         </div>
     )
 }
@@ -129,7 +131,7 @@ function Blog() {
 
                         <div className='w-[95%] border-t border-secondary-blue mt-6'>
                             {BlogDetails.reverse().map((blog, i) => (
-                                <BlogPost key={i} title={blog.title} description={blog.description} date={blog.date} tag={blog.tag} articleNo={BlogDetails.length - i} index={i}/>
+                                <BlogPost key={i} title={blog.title} description={blog.description} date={blog.date} tag={blog.tag} articleNo={BlogDetails.length - i} index={i} image={blog.blogImage}/>
                             ))}
                         </div>
                     </div>

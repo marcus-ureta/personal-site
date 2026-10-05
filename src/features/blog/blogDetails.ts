@@ -4,6 +4,8 @@ import { Tags } from "./blogTags"
 
 
 import BlogPost_1 from "./posts/1-10/BlogPost_1";
+import Post1_Header from '@/assets/blogs/blog_1/card_header.webp'
+
 // import BlogPost_2 from "./posts/1-10/BlogPost_2";
 
 export type BlogDetail = {
@@ -33,7 +35,7 @@ export const BlogDetails : BlogDetail[] = [
         date: "August 3, 2026",
         tag: Tags.webDesign,
 
-        blogImage: '',
+        blogImage: Post1_Header,
         blogComponent: BlogPost_1
     }
 ]
