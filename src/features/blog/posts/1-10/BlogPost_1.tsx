@@ -45,12 +45,12 @@ function BlogPost_1(){
 
                 <h2 className="blog-subheader-text">ADDITIONALLY:</h2>
                 <p>I would also like to mention another source of inspiration I had during this period of time: {" "}
-                    <div className="inline-block relative group" onClick={() => goURL("https://neocities.org/")}>
+                    <span className="inline-block relative group" onClick={() => goURL("https://neocities.org/")}>
                         <span className="font-bold text-accent-teal group-hover:text-[#F39A5A] cursor-pointer transition-all duration-100">
                             the indie web!
                         </span>
                         <span className="before:content-['_↗'] text-accent-teal group-hover:text-[#F39A5A] transition-all duration-100">.</span>
-                    </div>
+                    </span>
                 </p>
 
                 <a href='src/assets/blogs/blog_1/neocities.webp' target='_blank' rel='noopener noreferrer'>
@@ -152,12 +152,12 @@ function BlogPost_1(){
 
                 <p className="font-bold text-secondary-blue mt-6">additional inspiration</p>
                 <p>Aside from shar's site, I also took inspiration from other {" "}
-                    <div className="inline-block relative group" onClick={() => goURL("https://simone.computer/#/webdesktops")}>
+                    <span className="inline-block relative group" onClick={() => goURL("https://simone.computer/#/webdesktops")}>
                         <span className="font-bold text-accent-teal group-hover:text-[#F39A5A] cursor-pointer transition-all duration-100">
                             operating-system-based websites
                         </span>
                         <span className="before:content-['_↗'] text-accent-teal group-hover:text-[#F39A5A] transition-all duration-100">.</span>
-                    </div>
+                    </span>
                 {" "}Due to these inspirations, I decided to lean more on the idea of an os-based design for the site. This is how I got the idea to implement a taskbar on the website!</p>
 
                 <a href='src/assets/blogs/blog_1/simone_computer.webp' target='_blank' rel='noopener noreferrer'>
