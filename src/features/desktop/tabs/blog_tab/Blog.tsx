@@ -59,7 +59,9 @@ function BlogPost({title, description, date, tag, image, articleNo, index} : Blo
             </div>
 
             {/* <div className='bg-gray-400 w-[40%] rounded-tl-4xl rounded-bl-4xl'/> */}
-            <img src={image} alt={title} className='sm:block hidden w-[40%] max-h-[160px] ring-3 ring-secondary-blue rounded-l-4xl bg-[#1e1e1e] object-cover shadow-[-12px_4px_12.5px_0px] shadow-secondary-blue/15 blur-[0.75px] group-hover:blur-[0px] transition-all duration-150'/>
+            <div className='w-[40%] sm:block hidden self-stretch relative'>
+                <img src={image} alt={title} className='absolute inset-0 w-full h-full ring-3 ring-secondary-blue rounded-l-4xl bg-[#1e1e1e] object-cover shadow-[-12px_4px_12.5px_0px] shadow-secondary-blue/15 blur-[0.75px] group-hover:blur-[0px] transition-all duration-150'/>
+            </div>
         </div>
     )
 }
