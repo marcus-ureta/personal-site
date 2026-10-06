@@ -8,6 +8,7 @@ import HomeTab from "./tabs/home_tab/HomeTab.tsx"
 import Social from "./tabs/social_tab/Social.tsx"
 import Contact from "./tabs/contact_tab/Contact.tsx"
 import Board from './tabs/board_tab/Board.tsx';
+import Credit from './tabs/credit_tab/Credit.tsx';
 
 import Blog from './tabs/blog_tab/Blog.tsx'
 import BlogPostTemplate from '../blog/BlogPostTemplate.tsx';
@@ -56,6 +57,8 @@ function DesktopView(){
 
             <Social/>
             <AboutMe/>
+
+            <Credit/>
         </div>
     )
 }

@@ -8,8 +8,7 @@ import { TabManagerProvider } from '@/features/desktop/tabManager/TabManagerCont
 import Taskbar from '@/features/taskbar/Taskbar.tsx'
 import { useState, useEffect } from 'react'
 
-import credit_icon from '@icons/home ref/credit.svg'
-import credit_hover from '@icons/tab/credit.svg'
+import CreditIcon from '@/features/desktop/CreditIcon'
 
 
 function DesktopPage(){
@@ -18,7 +17,6 @@ function DesktopPage(){
     const [mousePos, setPosition] = useState({ x: 0, y: 0 });
     const [imageRot, setImgRot] = useState(0);
 
-    const [creditHover, setCreditHover] = useState(0);
 
     useEffect(() => {
         const handleMouseClick = (e : MouseEvent) => {
@@ -45,6 +43,8 @@ function DesktopPage(){
             <TabManagerProvider>
                 <DesktopView/>
                 <Taskbar/>
+
+                <CreditIcon/>
             </TabManagerProvider>
 
             <img onAnimationEnd={handleAnimationEnd} src={Crosshair} className={`origin-center fixed w-[24px] h-auto pointer-events-none ${mouseClick ? 'animate-click-effect' : 'hidden'} z-50 transition-all drop-shadow-5xl`}
@@ -53,13 +53,6 @@ function DesktopPage(){
                 left: mousePos.x,
                 '--rotation': `${imageRot}deg`,
             } as React.CSSProperties}/>
-
-            <div className='fixed top-1 left-8 z-2 sm:block hidden w-fit h-fit'>
-                <div className='flex flex-col items-center justify-center group hover:bg-accent-teal/50 cursor-pointer px-1' onMouseEnter={() => setCreditHover(1)} onMouseLeave={() => setCreditHover(0)}>
-                    <img src={creditHover === 0 ? credit_icon : credit_hover} className='w-10 h-auto '/>
-                    <h2 className="font-['Jost'] text-[clamp(14px,1.75vw,16px)] text-secondary-blue group-hover:text-hover-white">credits.txt</h2>
-                </div>
-            </div>
         </>
     )
 }

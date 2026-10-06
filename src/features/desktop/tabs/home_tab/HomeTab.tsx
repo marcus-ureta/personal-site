@@ -197,7 +197,7 @@ function HomeTab(){
                             <p className="icon-text">sound</p>
                         </div>
 
-                        <div className={`group home-icon-styling`}>
+                        <div className={`group home-icon-styling`} onClick={() => {updatePage(Tabs.Credit); }}>
                             <img src={credit_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">credits</p>
                         </div>

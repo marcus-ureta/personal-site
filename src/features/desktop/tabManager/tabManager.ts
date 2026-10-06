@@ -9,7 +9,9 @@ export const Tabs = {
     BlogPost: "BlogPost",
 
     Contact: "Contact",
-    Popup: "Popup"
+    Popup: "Popup",
+
+    Credit: "Credit"
 } as const
 
 export type Tabs = typeof Tabs[keyof typeof Tabs];
@@ -77,4 +79,10 @@ export const InitialTabStates: TabState[] = [
         Status: TabStatus.Closed,
         zIndex: 3 
     },
+
+    {
+        Tab: Tabs.Credit,
+        Status: TabStatus.Closed,
+        zIndex: 3
+    }
 ]
