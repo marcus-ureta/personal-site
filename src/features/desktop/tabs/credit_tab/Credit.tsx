@@ -49,7 +49,7 @@ function Credit() {
 
                     <div className='mb-8'>
                         <h1 className='text-[clamp(40px,3.75vw,48px)] mb-0 font-bold'>SOUND EFFECTS:</h1>
-                        <p className='text-[clamp(14px,2vw,16px)] mb-4'>I got my sound effects from Cyberleaf Studio's SFX Package titled 'Modern UI SFX'. It's not a free asset pack and you must purchase it from their itch.io page</p>
+                        <p className='text-[clamp(14px,2vw,16px)] mb-4'>I got my sound effects from <span className='font-bold'>Cyberleaf Studio's SFX Package titled 'Modern UI SFX'</span>. It's not a free asset pack and you must purchase it from their itch.io page</p>
 
                         <p onClick={() => goURL('https://cyberleaf.itch.io/modern-ui-sfx')} className='cursor-pointer text-black hover:text-[18px] transition-all duration-150 hover:text-accent-teal hover:font-[550] w-fit'><span className='font-bold'>{'> '}</span>Modern UI SFX Package</p>
                     </div>
