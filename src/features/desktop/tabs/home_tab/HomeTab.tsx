@@ -17,6 +17,7 @@ import portfolio_icon from '@icons/home ref/portfolio.svg'
 import board_icon from '@icons/home ref/board.svg'
 import blog_icon from '@icons/home ref/blog.svg'
 import contact_icon from '@icons/home ref/contact.svg'
+import credit_icon from '@icons/home ref/credit.svg'
 
 import { useShowPopup } from '@/features/desktop/popupManager/popupUtils'
 import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
@@ -197,7 +198,7 @@ function HomeTab(){
                         </div>
 
                         <div className={`group home-icon-styling`}>
-                            <img src={blog_icon} className="icon-style" loading='eager'/>
+                            <img src={credit_icon} className="icon-style" loading='eager'/>
                             <p className="icon-text">credits</p>
                         </div>
                     </div>
