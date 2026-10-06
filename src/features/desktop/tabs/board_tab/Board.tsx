@@ -15,6 +15,8 @@ import { PopupTabs } from '@/features/desktop/popupManager/popupManager'
 import "@/features/desktop/Desktop.css"
 import './Board.css'
 
+import { containsSlur } from '@/features/moderation/messageFilter'
+
 type Message = {
     name: string;
     message: string;
@@ -79,7 +81,25 @@ function Board() {
         const formData = new FormData(form);
 
         const name = formData.get('name');
+        const nameCheck = containsSlur(name?.toString()!);
+        if(nameCheck !== 401) {
+            updatePopupMessage(nameCheck.toString()!, PopupTabs.Failure);
+            showPopup(PopupTabs.Failure);
+            setSending(false);
+            return;
+        }
+
+        // Check for Slurs before Validating Message
         const message = formData.get('message');
+        const messageCheck = containsSlur(message?.toString()!);
+
+        if(messageCheck !== 401) {
+            updatePopupMessage(messageCheck.toString()!, PopupTabs.Failure);
+            showPopup(PopupTabs.Failure);
+            setSending(false);
+            return;
+        }
+
         const email = formData.get('email');
 
         const tryBoardMessage = await writeBoardMessage(name?.toString()!, message?.toString()!, email?.toString()!);
@@ -94,13 +114,11 @@ function Board() {
         }
         else {
             updatePopupMessage(tryBoardMessage.errorCode, PopupTabs.Failure);
-            showPopup(PopupTabs.Failure)
-            console.log('failed: ' + tryBoardMessage.errorCode)
+            showPopup(PopupTabs.Failure);
+            console.log('failed: ' + tryBoardMessage.errorCode);
         }
 
         setMessages((await getBoardMessages()).reverse());
-
-        console.log(messages);
     }
 
     return(

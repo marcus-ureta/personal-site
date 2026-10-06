@@ -1,11 +1,11 @@
 import { slurs } from "./slurList";
 
-// Extremely Rudimentary Slur Check Protection
+// Extremely Rudimentary Slur Check Protection (they calling this the worst slur protection of all time)
 export function containsSlur(message : string) : number | string {
 
     const normalizedMessage = normalizeText(message);
 
-    for(const slur in slurs){ 
+    for(const slur of slurs){ 
         const term = normalizeText(slur);
         const pattern = new RegExp(`(?:^|\\s)${escapeRegExp(term)}(?:$|\\s)`, "i");
 
@@ -15,6 +15,7 @@ export function containsSlur(message : string) : number | string {
     }
 
     // no profanity found
+    console.log(normalizedMessage);
     return 401;
 }
 
