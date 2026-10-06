@@ -168,7 +168,7 @@ function BlogPost_1(){
 
             </div>
 
-            {/* How to not Lose Motivation */}
+            {/* How to not Lose Motivation
             <div className='blog-section'>
                 <h1 className="blog-header-text">How to NOT Lose Motivation:</h1>
 
@@ -180,7 +180,7 @@ function BlogPost_1(){
                 <p>So you might be asking right now: What's the point of this section? Well, I'd like to argue that THIS is the most important section of the entire blog! </p>
                 <p>If there's one thing that I want you to take away from this blog, it's that you should always find a way to stay motivated when working on a project. Without it, no matter how grand the ideas you may have are, as long as you don't have that urge to keep pushing through despite rough patches, then you're never gonna finish that project! </p>
                 <p>Find your own motivation. Try occasionally showing your project off to your friends and see what their reactions are like! Or maybe you find satisfaction somewhere else, then go do that as well! The point is that you should find what makes your project worth doing. That way, you have a point of reference for why you're continuing to work on your project.</p>
-            </div>
+            </div> */}
 
             {/* Milanote Designing */}
             <div className='blog-section'>
